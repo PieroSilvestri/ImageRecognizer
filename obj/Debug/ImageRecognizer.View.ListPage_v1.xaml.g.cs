@@ -17,8 +17,16 @@ namespace ImageRecognizer {
     public partial class ListPage_v1 : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout myLayout;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView myListView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ListPage_v1));
+            myLayout = this.FindByName <global::Xamarin.Forms.StackLayout>("myLayout");
+            myListView = this.FindByName <global::Xamarin.Forms.ListView>("myListView");
         }
     }
 }

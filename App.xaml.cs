@@ -8,7 +8,9 @@ namespace ImageRecognizer
 		{
 			InitializeComponent();
 
-			MainPage = new ImageRecognizerPage();
+			var starterPage = new NavigationPage(new LoginPage());
+
+			MainPage = starterPage;
 		}
 
 		protected override void OnStart()
