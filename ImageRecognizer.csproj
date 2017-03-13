@@ -42,6 +42,9 @@
     <EmbeddedResource Include="View\ProvaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\RegistrationPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -64,6 +67,9 @@
     <Compile Include="Model\JsonItem.cs" />
     <Compile Include="View\ProvaPage.xaml.cs">
       <DependentUpon>ProvaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegistrationPage2.xaml.cs">
+      <DependentUpon>RegistrationPage2.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
