@@ -10,6 +10,8 @@ namespace ImageRecognizer
 		public RegistrationPage()
 		{
 			InitializeComponent();
+
+			var prova = "ciao";
 		}
 	}
 }
