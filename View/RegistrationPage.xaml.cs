@@ -11,7 +11,14 @@ namespace ImageRecognizer
 		{
 			InitializeComponent();
 
-			var prova = "ciao";
+			this.Title = "Registration";
+
 		}
+
+		void nextPage(object o, EventArgs e)
+		{
+			Navigation.PushAsync(new RegistrationPage2());
+		}
+
 	}
 }

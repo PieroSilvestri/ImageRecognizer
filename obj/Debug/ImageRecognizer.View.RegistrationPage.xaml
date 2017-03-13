@@ -39,7 +39,7 @@
 					Placeholder="Confirm Password"/>
 			</StackLayout>
 
-			<Button x:Name="done" Text="Done" Font="Small" BackgroundColor="Blue" TextColor="White" />
+			<Button x:Name="done" Clicked="nextPage" Text="Done" Font="Small" BackgroundColor="Blue" TextColor="White" />
 		</StackLayout>
 	</ScrollView>
 

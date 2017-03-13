@@ -14,3 +14,16 @@
 /Users/pierosilvestri/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.dll.mdb
 /Users/pierosilvestri/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/andrea/Projects/ImageRecognizer/iOS/obj/iPhoneSimulator/Debug/optimized/
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.iOS.exe.mdb
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.iOS.exe
+/Users/andrea/Projects/ImageRecognizer/iOS/obj/iPhoneSimulator/Debug/ImageRecognizer.iOS.exe
+/Users/andrea/Projects/ImageRecognizer/iOS/obj/iPhoneSimulator/Debug/ImageRecognizer.iOS.exe.mdb
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.dll
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/ImageRecognizer.dll.mdb
+/Users/andrea/Projects/ImageRecognizer/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
