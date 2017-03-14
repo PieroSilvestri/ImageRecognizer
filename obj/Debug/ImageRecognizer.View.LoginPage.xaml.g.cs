@@ -17,20 +17,12 @@ namespace ImageRecognizer {
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry Username;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry Password;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button btn_login;
+        private global::Xamarin.Forms.Image LoginImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoginPage));
-            Username = this.FindByName <global::Xamarin.Forms.Entry>("Username");
-            Password = this.FindByName <global::Xamarin.Forms.Entry>("Password");
-            btn_login = this.FindByName <global::Xamarin.Forms.Button>("btn_login");
+            LoginImage = this.FindByName <global::Xamarin.Forms.Image>("LoginImage");
         }
     }
 }

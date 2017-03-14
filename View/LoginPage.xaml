@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.LoginPage">
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" Padding="20, 50, 20, 0" Spacing="10">
+		<StackLayout Orientation="Vertical" Padding="20, 50, 20, 0" Spacing="50">
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Image Scale="0.60" Source="http://pierosilvestri1.altervista.org/Logo.png" />
+				<Image Scale="0.8" Source="http://pierosilvestri1.altervista.org/Logo.png" />
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="10">
-				<Label Text="Username" Font="Large" HorizontalOptions="Center" />
-				<Entry x:Name="Username" HorizontalOptions="FillAndExpand" />
+				<Image x:Name="LoginImage" Source="AddPhotoIcon.png" HeightRequest="120">
+					    <Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                Tapped="LoginImage_OnClicked"
+					                NumberOfTapsRequired="1" />
+					  </Image.GestureRecognizers>
+				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="10">
-				<Label Text="Password" Font="Large" HorizontalOptions="Center" />
-				<Entry x:Name="Password" HorizontalOptions="FillAndExpand" />
-			</StackLayout>
-			<StackLayout Orientation="Vertical" Spacing="10">
-				<Button x:Name="btn_login" Text="Login" Clicked="DoLogin" BackgroundColor="Blue" TextColor="White" />
 				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="Teal" TextColor="White" />
 			</StackLayout>
 		</StackLayout>

@@ -24,36 +24,19 @@ namespace ImageRecognizer
 
 		}
 
+		public async void LoginImage_OnClicked(object o, EventArgs e)
+		{
+			await Navigation.PushAsync(new PasswordPage());
+		}
+
+		/*
 		public async void DoLogin(object o, EventArgs e)
 		{
-			var username = Username.Text;
-			var password = Password.Text;
-
-
-
-			string url = "http://jsonplaceholder.typicode.com/posts";
-
-			try
-			{
-				await vm.GetJsonResponse(url);
-
-			}
-			catch (Exception exc)
-			{
-				Debug.WriteLine("ERROR EXCEPTION");
-				Debug.WriteLine(exc);
-			}
-
-			if (vm.NewJsonItemList != null)
-			{
-				List<JsonItem> newList = vm.NewJsonItemList;
-
-				await Navigation.PushAsync(new ListPage_v1(newList));
-			}
-
-
+			//var username = UsernameMy.Text;
+			//var password = Password.Text;
 
 		}
+		*/
 
 		public void DoRegistrator(object o, EventArgs e)
 		{
