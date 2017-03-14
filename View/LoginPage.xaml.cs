@@ -4,8 +4,9 @@ using System.Runtime.CompilerServices;
 using System.Diagnostics;
 using System.Net;
 using Xamarin.Forms;
+using Plugin.Media;
 using System.Net.Http;
-
+using Plugin.Media.Abstractions;
 
 namespace ImageRecognizer
 {
@@ -26,8 +27,37 @@ namespace ImageRecognizer
 
 		public async void LoginImage_OnClicked(object o, EventArgs e)
 		{
-			await Navigation.PushAsync(new PasswordPage());
+			//await Navigation.PushAsync(new PasswordPage());
+			await CrossMedia.Current.Initialize();
+
+			/*if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
+			{
+				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
+				return;
+			}*/
+
+			var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+			{
+				Directory = "ImageRecognizer",
+				Name = DateTime.Now.ToString()
+			});
+
+			if (file == null)
+			{
+				return;
+			}
+
+			Debug.WriteLine("PATHHHHH");
+			Debug.WriteLine(file.AlbumPath);
+
+
+			var picture = ImageSource.FromStream(() => file.GetStream());
+
+			await Navigation.PushAsync(new PasswordPage(file.AlbumPath));
+
 		}
+
+
 
 		/*
 		public async void DoLogin(object o, EventArgs e)

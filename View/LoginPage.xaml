@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.LoginPage">
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" Padding="20, 50, 20, 0" Spacing="50">
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Image Scale="0.8" Source="http://pierosilvestri1.altervista.org/Logo.png" />
-			</StackLayout>
-			<StackLayout Orientation="Vertical" Spacing="10">
+		<StackLayout Orientation="Vertical" Padding="20, 30, 20, 0" Spacing="50">
+			<Image Source="coollogo_com-112122193.png" />
+				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="200">
+				</Image>
+
+			<StackLayout Orientation="Vertical">
 				<Image x:Name="LoginImage" Source="AddPhotoIcon.png" HeightRequest="120">
 					    <Image.GestureRecognizers>
 					        <TapGestureRecognizer
@@ -14,8 +15,8 @@
 					  </Image.GestureRecognizers>
 				</Image>
 			</StackLayout>
-			<StackLayout Orientation="Vertical" Spacing="10">
-				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="Teal" TextColor="White" />
+			<StackLayout Orientation="Vertical" Spacing="10" Padding = "0, 10, 0, 0">
+				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="#1A80FD" TextColor="White" />
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>

@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.LoginPage">
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical" Padding="20, 50, 20, 0" Spacing="50">
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Image Scale="0.8" Source="http://pierosilvestri1.altervista.org/Logo.png" />
+			<StackLayout Orientation="Vertical" Spacing="10">
+				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="200">
+				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="10">
 				<Image x:Name="LoginImage" Source="AddPhotoIcon.png" HeightRequest="120">
@@ -15,7 +16,7 @@
 				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="10">
-				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="Teal" TextColor="White" />
+				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="#1A80FD" TextColor="White" />
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>

@@ -11,11 +11,13 @@ namespace ImageRecognizer
 
 		MainViewModel vm;
 
-		public PasswordPage()
+		public PasswordPage(string pathImageLogin)
 		{
 			vm = new MainViewModel();
 			InitializeComponent();
 			this.Title = "Password";
+
+			ProfilePicture.Source = pathImageLogin;
 
 		}
 
