@@ -1,10 +1,20 @@
-﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/LoginPage.xaml.cs">
+    <Files>
+      <File FileName="View/RegistrationPage.xaml.cs" Line="21" Column="4" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="70" Column="35" />
+      <File FileName="Droid/MainActivity.cs" Line="16" Column="1" />
+      <File FileName="Interface/IPictureTaker.cs" Line="1" Column="1" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="1" Column="1" />
+      <File FileName="View/LoginPage.xaml.cs" Line="13" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1AB51F80-BAD8-49BD-AB4F-EC5CB46780F4" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus_5_API_25" />
 </Properties>

@@ -31,7 +31,7 @@ namespace ImageRecognizer
 
 
 
-			string url = "https://jsonplaceholder.typicode.com/posts";
+			string url = "http://jsonplaceholder.typicode.com/posts";
 
 			try
 			{
