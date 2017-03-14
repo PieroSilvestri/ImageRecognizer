@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="View\RegistrationPage2.xaml.cs">
       <DependentUpon>RegistrationPage2.xaml</DependentUpon>
+      <IncludeInPackage>true</IncludeInPackage>
     </Compile>
     <Compile Include="Interface\IPictureTaker.cs" />
   </ItemGroup>

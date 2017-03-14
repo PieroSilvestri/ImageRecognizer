@@ -2,6 +2,10 @@ ImageRecognizer.Droid.MainActivity, ImageRecognizer.Droid;md5468f01771cb45012241
 ImageRecognizer.Droid.MainActivity, ImageRecognizer.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5468f01771cb45012241f4e3a5450ac03.MainActivity
 ImageRecognizer.Droid.MainActivity;md5468f01771cb45012241f4e3a5450ac03.MainActivity
 imagerecognizer.droid.MainActivity;md5468f01771cb45012241f4e3a5450ac03.MainActivity
+ImageRecognizer.Droid.MainApplication, ImageRecognizer.Droid;md5468f01771cb45012241f4e3a5450ac03.MainApplication
+ImageRecognizer.Droid.MainApplication, ImageRecognizer.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5468f01771cb45012241f4e3a5450ac03.MainApplication
+ImageRecognizer.Droid.MainApplication;md5468f01771cb45012241f4e3a5450ac03.MainApplication
+imagerecognizer.droid.MainApplication;md5468f01771cb45012241f4e3a5450ac03.MainApplication
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
@@ -410,6 +414,10 @@ Xamarin.Media.MediaPickerActivity, Xamarin.Mobile;md50575d4ab16fc336ade1879255cf
 Xamarin.Media.MediaPickerActivity, Xamarin.Mobile, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null;md50575d4ab16fc336ade1879255cf984b5.MediaPickerActivity
 Xamarin.Media.MediaPickerActivity;md50575d4ab16fc336ade1879255cf984b5.MediaPickerActivity
 xamarin.media.MediaPickerActivity;md50575d4ab16fc336ade1879255cf984b5.MediaPickerActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+Plugin.Media.MediaPickerActivity, Plugin.Media, Version=2.6.2.0, Culture=neutral, PublicKeyToken=null;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+Plugin.Media.MediaPickerActivity;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
+plugin.media.MediaPickerActivity;md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity
 Android.Support.V4.App.SharedElementCallback/IOnSharedElementsReadyListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor
 Android.Support.V4.App.SharedElementCallback+IOnSharedElementsReadyListenerImplementor, Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor
 Android.Support.V4.App.SharedElementCallback.IOnSharedElementsReadyListenerImplementor;mono.android.support.v4.app.SharedElementCallback_OnSharedElementsReadyListenerImplementor

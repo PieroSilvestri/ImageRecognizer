@@ -4,7 +4,13 @@
   <uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <application android:label="ImageRecognizer" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <application android:label="ImageRecognizer" android:name="md5468f01771cb45012241f4e3a5450ac03.MainApplication" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="it.pierosilvestri.imagerecognizer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+    </provider>
     <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="ImageRecognizer.Droid" android:theme="@style/MyTheme" android:name="md5468f01771cb45012241f4e3a5450ac03.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -12,6 +18,7 @@
       </intent-filter>
     </activity>
     <activity android:name="md50575d4ab16fc336ade1879255cf984b5.MediaPickerActivity" />
+    <activity android:configChanges="orientation|screenSize" android:name="md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="it.pierosilvestri.imagerecognizer.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

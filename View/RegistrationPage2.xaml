@@ -10,14 +10,14 @@
 				<StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="0, 0, 0, 20">
 
 				<StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-					<Image x:Name="add1" Source="AddPhotoIcon.png" HeightRequest="120">
+					<Image x:Name="add1" Source="AddPhotoIcon.png" HeightRequest="110">
 					    <Image.GestureRecognizers>
 					        <TapGestureRecognizer
 					                Tapped="add1Clicked"
 					                NumberOfTapsRequired="1" />
 					  </Image.GestureRecognizers>
 					</Image>
-					<Image x:Name="add2" Source="AddPhotoIcon.png" HeightRequest="120">
+					<Image x:Name="add2" Source="AddPhotoIcon.png" HeightRequest="110">
 					    <Image.GestureRecognizers>
 					        <TapGestureRecognizer
 					                Tapped="add2Clicked"
@@ -27,14 +27,14 @@
 				</StackLayout>
 
 				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-					<Image x:Name="add3" Source="AddPhotoIcon.png" HeightRequest="120">
+					<Image x:Name="add3" Source="AddPhotoIcon.png" HeightRequest="110">
 					    <Image.GestureRecognizers>
 					        <TapGestureRecognizer
 					                Tapped="add3Clicked"
 					                NumberOfTapsRequired="1" />
 					  </Image.GestureRecognizers>
 					</Image>
-					<Image x:Name="add4" Source="AddPhotoIcon.png" HeightRequest="120">
+					<Image x:Name="add4" Source="AddPhotoIcon.png" HeightRequest="110">
 					    <Image.GestureRecognizers>
 					        <TapGestureRecognizer
 					                Tapped="add4Clicked"

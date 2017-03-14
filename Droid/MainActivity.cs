@@ -12,15 +12,17 @@ using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Media;
 using Xamarin.Forms.Platform.Android;
+using Plugin.Permissions;
+using Plugin.Media;
 
 [assembly: Dependency(typeof(ImageRecognizer.Droid.MainActivity))]
 
 namespace ImageRecognizer.Droid
 {
 	[Activity(Label = "ImageRecognizer.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : FormsAppCompatActivity, IPictureTaker
+	public class MainActivity : FormsAppCompatActivity //IPictureTaker
 	{
-		protected override void OnCreate(Bundle bundle)
+		protected override async void OnCreate(Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
@@ -29,10 +31,12 @@ namespace ImageRecognizer.Droid
 
 			Forms.Init(this, bundle);
 
+			await CrossMedia.Current.Initialize();
+
 			LoadApplication(new App());
 		}
 
-		public void SnapPic()
+		/*public void SnapPic()
 		{
 			var activity = Forms.Context as Activity;
 			var picker = new MediaPicker(activity);
@@ -44,14 +48,18 @@ namespace ImageRecognizer.Droid
 			activity.StartActivityForResult(intent, 1);
 		}
 
-		protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
 			if (resultCode == Result.Canceled)
 				return;
 
-			var mediaFile = await data.GetMediaFileExtraAsync(Forms.Context);
-			System.Diagnostics.Debug.WriteLine(mediaFile.Path);
+		}*/
+
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+		{
+			PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		}
+
 	}
 }
 
