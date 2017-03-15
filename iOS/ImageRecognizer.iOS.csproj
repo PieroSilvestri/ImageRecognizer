@@ -135,7 +135,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="PictureTaker_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\AddPhotoIcon.png" />

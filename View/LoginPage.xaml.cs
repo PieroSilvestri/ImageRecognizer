@@ -30,11 +30,12 @@ namespace ImageRecognizer
 			//await Navigation.PushAsync(new PasswordPage());
 			await CrossMedia.Current.Initialize();
 
-			/*if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
+			if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
+				await Navigation.PushAsync(new PasswordPage("non trovato"));
 				return;
-			}*/
+			}
 
 			var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 			{

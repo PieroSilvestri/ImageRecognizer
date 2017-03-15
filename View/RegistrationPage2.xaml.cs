@@ -74,11 +74,12 @@ namespace ImageRecognizer
 		{
 			await CrossMedia.Current.Initialize();
 
-			/*if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
+			if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
 				return;
-			}*/
+			}
+				
 
 			var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 			{
