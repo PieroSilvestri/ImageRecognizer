@@ -7,10 +7,8 @@ using Xamarin.Forms;
 using Plugin.Media;
 using System.Net.Http;
 using Plugin.Media.Abstractions;
-
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace ImageRecognizer
 {
