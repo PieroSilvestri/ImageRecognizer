@@ -12,9 +12,12 @@
 					  </Image.GestureRecognizers>		
 				</Image>
 			</StackLayout>
+
 			<StackLayout Orientation="Vertical" Padding = "0, 80, 0, 0">
+								<Button Text="Get" Clicked="Get_OnClicked" BackgroundColor="#1A80FD" TextColor="White"/>
+
 				<Button Text="Login" Clicked="LoginImage_OnClicked" BackgroundColor="#1A80FD" TextColor="White"/>
-		
+	
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal" HorizontalOptions= "CenterAndExpand">

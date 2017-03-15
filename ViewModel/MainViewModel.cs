@@ -29,6 +29,20 @@ namespace ImageRecognizer
 			}
 		}
 
+		private JObject getJsonItem;
+		public JObject GetJsonItem
+		{
+			get
+			{
+				return getJsonItem;
+			}
+			set
+			{
+				getJsonItem = value;
+				NotifyPropertyChanged();
+			}
+		}
+
 		private int userId;
 		public int UserId { get { return userId; } set { userId = value; NotifyPropertyChanged(); } }
 
@@ -40,6 +54,44 @@ namespace ImageRecognizer
 
 		private int body;
 		public int Body { get { return body; } set { body = value; NotifyPropertyChanged(); } }
+
+		public async Task JsonPostProva(string url) 
+		{
+			HttpClient client = new HttpClient();
+			client.BaseAddress = new Uri(url); ;
+
+			var response = await client.GetAsync(client.BaseAddress);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("KNOW YOUR ENEMIES");
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			Debug.WriteLine("JSONGETPROVA");
+			Debug.WriteLine(a);
+		}
+
+		public async Task JsonGetProva(string url)
+		{
+			HttpClient client = new HttpClient();
+			client.BaseAddress = new Uri(url); ;
+
+			var response = await client.GetAsync(client.BaseAddress);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("KNOW YOUR ENEMIES");
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			Debug.WriteLine("JSONGETPROVA");
+			Debug.WriteLine(a);
+
+			GetJsonItem = a;
+		}
 
 		public async Task GetJsonResponse(string url)
 		{

@@ -27,13 +27,15 @@ namespace ImageRecognizer
 
 		public async void LoginImage_OnClicked(object o, EventArgs e)
 		{
+			
+
 			//await Navigation.PushAsync(new PasswordPage());
 			await CrossMedia.Current.Initialize();
 
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported) 
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
-				await Navigation.PushAsync(new PasswordPage("non trovato"));
+				await Navigation.PushAsync(new PasswordPage(null));
 				return;
 			}
 
@@ -48,18 +50,33 @@ namespace ImageRecognizer
 				return;
 			}
 
-			Debug.WriteLine("PATHHHHH");
-			Debug.WriteLine(file.AlbumPath);
-
-
 			var picture = ImageSource.FromStream(() => file.GetStream());
 
-			goToPasswordPage(file.AlbumPath);
+			var myPath = file.AlbumPath;
+
+			Debug.WriteLine("MYPATH");
+			Debug.WriteLine(myPath);
+
+			//await Navigation.PushAsync(new PasswordPage(file.AlbumPath));
+
 
 		}
 
-		void goToPasswordPage(string path) {
-			Navigation.PushAsync(new PasswordPage(path));
+		public async void Get_OnClicked(object o, EventArgs e) 
+		{
+
+			DisplayAlert("PORCO DIO!!", "MADONNA PUTTANA", "GIUSEPPE STREGONE!!");
+
+			var key = "8f5a96d2-007a-478a-bb2e-e8098891becf";
+
+			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + key;
+
+			await vm.JsonGetProva(url);
+
+			if (vm.GetJsonItem != null)
+			{
+				await Navigation.PushAsync(new PasswordPage(vm.GetJsonItem));
+			}
 		}
 
 

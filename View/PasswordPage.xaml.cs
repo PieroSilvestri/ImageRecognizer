@@ -4,6 +4,10 @@ using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+
 namespace ImageRecognizer
 {
 	public partial class PasswordPage : ContentPage
@@ -11,13 +15,16 @@ namespace ImageRecognizer
 
 		MainViewModel vm;
 
-		public PasswordPage(string pathImageLogin)
+		public PasswordPage(JObject getJsonItem)
 		{
 			vm = new MainViewModel();
 			InitializeComponent();
 			this.Title = "Password";
 
-			ProfilePicture.Source = pathImageLogin;
+			ProfilePicture.Source = "";
+
+			Debug.WriteLine("GetJsonItem");
+			Debug.WriteLine(getJsonItem["results"]);
 
 		}
 
