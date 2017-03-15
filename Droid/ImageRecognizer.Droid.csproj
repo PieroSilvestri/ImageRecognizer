@@ -152,7 +152,6 @@
     <AndroidResource Include="Resources\drawable\AddPhotoIcon.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
     <AndroidResource Include="Resources\drawable\NewLogo.png" />
-    <AndroidResource Include="Resources\drawable\coollogo_com-112122193.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">
