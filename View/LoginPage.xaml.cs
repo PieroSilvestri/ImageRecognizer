@@ -85,13 +85,21 @@ namespace ImageRecognizer
 
 			if (i == 1) {
 				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
-				Debug.WriteLine("Cambio");
+				sfondo.BackgroundColor = Color.Black;
+				titolo.TextColor = Color.White;
+				or.TextColor = Color.White;
+				reg.TextColor = Color.White;
+				reg.BorderColor = Color.White;
 				i = 2;
 			}
 			else
 			{
 				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
-				Debug.WriteLine("cambio2");
+				sfondo.BackgroundColor = Color.Default;
+				titolo.TextColor = Color.Default;
+				or.TextColor = Color.Default;
+				reg.TextColor = Color.Default;
+				reg.BorderColor = Color.Default;
 				i = 1;
 			}
 
