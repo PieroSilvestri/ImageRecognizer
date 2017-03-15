@@ -25,7 +25,7 @@ namespace ImageRecognizer
 		{
 			var password = Password.Text;
 
-			await DisplayAlert("Login Effettuato!", "Con la password" + password + " hai fatto il Login.", "OK");
+			await DisplayAlert("Login Effettuato!", "Con la password " + password + " hai fatto il Login.", "OK");
 
 			string url = "http://jsonplaceholder.typicode.com/posts";
 

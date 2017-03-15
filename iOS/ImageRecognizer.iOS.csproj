@@ -139,6 +139,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\AddPhotoIcon.png" />
     <BundleResource Include="Resources\NewLogo.png" />
+    <BundleResource Include="Resources\NewLogo2.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

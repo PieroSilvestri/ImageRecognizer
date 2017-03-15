@@ -17,10 +17,13 @@ namespace ImageRecognizer {
     public partial class RegistrationPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry firstName;
+        private global::Xamarin.Forms.Image LogoImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry lastName;
+        private global::Xamarin.Forms.Entry FirstName;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry LastName;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry age;
@@ -40,8 +43,9 @@ namespace ImageRecognizer {
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(RegistrationPage));
-            firstName = this.FindByName <global::Xamarin.Forms.Entry>("firstName");
-            lastName = this.FindByName <global::Xamarin.Forms.Entry>("lastName");
+            LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
+            FirstName = this.FindByName <global::Xamarin.Forms.Entry>("FirstName");
+            LastName = this.FindByName <global::Xamarin.Forms.Entry>("LastName");
             age = this.FindByName <global::Xamarin.Forms.Entry>("age");
             nickname = this.FindByName <global::Xamarin.Forms.Entry>("nickname");
             password = this.FindByName <global::Xamarin.Forms.Entry>("password");

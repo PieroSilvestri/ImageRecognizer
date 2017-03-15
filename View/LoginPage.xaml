@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.LoginPage">
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" Padding="20, 30, 20, 0">
+		<StackLayout x:Name="sfondo" Orientation="Vertical" Padding="20, 30, 20, 0">
 			<StackLayout Orientation="Vertical" Spacing="20">
-				<Label Text="Image Recognize" HorizontalOptions="CenterAndExpand" FontSize="25" />
+				<Label x:Name="titolo" Text="Image Recognize" HorizontalOptions="CenterAndExpand" FontSize="25" />
 				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="200">
+					 <Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                Tapped="EasterEgg"
+					                NumberOfTapsRequired="1" />
+					  </Image.GestureRecognizers>		
 				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Padding = "0, 80, 0, 0">
@@ -17,7 +22,7 @@
 					<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1" />
 				</StackLayout>	
 				<StackLayout Orientation="Vertical" >
-				<Label Text="or" HorizontalOptions="CenterAndExpand" />
+				<Label x:Name="or" Text="or" HorizontalOptions="CenterAndExpand" />
 				</StackLayout>
 				<StackLayout Orientation="Vertical" HorizontalOptions= "FillAndExpand" VerticalOptions= "CenterAndExpand" >
 					<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1" />
@@ -25,7 +30,7 @@
 			</StackLayout>
 			
 			<StackLayout Orientation="Vertical" Spacing="10" >
-				<Button Text="Register" Clicked="DoRegistrator" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1"/>
+				<Button x:Name="reg" Text="Register" Clicked="DoRegistrator" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1"/>
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>

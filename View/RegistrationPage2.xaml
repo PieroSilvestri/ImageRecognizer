@@ -47,7 +47,7 @@
 
 
 
-			<Button x:Name="done" Text="Done" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />
+			<Button Text="Done" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />
 		</StackLayout>
 
 

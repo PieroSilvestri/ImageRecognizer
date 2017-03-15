@@ -30,7 +30,7 @@ namespace ImageRecognizer
 			//await Navigation.PushAsync(new PasswordPage());
 			await CrossMedia.Current.Initialize();
 
-			if (!CrossMedia.Current.IsCameraAvailable || CrossMedia.Current.IsTakePhotoSupported) 
+			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported) 
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
 				await Navigation.PushAsync(new PasswordPage("non trovato"));
@@ -54,8 +54,12 @@ namespace ImageRecognizer
 
 			var picture = ImageSource.FromStream(() => file.GetStream());
 
-			await Navigation.PushAsync(new PasswordPage(file.AlbumPath));
+			goToPasswordPage(file.AlbumPath);
 
+		}
+
+		void goToPasswordPage(string path) {
+			Navigation.PushAsync(new PasswordPage(path));
 		}
 
 
@@ -73,5 +77,25 @@ namespace ImageRecognizer
 		{
 			Navigation.PushAsync(new RegistrationPage());
 		}
+
+		int i = 1;
+
+		public void EasterEgg(object sender, EventArgs e)
+		{
+
+			if (i == 1) {
+				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
+				Debug.WriteLine("Cambio");
+				i = 2;
+			}
+			else
+			{
+				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
+				Debug.WriteLine("cambio2");
+				i = 1;
+			}
+
+		}
+
 	}
 }

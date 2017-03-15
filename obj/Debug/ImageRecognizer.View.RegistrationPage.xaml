@@ -4,18 +4,24 @@
 		<ScrollView>
 		<StackLayout Orientation="Vertical" Padding="10">
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Image HeightRequest="80" Source="http://pierosilvestri1.altervista.org/Logo.png" />
+				<Image x:Name="LogoImage" HeightRequest="80" Source="NewLogo.png" >
+						<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                Tapped="EasterEgg"
+					                NumberOfTapsRequired="1" />
+					  </Image.GestureRecognizers>		
+				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="5" Padding="0, 10, 0, 0">
-				<Entry x:Name="firstName" HorizontalOptions="FillAndExpand"
+				<Entry x:Name="FirstName" HorizontalOptions="FillAndExpand"
 					Placeholder="First name"/>
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical" Spacing="5">
-				<Entry x:Name="lastName" HorizontalOptions="FillAndExpand"
+				<Entry x:Name="LastName" HorizontalOptions="FillAndExpand"
 					Placeholder="Last name"/>
 			</StackLayout>
-
+		
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="age" HorizontalOptions="FillAndExpand"
 					Placeholder="Age"/>
@@ -31,12 +37,12 @@
 
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="password" HorizontalOptions="FillAndExpand"
-					Placeholder="Password"/>
+					Placeholder="Password" IsPassword="true"/>
 			</StackLayout>
 
 			<StackLayout Padding="0, 0, 0, 15" Orientation="Vertical" Spacing="5">
 				<Entry x:Name="confPassword" HorizontalOptions="FillAndExpand"
-					Placeholder="Confirm Password"/>
+					Placeholder="Confirm Password" IsPassword="true"/>
 			</StackLayout>
 
 			<Button x:Name="done" Clicked="nextPage" Text="Done" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />
