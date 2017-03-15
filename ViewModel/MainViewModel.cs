@@ -55,12 +55,14 @@ namespace ImageRecognizer
 		private int body;
 		public int Body { get { return body; } set { body = value; NotifyPropertyChanged(); } }
 
-		public async Task JsonPostProva(string url) 
+		public async Task JsonPostProva(string url, string path) 
 		{
 			HttpClient client = new HttpClient();
 			client.BaseAddress = new Uri(url); ;
 
-			var response = await client.GetAsync(client.BaseAddress);
+			HttpContent content = new StringContent(path, null, "application/json");
+
+			var response = await client.PostAsync(url, content);
 			response.EnsureSuccessStatusCode();
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
@@ -69,7 +71,7 @@ namespace ImageRecognizer
 
 			JObject a = JObject.Parse(JsonResult);
 
-			Debug.WriteLine("JSONGETPROVA");
+			Debug.WriteLine("JSONPOSTPROVA");
 			Debug.WriteLine(a);
 		}
 

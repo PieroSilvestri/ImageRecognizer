@@ -59,13 +59,14 @@ namespace ImageRecognizer
 
 			//await Navigation.PushAsync(new PasswordPage(file.AlbumPath));
 
+			var url = "http://l-raggioli2.eng.teorema.net/api/upload/";
+
+			await vm.JsonPostProva(url, myPath);
 
 		}
 
 		public async void Get_OnClicked(object o, EventArgs e) 
 		{
-
-			DisplayAlert("PORCO DIO!!", "MADONNA PUTTANA", "GIUSEPPE STREGONE!!");
 
 			var key = "8f5a96d2-007a-478a-bb2e-e8098891becf";
 
