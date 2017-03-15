@@ -6,7 +6,6 @@ using Xamarin.Forms.Internals;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
 
 namespace ImageRecognizer
 {
@@ -14,6 +13,8 @@ namespace ImageRecognizer
 	{
 
 		MainViewModel vm;
+		//JArray myJsonArray;
+		RegistrationPerson persona = new RegistrationPerson();
 
 		public PasswordPage(JObject getJsonItem)
 		{
@@ -25,6 +26,16 @@ namespace ImageRecognizer
 
 			Debug.WriteLine("GetJsonItem");
 			Debug.WriteLine(getJsonItem["results"]);
+
+			JArray myJsonArray = JArray.Parse(getJsonItem["results"].ToString());
+
+			JObject proviamo = (JObject) myJsonArray.First;
+			string nome = proviamo["FirstName"].ToString();
+			string cognome = proviamo["LastName"].ToString();
+
+			string profileName = nome + " " + cognome + " inserisci la tua password:";
+
+
 
 		}
 
