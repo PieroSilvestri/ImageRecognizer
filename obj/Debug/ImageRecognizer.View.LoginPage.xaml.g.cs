@@ -20,13 +20,9 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Image LogoImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image LoginImage;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoginPage));
             LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
-            LoginImage = this.FindByName <global::Xamarin.Forms.Image>("LoginImage");
         }
     }
 }

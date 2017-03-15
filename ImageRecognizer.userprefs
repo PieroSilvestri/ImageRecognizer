@@ -1,24 +1,9 @@
-﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/PasswordPage.xaml.cs">
     <Files>
-<<<<<<< Updated upstream
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="84" Column="35" />
-      <File FileName="View/LoginPage.xaml.cs" Line="49" Column="4" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="20" Column="42" />
-=======
-      <File FileName="View/RegistrationPage.xaml.cs" Line="16" Column="4" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="1" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="23" Column="26" />
-      <File FileName="Interface/IPictureTaker.cs" Line="1" Column="1" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="50" Column="39" />
-      <File FileName="View/LoginPage.xaml.cs" Line="18" Column="4" />
-      <File FileName="obj/Debug/ImageRecognizer.View.LoginPage.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="Droid/Resources/Resource.designer.cs" Line="1" Column="1" />
-      <File FileName="Droid/Properties/AndroidManifest.xml" Line="1" Column="1" />
-      <File FileName="Droid/Properties/AssemblyInfo.cs" Line="11" Column="32" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="26" Column="10" />
->>>>>>> Stashed changes
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="144" Column="6" />
+      <File FileName="View/LoginPage.xaml.cs" Line="19" Column="4" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -26,13 +11,7 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-<<<<<<< Updated upstream
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.1AB51F80-BAD8-49BD-AB4F-EC5CB46780F4" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexusss" />
-=======
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AD321142-D730-447A-9F7F-F90BE0028EF0" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
->>>>>>> Stashed changes
 </Properties>

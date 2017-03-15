@@ -13,6 +13,8 @@ namespace ImageRecognizer
 {
 	public partial class RegistrationPage2 : ContentPage
 	{
+		int x = 4;
+
 		public RegistrationPage2()
 		{
 			InitializeComponent();
@@ -94,18 +96,22 @@ namespace ImageRecognizer
 				case 1:
 					add1.Opacity = 1;
 					add1.Source = ImageSource.FromStream(() => file.GetStream());
+					updateLabel();
 					break;
 				case 2:
 					add2.Opacity = 1;
 					add2.Source = ImageSource.FromStream(() => file.GetStream());
+					updateLabel();
 					break;
 				case 3:
 					add3.Opacity = 1;
 					add3.Source = ImageSource.FromStream(() => file.GetStream());
+					updateLabel();
 					break;
 				case 4:
 					add4.Opacity = 1;
 					add4.Source = ImageSource.FromStream(() => file.GetStream());
+					updateLabel();
 					break;	
 			}
 
@@ -118,6 +124,27 @@ namespace ImageRecognizer
 
 		}
 
+
+		void updateLabel()
+		{
+			x--;
+			string numero = x.ToString();
+			if (x == 1)
+			{
+				numPic.Text = "add 1 picture of your face: ";
+			}
+			else { 
+				if (x == 0)
+				{
+					numPic.Text = "Well done!";
+				}
+				else
+				{
+					numPic.Text = "add " + numero + " pictures of your face: ";
+				}
+			}
+
+		}
 
 
 

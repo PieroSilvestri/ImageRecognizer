@@ -62,3 +62,4 @@
 /Users/andrea/Projects/ImageRecognizer/Droid/bin/Debug/ImageRecognizer.dll
 /Users/andrea/Projects/ImageRecognizer/Droid/bin/Debug/ImageRecognizer.dll.mdb
 /Users/andrea/Projects/ImageRecognizer/Droid/bin/Debug/Newtonsoft.Json.dll
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/loginlogo.png
