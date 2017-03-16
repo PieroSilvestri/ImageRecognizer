@@ -1,10 +1,7 @@
-﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Model/RegistrationPerson.cs">
+﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="View/PasswordPage.xaml.cs" Line="20" Column="4" />
-      <File FileName="View/ProfilePage.xaml.cs" Line="24" Column="4" />
-      <File FileName="View/LoginPage.xaml.cs" Line="55" Column="8" />
-      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="18" />
+      <File FileName="View/RegistrationPage.xaml.cs" Line="25" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -33,7 +33,7 @@
 			</StackLayout>
 			
 			<StackLayout Orientation="Vertical" Spacing="10" >
-				<Button x:Name="reg" Text="Register" Clicked="DoRegistrator" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1"/>
+				<Button x:Name="reg" Text="Register" Clicked="DoRegistrator" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1" BorderColor="Black"/>
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>

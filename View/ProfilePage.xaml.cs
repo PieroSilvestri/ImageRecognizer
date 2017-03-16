@@ -25,6 +25,7 @@ namespace ImageRecognizer
 			labelNome.Text = nome + " " + cognome;
 			labelAge.Text = oggetto["Age"].ToString();
 
+
 		}
 	}
 }

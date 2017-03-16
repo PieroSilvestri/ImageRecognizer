@@ -29,13 +29,22 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Entry age;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label AgeError;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry nickname;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry password;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label PswError;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry confPassword;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label ConfPsw;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button done;
@@ -47,9 +56,12 @@ namespace ImageRecognizer {
             FirstName = this.FindByName <global::Xamarin.Forms.Entry>("FirstName");
             LastName = this.FindByName <global::Xamarin.Forms.Entry>("LastName");
             age = this.FindByName <global::Xamarin.Forms.Entry>("age");
+            AgeError = this.FindByName <global::Xamarin.Forms.Label>("AgeError");
             nickname = this.FindByName <global::Xamarin.Forms.Entry>("nickname");
             password = this.FindByName <global::Xamarin.Forms.Entry>("password");
+            PswError = this.FindByName <global::Xamarin.Forms.Label>("PswError");
             confPassword = this.FindByName <global::Xamarin.Forms.Entry>("confPassword");
+            ConfPsw = this.FindByName <global::Xamarin.Forms.Label>("ConfPsw");
             done = this.FindByName <global::Xamarin.Forms.Button>("done");
         }
     }
