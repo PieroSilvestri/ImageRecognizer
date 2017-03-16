@@ -1,32 +1,3 @@
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.App.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ImageRecognizerPage.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.LoginPage.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ListPage_v1.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.RegistrationPage.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProvaPage.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.RegistrationPage2.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.PasswordPage.xaml
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.App.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ImageRecognizerPage.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.LoginPage.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ListPage_v1.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.RegistrationPage.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProvaPage.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.RegistrationPage2.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/ImageRecognizer.dll.mdb
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/ImageRecognizer.dll
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.dll
-/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.dll.mdb
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Xamarin.Forms.Core.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Xamarin.Forms.Platform.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Xamarin.Forms.Xaml.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Newtonsoft.Json.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/System.Net.Http.Extensions.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/System.Net.Http.Primitives.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Plugin.Media.Abstractions.dll
-/Users/andrea/Projects/ImageRecognizer/bin/Debug/Plugin.Media.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
 /Users/pierosilvestri/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.App.xaml
 /Users/pierosilvestri/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ImageRecognizerPage.xaml
@@ -56,7 +27,13 @@
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/System.Net.Http.Primitives.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Plugin.Media.Abstractions.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Plugin.Media.dll
+<<<<<<< Updated upstream
 /Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ProfilePage.xaml
 /Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ProfilePage.xaml.g.cs
 /Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProfilePage.xaml
 /Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProfilePage.xaml.g.cs
+=======
+/Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Microsoft.Threading.Tasks.dll
+/Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Microsoft.Threading.Tasks.Extensions.dll
+/Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Dropbox.Api.dll
+>>>>>>> Stashed changes
