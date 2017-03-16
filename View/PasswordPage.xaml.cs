@@ -12,13 +12,13 @@ namespace ImageRecognizer
 	public partial class PasswordPage : ContentPage
 	{
 
-		MainViewModel vm;
+		JObject oggetto;
+		//MainViewModel vm;
 		//JArray myJsonArray;
-		RegistrationPerson persona = new RegistrationPerson();
 
 		public PasswordPage(JObject getJsonItem)
 		{
-			vm = new MainViewModel();
+			//vm = new MainViewModel();
 			InitializeComponent();
 			this.Title = "Password";
 
@@ -30,13 +30,20 @@ namespace ImageRecognizer
 			JArray myJsonArray = JArray.Parse(getJsonItem["results"].ToString());
 
 			JObject proviamo = (JObject) myJsonArray.First;
+			takeObject(proviamo);
 			string nome = proviamo["FirstName"].ToString();
 			string cognome = proviamo["LastName"].ToString();
 
 			string profileName = nome + " " + cognome + " inserisci la tua password:";
 
+			labelNome.Text = profileName;
+		}
 
-
+		public void takeObject(JObject obj)
+		{
+			oggetto = obj;
+			Debug.WriteLine("oggetto:");
+			Debug.WriteLine(oggetto);
 		}
 
 		public async void DoLoginWithPassword(object o, EventArgs e)
@@ -45,7 +52,8 @@ namespace ImageRecognizer
 
 			await DisplayAlert("Login Effettuato!", "Con la password " + password + " hai fatto il Login.", "OK");
 
-			string url = "http://jsonplaceholder.typicode.com/posts";
+			await Navigation.PushAsync(new ProfilePage(oggetto));
+			/*string url = "http://jsonplaceholder.typicode.com/posts";
 
 			try
 			{
@@ -62,8 +70,30 @@ namespace ImageRecognizer
 			{
 				List<JsonItem> newList = vm.NewJsonItemList;
 
-				await Navigation.PushAsync(new ListPage_v1(newList));
-			}
+			}*/
 		}
+
+
+
+		bool i = true;
+		public void EasterEgg(object sender, EventArgs e)
+		{
+
+			if (i == true)
+			{
+				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
+				i = false;
+			}
+			else
+			{
+				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
+
+				i = true;
+			}
+
+		}
+
+
+
 	}
 }

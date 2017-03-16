@@ -2795,13 +2795,13 @@ containing a value of this type.
         public static final int abc_vector_test=0x7f020052;
         public static final int addphotoicon=0x7f020053;
         public static final int avd_hide_password=0x7f020054;
-        public static final int avd_hide_password_1=0x7f02010d;
-        public static final int avd_hide_password_2=0x7f02010e;
-        public static final int avd_hide_password_3=0x7f02010f;
+        public static final int avd_hide_password_1=0x7f02010e;
+        public static final int avd_hide_password_2=0x7f02010f;
+        public static final int avd_hide_password_3=0x7f020110;
         public static final int avd_show_password=0x7f020055;
-        public static final int avd_show_password_1=0x7f020110;
-        public static final int avd_show_password_2=0x7f020111;
-        public static final int avd_show_password_3=0x7f020112;
+        public static final int avd_show_password_1=0x7f020111;
+        public static final int avd_show_password_2=0x7f020112;
+        public static final int avd_show_password_3=0x7f020113;
         public static final int design_bottom_navigation_item_background=0x7f020056;
         public static final int design_fab_background=0x7f020057;
         public static final int design_ic_visibility=0x7f020058;
@@ -2981,10 +2981,11 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f020106;
         public static final int notification_bg_normal_pressed=0x7f020107;
         public static final int notification_icon_background=0x7f020108;
-        public static final int notification_template_icon_bg=0x7f02010b;
-        public static final int notification_template_icon_low_bg=0x7f02010c;
+        public static final int notification_template_icon_bg=0x7f02010c;
+        public static final int notification_template_icon_low_bg=0x7f02010d;
         public static final int notification_tile_bg=0x7f020109;
         public static final int notify_panel_notification_icon_bg=0x7f02010a;
+        public static final int user=0x7f02010b;
     }
     public static final class id {
         public static final int action0=0x7f0d009c;
@@ -3488,6 +3489,7 @@ containing a value of this type.
         /**  Base theme applied no matter what API 
          */
         public static final int MyTheme_Base=0x7f0b018a;
+        public static final int NoShadowButton=0x7f0b018c;
         public static final int Platform_AppCompat=0x7f0b0044;
         public static final int Platform_AppCompat_Light=0x7f0b0045;
         public static final int Platform_ThemeOverlay_AppCompat=0x7f0b00ab;

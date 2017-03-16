@@ -56,3 +56,7 @@
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/System.Net.Http.Primitives.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Plugin.Media.Abstractions.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/bin/Debug/Plugin.Media.dll
+/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ProfilePage.xaml
+/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.ProfilePage.xaml.g.cs
+/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProfilePage.xaml
+/Users/andrea/Projects/ImageRecognizer/obj/Debug/ImageRecognizer.View.ProfilePage.xaml.g.cs

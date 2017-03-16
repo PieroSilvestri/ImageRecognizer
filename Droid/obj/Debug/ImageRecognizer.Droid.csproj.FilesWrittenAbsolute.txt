@@ -129,3 +129,4 @@
 /Users/pierosilvestri/Projects/ImageRecognizer/Droid/bin/Debug/ImageRecognizer.dll.mdb
 /Users/pierosilvestri/Projects/ImageRecognizer/Droid/bin/Debug/Newtonsoft.Json.dll
 /Users/pierosilvestri/Projects/ImageRecognizer/Droid/bin/Debug/Newtonsoft.Json.xml
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/user.png

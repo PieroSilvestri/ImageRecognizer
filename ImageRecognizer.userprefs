@@ -1,33 +1,15 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModel/MainViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Model/RegistrationPerson.cs">
     <Files>
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/LoginPage.xaml.cs" Line="64" Column="1" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="27" Column="44" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="74" Column="1" />
-      <File FileName="Droid/MainApplication.cs" Line="39" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/PasswordPage.xaml.cs">
-    <Files>
-      <File FileName="View/LoginPage.xaml.cs" Line="36" Column="5" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="38" Column="1" />
-      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="39" />
-      <File FileName="View/RegistrationPage.xaml.cs" Line="10" Column="1" />
->>>>>>> master
+      <File FileName="View/PasswordPage.xaml.cs" Line="20" Column="4" />
+      <File FileName="View/ProfilePage.xaml.cs" Line="24" Column="4" />
+      <File FileName="View/LoginPage.xaml.cs" Line="55" Column="8" />
+      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-<<<<<<< HEAD
-    <BreakpointStore>
-      <Breakpoint file="/Users/pierosilvestri/Projects/ImageRecognizer/ViewModel/MainViewModel.cs" relfile="ViewModel/MainViewModel.cs" line="73" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Projects/ImageRecognizer/View/LoginPage.xaml.cs" relfile="View/LoginPage.xaml.cs" line="64" column="1" />
-    </BreakpointStore>
-=======
     <BreakpointStore />
->>>>>>> master
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
