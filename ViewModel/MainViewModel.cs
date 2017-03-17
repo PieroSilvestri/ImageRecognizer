@@ -245,7 +245,7 @@ namespace ImageRecognizer
 			GetJsonItem = a;
 		}
 
-		public async Task CreateANewUser(JObject newPerson)
+		public async Task<int> CreateANewUser(JObject newPerson)
 		{
 
 			var url = @"http://l-raggioli2.eng.teorema.net/api/registration/";
@@ -263,6 +263,10 @@ namespace ImageRecognizer
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);
+
+			int newId = (int)a["value"];
+
+			return newId;
 			/*
 			var success = (Boolean)a["success"];
 			if (success)

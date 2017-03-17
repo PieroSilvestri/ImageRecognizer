@@ -8,6 +8,7 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System.Diagnostics;
 using ImageRecognizer;
+using Newtonsoft.Json.Linq;
 
 namespace ImageRecognizer
 {
@@ -18,12 +19,14 @@ namespace ImageRecognizer
 
 		MediaFile foto1, foto2;
 		MainViewModel vm;
+		int newId;
 
-		public RegistrationPage2()
+		public RegistrationPage2(int id)
 		{
 			vm = new MainViewModel();
 			InitializeComponent();
 
+			newId = id;
 		}
 
 		void add1Clicked(object sender, EventArgs args)
@@ -110,8 +113,21 @@ namespace ImageRecognizer
 		async void DoneButton_OnCLicked(object sender, EventArgs e)
 		{
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
-			vm.UploadDoc(foto1);
+			var url1 = await vm.UploadDoc(foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
+			var url2 = await vm.UploadDoc(foto2);
+
+			string newStringJson = "{" +
+				"ID: " + newId + "," +
+				"Url1: " + url1 + "," +
+				"Url2:" + url2 + "}";
+
+			dynamic newJson = new JObject();
+			newJson.ID = newId;
+			newJson.Url1 = url1;
+			newJson.Url2 = url2;
+
+			Debug.WriteLine(newJson);
 
 			await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
 			await Navigation.PushAsync(new LoginPage());

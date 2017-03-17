@@ -99,11 +99,13 @@ namespace ImageRecognizer
 				Debug.WriteLine("MYPERSON");
 				Debug.WriteLine(myObj);
 
-				await vm.CreateANewUser(myObj);
+				var id = await vm.CreateANewUser(myObj);
 
-				await Navigation.PushAsync(new RegistrationPage2());
+				await Navigation.PushAsync(new RegistrationPage2(id));
 			}
 		}
+
+
 
 		bool i = true;
 
