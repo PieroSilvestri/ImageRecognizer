@@ -19,10 +19,11 @@ namespace ImageRecognizer
 
 			string nome = oggetto["FirstName"].ToString();
 			string cognome = oggetto["LastName"].ToString();
+			string username = oggetto["UserName"].ToString();
 
 			this.Title = nome + " " + cognome;
 
-			labelNome.Text = nome + " " + cognome;
+			labelNome.Text = username;
 			labelAge.Text = oggetto["Age"].ToString();
 
 

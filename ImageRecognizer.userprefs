@@ -1,16 +1,8 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="28" Column="33" />
-      <File FileName="View/LoginPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="19" Column="1" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="16" Column="15" />
-      <File FileName="Droid/MainApplication.cs" Line="39" Column="1" />
-      <File FileName="View/ProvaPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="App.xaml.cs" Line="29" Column="1" />
-      <File FileName="../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/10.4.0.128/lib/msbuild/iOS/Xamarin.iOS.Common.targets" Line="1771" Column="4" />
-      <File FileName="View/RegistrationPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="View/ProfilePage.xaml.cs" Line="26" Column="29" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="28" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -20,5 +12,5 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexusss" />
 </Properties>

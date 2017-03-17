@@ -4,7 +4,7 @@
 		<StackLayout Orientation="Vertical" Padding="10">
 				
 			<StackLayout Orientation="Vertical" Spacing="5" Padding="10, 10, 10, 20">
-				<Label x:Name="numPic" Text="Add 4 pictures of your face:" Font="Large" HorizontalOptions="Center" />
+				<Label x:Name="numPic" Text="Add 2 pictures of your face:" Font="Large" HorizontalOptions="Center" />
 			</StackLayout>
 			<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1" />
 				<StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="0, 10, 0, 20">
@@ -25,24 +25,6 @@
 					  </Image.GestureRecognizers>
 					</Image>
 				</StackLayout>
-
-				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-					<Image x:Name="add3" Source="AddPhotoIcon.png" HeightRequest="110">
-					    <Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                Tapped="add3Clicked"
-					                NumberOfTapsRequired="1" />
-					  </Image.GestureRecognizers>
-					</Image>
-					<Image x:Name="add4" Source="AddPhotoIcon.png" HeightRequest="110">
-					    <Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                Tapped="add4Clicked"
-					                NumberOfTapsRequired="1" />
-					  </Image.GestureRecognizers>
-					</Image>
-				</StackLayout>
-				
 				</StackLayout>
 
 
