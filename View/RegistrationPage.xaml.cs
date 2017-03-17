@@ -18,8 +18,12 @@ namespace ImageRecognizer
 		string confPass = "";
 		string errorMsg = "This field can not be empty!";
 
+		MainViewModel vm;
+
 		public RegistrationPage()
 		{
+			vm = new MainViewModel();
+
 			InitializeComponent();
 
 			this.Title = "Registration";
@@ -33,10 +37,8 @@ namespace ImageRecognizer
 		}
 
 
-		void nextPage(object o, EventArgs e)
+		async void nextPage(object o, EventArgs e)
 		{
-
-
 
 			if (AgeError.IsVisible == true || 
 			    PswError.IsVisible == true || 
@@ -48,7 +50,7 @@ namespace ImageRecognizer
 			    password.Text == "" ||
 			    confPassword.Text == "")
 			{
-				DisplayAlert("Error", "Resolve errors!", "Ok");
+				await DisplayAlert("Error", "Resolve errors!", "Ok");
 				if (FirstName.Text == "") {
 					FirstNameError.Text = errorMsg;
 					FirstNameError.IsVisible = true;
@@ -97,7 +99,9 @@ namespace ImageRecognizer
 				Debug.WriteLine("MYPERSON");
 				Debug.WriteLine(myObj);
 
-				Navigation.PushAsync(new RegistrationPage2());
+				await vm.CreateANewUser(myObj);
+
+				await Navigation.PushAsync(new RegistrationPage2());
 			}
 		}
 

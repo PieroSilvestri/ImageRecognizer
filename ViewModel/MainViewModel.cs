@@ -229,6 +229,41 @@ namespace ImageRecognizer
 			GetJsonItem = a;
 		}
 
+		public async Task CreateANewUser(JObject newPerson)
+		{
+
+			var url = @"http://l-raggioli2.eng.teorema.net/api/registration/";
+
+			HttpClient client = new HttpClient();
+
+			var content = new StringContent(newPerson.ToString(), null, "application/json");
+
+			var response = await client.PostAsync(url, content);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("KNOW YOUR ENEMIES");
+			Debug.WriteLine(JsonResult);
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+			/*
+			var success = (Boolean)a["success"];
+			if (success)
+			{
+				Debug.WriteLine("TRUE");
+				await GetUserByFaceId(a["persistedFaceId"].ToString());
+			}
+			else
+			{
+				Debug.WriteLine("FALSE");
+			}
+
+			Debug.WriteLine("JSONPOSTPROVA");
+			Debug.WriteLine(a);
+			*/
+		}
+
 		public async Task GetJsonResponse(string url)
 		{
 			HttpClient client = new HttpClient();
