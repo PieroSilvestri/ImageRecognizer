@@ -14,12 +14,14 @@
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="5" Padding="0, 10, 0, 0">
 				<Entry x:Name="FirstName" HorizontalOptions="FillAndExpand"
-					Placeholder="First name"/>
+					Placeholder="First name" TextChanged="CleanFirstName"/>
+				<Label x:Name="FirstNameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="LastName" HorizontalOptions="FillAndExpand"
-					Placeholder="Last name"/>
+					Placeholder="Last name" TextChanged="CleanLastName"/>
+				<Label x:Name="LastNameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 		
 			<StackLayout Orientation="Vertical" Spacing="5">
@@ -34,13 +36,14 @@
 				
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="nickname" HorizontalOptions="FillAndExpand"
-					Placeholder="Nickname"/>
+					Placeholder="Nickname" TextChanged="CleanNick"/>
+				<Label x:Name="NicknameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="password" HorizontalOptions="FillAndExpand"
 					   Placeholder="Password" IsPassword="true" 
-						TextChanged="Password_Length_Control"/>
+					   TextChanged="Password_Length_Control"/>
 				<Label x:Name="PswError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red" />
 			</StackLayout>
 

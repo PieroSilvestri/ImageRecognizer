@@ -23,7 +23,13 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Entry FirstName;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label FirstNameError;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry LastName;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label LastNameError;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry age;
@@ -33,6 +39,9 @@ namespace ImageRecognizer {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry nickname;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label NicknameError;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Entry password;
@@ -54,10 +63,13 @@ namespace ImageRecognizer {
             this.LoadFromXaml(typeof(RegistrationPage));
             LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
             FirstName = this.FindByName <global::Xamarin.Forms.Entry>("FirstName");
+            FirstNameError = this.FindByName <global::Xamarin.Forms.Label>("FirstNameError");
             LastName = this.FindByName <global::Xamarin.Forms.Entry>("LastName");
+            LastNameError = this.FindByName <global::Xamarin.Forms.Label>("LastNameError");
             age = this.FindByName <global::Xamarin.Forms.Entry>("age");
             AgeError = this.FindByName <global::Xamarin.Forms.Label>("AgeError");
             nickname = this.FindByName <global::Xamarin.Forms.Entry>("nickname");
+            NicknameError = this.FindByName <global::Xamarin.Forms.Label>("NicknameError");
             password = this.FindByName <global::Xamarin.Forms.Entry>("password");
             PswError = this.FindByName <global::Xamarin.Forms.Label>("PswError");
             confPassword = this.FindByName <global::Xamarin.Forms.Entry>("confPassword");

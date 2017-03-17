@@ -16,6 +16,7 @@ namespace ImageRecognizer
 	{
 		private string pass;
 		string confPass = "";
+		string errorMsg = "This field can not be empty!";
 
 		public RegistrationPage()
 		{
@@ -23,22 +24,73 @@ namespace ImageRecognizer
 
 			this.Title = "Registration";
 
+			FirstName.Text = "";
+			LastName.Text = "";
+			age.Text = "";
+			nickname.Text = "";
+			password.Text = "";
+			confPassword.Text = "";
 		}
 
 
 		void nextPage(object o, EventArgs e)
 		{
-			if (AgeError.IsVisible == true || PswError.IsVisible == true || ConfPsw.IsVisible == true)
+
+
+
+			if (AgeError.IsVisible == true || 
+			    PswError.IsVisible == true || 
+			    ConfPsw.IsVisible == true || 
+			    FirstName.Text == "" || 
+			    LastName.Text == "" ||
+			    age.Text == "" ||
+			    nickname.Text == "" ||
+			    password.Text == "" ||
+			    confPassword.Text == "")
 			{
 				DisplayAlert("Error", "Resolve errors!", "Ok");
+				if (FirstName.Text == "") {
+					FirstNameError.Text = errorMsg;
+					FirstNameError.IsVisible = true;
+				}
+				if (LastName.Text == "" || LastName.Text == null)
+				{
+					LastNameError.Text = errorMsg;
+					LastNameError.IsVisible = true;
+				}
+				if (age.Text == "")
+				{
+					AgeError.Text = errorMsg;
+					AgeError.IsVisible = true;
+				}
+				if (nickname.Text == "")
+				{
+					NicknameError.Text = errorMsg;
+					NicknameError.IsVisible = true;
+				}
+				if (password.Text == "")
+				{
+					PswError.Text = errorMsg;
+					PswError.IsVisible = true;
+				}
+				if (confPassword.Text == "")
+				{
+					ConfPsw.Text = errorMsg;
+					ConfPsw.IsVisible = true;
+				}
+
 			}
 			else{
 
 				RegistrationPerson myPerson = new RegistrationPerson();
 
-				myPerson.firstName = FirstName.Text;
-				myPerson.lastName = LastName.Text;
-				myPerson.age = age.Text;
+				myPerson.FirstName = FirstName.Text;
+				myPerson.LastName = LastName.Text;
+				string eta = age.Text;
+				myPerson.Age = Convert.ToInt32(eta);
+				myPerson.UserName = nickname.Text;
+				myPerson.Password = password.Text;
+				myPerson.DataRegistration = DateTime.Now.ToString();
 
 				JObject myObj = JObject.Parse(JsonConvert.SerializeObject(myPerson));
 
@@ -69,6 +121,23 @@ namespace ImageRecognizer
 
 		}
 
+		void CleanFirstName(object sender, EventArgs e)
+		{
+			if (FirstNameError.Text == errorMsg)
+			{
+				FirstNameError.IsVisible = false;
+			}
+		}
+
+		void CleanLastName(object sender, EventArgs e)
+		{
+			if (LastNameError.Text == errorMsg)
+			{
+				LastNameError.IsVisible = false;
+			}
+		}
+
+
 		void Age_Control(object sender, EventArgs e)
 		{
 			try {
@@ -90,9 +159,23 @@ namespace ImageRecognizer
 				}
 			}
 			} catch(FormatException exForm) {
-
+				Debug.WriteLine(exForm);
 				age.Text = "";
 
+			}
+
+			if (AgeError.Text == errorMsg) 
+			{
+				AgeError.IsVisible = false;
+			}
+
+		}
+
+		void CleanNick(object sender, EventArgs e)
+		{
+			if (NicknameError.Text == errorMsg)
+			{
+				NicknameError.IsVisible = false;
 			}
 		}
 
@@ -115,6 +198,12 @@ namespace ImageRecognizer
 					PswError.IsVisible = false;
 				}
 			}
+
+			if (PswError.Text == errorMsg)
+			{
+				PswError.IsVisible = false;
+			}
+
 		}
 
 
@@ -136,6 +225,12 @@ namespace ImageRecognizer
 					ConfPsw.IsVisible = false;
 				}
 			}
+
+			if (ConfPsw.Text == errorMsg)
+			{
+				ConfPsw.IsVisible = false;
+			}
+
 		}
 
 		void testPass()
