@@ -284,9 +284,27 @@ namespace ImageRecognizer
 			*/
 		}
 
-		public async Task RegistrationRequest(JObject newJson)
+		public async Task<bool> RegistrationRequest(JObject newJson)
 		{
-			
+			var url = @"http://l-raggioli2.eng.teorema.net/api/url/";
+
+			HttpClient client = new HttpClient();
+
+			var content = new StringContent(newJson.ToString(), null, "application/json");
+
+			var response = await client.PostAsync(url, content);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("registration Request");
+			Debug.WriteLine(JsonResult);
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			bool myFlag = (bool) a["success"];
+
+			return myFlag;
 		}
 
 		public async Task GetJsonResponse(string url)

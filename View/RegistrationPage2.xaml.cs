@@ -129,8 +129,18 @@ namespace ImageRecognizer
 
 			Debug.WriteLine(newJson);
 
-			await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
-			await Navigation.PushAsync(new LoginPage());
+			var myFlag = vm.RegistrationRequest(newJson);
+
+			if (myFlag)
+			{
+				await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
+				await Navigation.PushAsync(new LoginPage());
+			}
+			else
+			{
+				await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
+			}
+
 		}
 
 
