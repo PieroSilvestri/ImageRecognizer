@@ -26,6 +26,9 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Image LogoImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Image LogoImage2;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label or;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -37,6 +40,7 @@ namespace ImageRecognizer {
             sfondo = this.FindByName <global::Xamarin.Forms.StackLayout>("sfondo");
             titolo = this.FindByName <global::Xamarin.Forms.Label>("titolo");
             LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
+            LogoImage2 = this.FindByName <global::Xamarin.Forms.Image>("LogoImage2");
             or = this.FindByName <global::Xamarin.Forms.Label>("or");
             reg = this.FindByName <global::Xamarin.Forms.Button>("reg");
         }

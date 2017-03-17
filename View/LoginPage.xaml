@@ -4,7 +4,15 @@
 		<StackLayout x:Name="sfondo" Orientation="Vertical" Padding="20, 30, 20, 0">
 			<StackLayout Orientation="Vertical" Spacing="20">
 				<Label x:Name="titolo" Text="Image Recognize" HorizontalOptions="CenterAndExpand" FontSize="25" />
-				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="200">
+				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="200" IsVisible="true">
+					 <Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                Tapped="EasterEgg"
+					                NumberOfTapsRequired="1" />
+					  </Image.GestureRecognizers>		
+				</Image>
+
+				<Image x:Name="LogoImage2" Source="NewLogo2.png" HeightRequest="200" IsVisible="false">
 					 <Image.GestureRecognizers>
 					        <TapGestureRecognizer
 					                Tapped="EasterEgg"

@@ -120,7 +120,9 @@ namespace ImageRecognizer
 		{
 
 			if (i) {
-				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
+				LogoImage.IsVisible = false;
+				LogoImage2.IsVisible = true;
+				//LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
 				sfondo.BackgroundColor = Color.Black;
 				titolo.TextColor = Color.White;
 				or.TextColor = Color.White;
@@ -130,7 +132,9 @@ namespace ImageRecognizer
 			}
 			else
 			{
-				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
+				LogoImage2.IsVisible = false;
+				LogoImage.IsVisible = true;
+				//LogoImage.Source = ImageSource.FromFile("NewLogo.png");
 				sfondo.BackgroundColor = Color.Default;
 				titolo.TextColor = Color.Default;
 				or.TextColor = Color.Default;

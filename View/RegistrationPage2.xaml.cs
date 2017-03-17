@@ -14,8 +14,6 @@ namespace ImageRecognizer
 {
 	public partial class RegistrationPage2 : ContentPage
 	{
-		int x = 4;
-
 
 		MediaFile foto1, foto2;
 		MainViewModel vm;
@@ -35,28 +33,12 @@ namespace ImageRecognizer
 
 			TakePictureButton_Clicked(1);
 
-
-			//IPictureTaker pictureTake = DependencyService.Get<IPictureTaker>();
-			//pictureTake.SnapPic();
-
 		}
 
 		void add2Clicked(object sender, EventArgs args)
 		{
 			add2.Opacity = .5;
 			TakePictureButton_Clicked(2);
-		}
-
-		void add3Clicked(object sender, EventArgs args)
-		{
-			add3.Opacity = .5;
-			TakePictureButton_Clicked(3);
-		}
-
-		void add4Clicked(object sender, EventArgs args)
-		{
-			add4.Opacity = .5;
-			TakePictureButton_Clicked(4);
 		}
 
 		async void TakePictureButton_Clicked(int buttonNumber)
@@ -87,24 +69,12 @@ namespace ImageRecognizer
 					add1.Opacity = 1;
 					add1.Source = ImageSource.FromStream(() => file.GetStream());
 					foto1 = file;
-					updateLabel();
 					break;
 				case 2:
 					add2.Opacity = 1;
 					add2.Source = ImageSource.FromStream(() => file.GetStream());
 					foto2 = file;
-					updateLabel();
 					break;
-				case 3:
-					add3.Opacity = 1;
-					add3.Source = ImageSource.FromStream(() => file.GetStream());
-					updateLabel();
-					break;
-				case 4:
-					add4.Opacity = 1;
-					add4.Source = ImageSource.FromStream(() => file.GetStream());
-					updateLabel();
-					break;	
 			}
 
 
@@ -142,31 +112,6 @@ namespace ImageRecognizer
 			}
 
 		}
-
-
-		void updateLabel()
-		{
-			x--;
-			string numero = x.ToString();
-			if (x == 1)
-			{
-				numPic.Text = "add 1 picture of your face: ";
-			}
-			else { 
-				if (x == 0)
-				{
-					numPic.Text = "Well done!";
-				}
-				else
-				{
-					numPic.Text = "add " + numero + " pictures of your face: ";
-				}
-			}
-
-		}
-
-
-
 
 	}
 }

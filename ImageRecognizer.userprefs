@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="View/ProfilePage.xaml.cs" Line="26" Column="29" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="28" Column="1" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="115" Column="1" />
+      <File FileName="View/LoginPage.xaml.cs" Line="119" Column="3" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -12,5 +14,5 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexusss" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
 </Properties>
