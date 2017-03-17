@@ -28,43 +28,50 @@ namespace ImageRecognizer
 
 		void nextPage(object o, EventArgs e)
 		{
+			if (AgeError.IsVisible == true || PswError.IsVisible == true || ConfPsw.IsVisible == true)
+			{
+				DisplayAlert("Error", "Resolve errors!", "Ok");
+			}
+			else{
 
-			RegistrationPerson myPerson = new RegistrationPerson();
+				RegistrationPerson myPerson = new RegistrationPerson();
 
-			myPerson.firstName = FirstName.Text;
-			myPerson.lastName = LastName.Text;
-			myPerson.age = age.Text;
+				myPerson.firstName = FirstName.Text;
+				myPerson.lastName = LastName.Text;
+				myPerson.age = age.Text;
 
-			JObject myObj = JObject.Parse(JsonConvert.SerializeObject(myPerson));
+				JObject myObj = JObject.Parse(JsonConvert.SerializeObject(myPerson));
 
-			Debug.WriteLine("MYPERSON");
-			Debug.WriteLine(myObj);
+				Debug.WriteLine("MYPERSON");
+				Debug.WriteLine(myObj);
 
-			Navigation.PushAsync(new RegistrationPage2());
+				Navigation.PushAsync(new RegistrationPage2());
+			}
 		}
 
-		int i = 1;
+		bool i = true;
 
 		public void EasterEgg(object sender, EventArgs e)
 		{
 
-			if (i == 1)
+			if (i)
 			{
 				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
 				Debug.WriteLine("Cambio");
-				i = 2;
+				i = false;
 			}
 			else
 			{
 				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
 				Debug.WriteLine("cambio2");
-				i = 1;
+				i = true;
 			}
 
 		}
 
 		void Age_Control(object sender, EventArgs e)
 		{
+			try {
 			var text = ((Entry)sender).Text; //cast sender to access the properties of the Entry
 			AgeError.IsVisible = false;
 			if (text != "")
@@ -81,6 +88,11 @@ namespace ImageRecognizer
 				{
 					AgeError.IsVisible = false;
 				}
+			}
+			} catch(FormatException exForm) {
+
+				age.Text = "";
+
 			}
 		}
 

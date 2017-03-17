@@ -26,7 +26,7 @@
 				<Entry x:Name="age" HorizontalOptions="FillAndExpand"
 					Placeholder="Age" Keyboard="Numeric"
 					TextChanged="Age_Control"/>
-				<Label x:Name="AgeError" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
+				<Label x:Name="AgeError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 				
 			<StackLayout Orientation="Vertical" Padding="0, 10, 0 ,10">
@@ -41,14 +41,14 @@
 				<Entry x:Name="password" HorizontalOptions="FillAndExpand"
 					   Placeholder="Password" IsPassword="true" 
 						TextChanged="Password_Length_Control"/>
-				<Label x:Name="PswError" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
+				<Label x:Name="PswError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red" />
 			</StackLayout>
 
 			<StackLayout Padding="0, 0, 0, 15" Orientation="Vertical" Spacing="5">
 				<Entry x:Name="confPassword" HorizontalOptions="FillAndExpand"
 					Placeholder="Confirm Password" IsPassword="true"
 					TextChanged="PasswordConfirm"/>
-				<Label x:Name="ConfPsw" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
+				<Label x:Name="ConfPsw" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 
 			<Button x:Name="done" Clicked="nextPage" Text="Done" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />

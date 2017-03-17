@@ -1,36 +1,17 @@
-<<<<<<< Updated upstream
 ﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/RegistrationPage.xaml.cs">
     <Files>
-      <File FileName="View/RegistrationPage.xaml.cs" Line="25" Column="4" />
-=======
-﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/LoginPage.xaml.cs" Line="84" Column="45" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="27" Column="32" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="210" Column="1" />
-      <File FileName="Droid/MainApplication.cs" Line="39" Column="1" />
-      <File FileName="View/ProvaPage.xaml.cs" Line="13" Column="1" />
-      <File FileName="App.xaml.cs" Line="29" Column="1" />
->>>>>>> Stashed changes
+      <File FileName="View/RegistrationPage.xaml.cs" Line="94" Column="18" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="58" Column="7" />
+      <File FileName="View/LoginPage.xaml.cs" Line="113" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-<<<<<<< Updated upstream
     <BreakpointStore />
-=======
-    <BreakpointStore>
-      <Breakpoint file="/Users/pierosilvestri/Projects/ImageRecognizer/ViewModel/MainViewModel.cs" relfile="ViewModel/MainViewModel.cs" line="169" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Projects/ImageRecognizer/ViewModel/MainViewModel.cs" relfile="ViewModel/MainViewModel.cs" line="207" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Projects/ImageRecognizer/ViewModel/MainViewModel.cs" relfile="ViewModel/MainViewModel.cs" line="199" column="1" />
-    </BreakpointStore>
->>>>>>> Stashed changes
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexusss" />
 </Properties>

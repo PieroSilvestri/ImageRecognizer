@@ -107,19 +107,19 @@ namespace ImageRecognizer
 			Navigation.PushAsync(new RegistrationPage());
 		}
 
-		int i = 1;
+		bool i = true;
 
 		public void EasterEgg(object sender, EventArgs e)
 		{
 
-			if (i == 1) {
+			if (i) {
 				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
 				sfondo.BackgroundColor = Color.Black;
 				titolo.TextColor = Color.White;
 				or.TextColor = Color.White;
 				reg.TextColor = Color.White;
 				reg.BorderColor = Color.White;
-				i = 2;
+				i = false;
 			}
 			else
 			{
@@ -128,8 +128,8 @@ namespace ImageRecognizer
 				titolo.TextColor = Color.Default;
 				or.TextColor = Color.Default;
 				reg.TextColor = Color.Default;
-				reg.BorderColor = Color.Default;
-				i = 1;
+				reg.BorderColor = Color.Black;
+				i = true;
 			}
 
 		}
