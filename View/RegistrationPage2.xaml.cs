@@ -15,6 +15,9 @@ namespace ImageRecognizer
 	{
 		int x = 4;
 
+
+		MediaFile foto1, foto2;
+
 		public RegistrationPage2()
 		{
 			InitializeComponent();
@@ -25,7 +28,7 @@ namespace ImageRecognizer
 		{
 			add1.Opacity = .5;
 
-			photoTaker(1);
+			TakePictureButton_Clicked(1);
 
 
 			//IPictureTaker pictureTake = DependencyService.Get<IPictureTaker>();
@@ -36,39 +39,20 @@ namespace ImageRecognizer
 		void add2Clicked(object sender, EventArgs args)
 		{
 			add2.Opacity = .5;
-			photoTaker(2);
+			TakePictureButton_Clicked(2);
 		}
 
 		void add3Clicked(object sender, EventArgs args)
 		{
 			add3.Opacity = .5;
-			photoTaker(3);
+			TakePictureButton_Clicked(3);
 		}
 
 		void add4Clicked(object sender, EventArgs args)
 		{
 			add4.Opacity = .5;
-			photoTaker(4);
+			TakePictureButton_Clicked(4);
 		}
-
-
-		async void photoTaker(int buttonNumber) 
-		{ 
-		
-			var action = await DisplayActionSheet("Load image: ", "From gallery", "Take a photo");
-			switch (action)
-			{
-				case "From gallery":
-					Debug.WriteLine("dalla galleria");
-					break;
-				case "Take a photo":
-					Debug.WriteLine("dalla fotocamera");
-					TakePictureButton_Clicked(buttonNumber);
-					break;
-			}
-		
-		}
-
 
 		async void TakePictureButton_Clicked(int buttonNumber)
 		{
@@ -97,11 +81,13 @@ namespace ImageRecognizer
 				case 1:
 					add1.Opacity = 1;
 					add1.Source = ImageSource.FromStream(() => file.GetStream());
+					foto1 = file;
 					updateLabel();
 					break;
 				case 2:
 					add2.Opacity = 1;
 					add2.Source = ImageSource.FromStream(() => file.GetStream());
+					foto2 = file;
 					updateLabel();
 					break;
 				case 3:
@@ -119,10 +105,13 @@ namespace ImageRecognizer
 
 		}
 
-		void UploadPictureButton_Clicked(object sender, EventArgs e)
+		async void DoneButton_OnCLicked(object sender, EventArgs e)
 		{
+			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
+			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
 
-
+			await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
+			await Navigation.PushAsync(new LoginPage());
 		}
 
 
