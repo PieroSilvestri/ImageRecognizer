@@ -17,9 +17,11 @@ namespace ImageRecognizer
 
 
 		MediaFile foto1, foto2;
+		MainViewModel vm;
 
 		public RegistrationPage2()
 		{
+			vm = new MainViewModel();
 			InitializeComponent();
 
 		}
@@ -108,6 +110,7 @@ namespace ImageRecognizer
 		async void DoneButton_OnCLicked(object sender, EventArgs e)
 		{
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
+			vm.UploadDoc(foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
 
 			await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");

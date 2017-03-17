@@ -54,6 +54,20 @@ namespace ImageRecognizer
 			}
 		}
 
+		private string newLink;
+		public string NewLink
+		{
+			get
+			{
+				return newLink;
+			}
+			set
+			{
+				newLink = value;
+				NotifyPropertyChanged();
+			}
+		}
+
 		private int userId;
 		public int UserId { get { return userId; } set { userId = value; NotifyPropertyChanged(); } }
 
@@ -90,17 +104,17 @@ namespace ImageRecognizer
 			Debug.WriteLine(a);
 		}
 
-		public async Task UploadDoc(MediaFile file)
+		public async Task<string> UploadDoc(MediaFile file)
 		{
 			using (var dbx = new DropboxClient("mRUyhXfE2KEAAAAAAAAIvIEHO5v-5iBbhBgRf5BYslj-bzR0fmjtC_NXLVi8xgfU"))
 			{
 				var full = await dbx.Users.GetCurrentAccountAsync();
 				var fileName = DateTime.Now;
-				await Upload(dbx, @"/MyApp/imageRecognizer_v1", "ciaoATutti.jpg", file);
+				return await Upload(dbx, @"/MyApp/imageRecognizer_v1", "ciaoATutti.jpg", file);
 			}
 		}
 
-		async Task Upload(DropboxClient dbx, string folder, string file, MediaFile content)
+		async Task<string> Upload(DropboxClient dbx, string folder, string file, MediaFile content)
 		{
 
 			using (var mem = content.GetStream())
@@ -112,15 +126,17 @@ namespace ImageRecognizer
 					body: mem);
 
 				Debug.WriteLine("Saved {0}/{1} rev {2}", folder, file, updated.Rev);
-				var newUrl = @"" + folder + "/" + file;
-				Debug.WriteLine("newUrl");
-				Debug.WriteLine(newUrl);
-				await GetDropboxResponse(newUrl);
 
 			}
+
+			var newUrl = @"" + folder + "/" + file;
+			Debug.WriteLine("newUrl");
+			Debug.WriteLine(newUrl);
+			return await GetDropboxResponse(newUrl);
+
 		}
 
-		public async Task GetDropboxResponse(string myUrlPath)
+		public async Task<string> GetDropboxResponse(string myUrlPath)
 		{
 			HttpClient dropboxClient = new HttpClient();
 			var url = @"https://api.dropboxapi.com/2/files/get_temporary_link";
@@ -148,7 +164,7 @@ namespace ImageRecognizer
 
 			var newMyUrl = a["link"].ToString();
 
-			await PostUrlToServer(newMyUrl);
+			return newMyUrl;
 		}
 
 		public async Task PostUrlToServer(string myUrl)
@@ -170,12 +186,12 @@ namespace ImageRecognizer
 			Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
-			JObject a = (JObject) JArray.Parse(JsonResult).First;
+			JObject a = JObject.Parse(JsonResult);
 			var success = (Boolean) a["success"];
 			if (success)
 			{
 				Debug.WriteLine("TRUE");
-				await GetUserByFaceId(a["persistedFaceId"].ToString());
+				await GetUserByFaceId(a["value"].ToString());
 			}
 			else
 			{

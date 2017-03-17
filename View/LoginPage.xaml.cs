@@ -61,7 +61,9 @@ namespace ImageRecognizer
 
 			//var url = "http://l-raggioli2.eng.teorema.net/api/upload/";
 
-			await vm.UploadDoc(file);
+			var newUrl = await vm.UploadDoc(file);
+
+			await vm.PostUrlToServer(newUrl);
 
 			if (vm.GetJsonItem != null)
 			{
