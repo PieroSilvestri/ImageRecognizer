@@ -27,9 +27,7 @@ namespace ImageRecognizer
 			Debug.WriteLine("GetJsonItem");
 			Debug.WriteLine(getJsonItem["results"]);
 
-			JArray myJsonArray = JArray.Parse(getJsonItem["results"].ToString());
-
-			JObject proviamo = (JObject) myJsonArray.First;
+			JObject proviamo = getJsonItem;
 			takeObject(proviamo);
 			string nome = proviamo["FirstName"].ToString();
 			string cognome = proviamo["LastName"].ToString();

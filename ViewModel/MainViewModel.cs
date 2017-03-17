@@ -284,6 +284,11 @@ namespace ImageRecognizer
 			*/
 		}
 
+		public async Task RegistrationRequest(JObject newJson)
+		{
+			
+		}
+
 		public async Task GetJsonResponse(string url)
 		{
 			HttpClient client = new HttpClient();
