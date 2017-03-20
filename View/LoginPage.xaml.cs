@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Plugin.Media;
 using System.Net.Http;
 using Plugin.Media.Abstractions;
+using Newtonsoft.Json.Linq;
 
 namespace ImageRecognizer
 {
@@ -15,19 +16,18 @@ namespace ImageRecognizer
 
 		MainViewModel vm;
 
+		public JObject newOjb;
+
 		public LoginPage()
 		{
-
 			vm = new MainViewModel();
 
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
-
 		}
 
 		public async void LoginImage_OnClicked(object o, EventArgs e)
 		{
-			
 
 			//await Navigation.PushAsync(new PasswordPage());
 			await CrossMedia.Current.Initialize();
@@ -50,6 +50,17 @@ namespace ImageRecognizer
 				return;
 			}
 
+			spinner.IsVisible = true;
+			spinner.IsRunning = true;
+			loadingLabel.IsVisible = true;
+			buttonGet.IsVisible = false;
+			buttonLogin.IsVisible = false;
+			reg.IsVisible = false;
+			or.IsVisible = false;
+			boxUno.IsVisible = false;
+			boxDue.IsVisible = false;
+
+
 			var picture = ImageSource.FromStream(() => file.GetStream());
 
 			var myPath = file.AlbumPath;
@@ -67,9 +78,22 @@ namespace ImageRecognizer
 
 			if (vm.GetJsonItem != null)
 			{
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
+				buttonGet.IsVisible = false;
+				buttonLogin.IsVisible = false;
+				reg.IsVisible = false;
+				or.IsVisible = false;
+				boxUno.IsVisible = false;
+				boxDue.IsVisible = false;
+				loadingLabel.IsVisible = false;
+				buttonProfile.IsVisible = true;
+				buttonLogout.IsVisible = true;
+
 				await Navigation.PushAsync(new PasswordPage(vm.GetJsonItem));
 			}
 		}
+
 		/*
 		public byte[] ReadImageFile(string imageLocation)
 		{
@@ -143,6 +167,33 @@ namespace ImageRecognizer
 				i = true;
 			}
 
+		}
+
+		void logutClicked(object sender, EventArgs e)
+		{ 
+			DisplayAlert("Loguot", "successful", "Ok");
+			spinner.IsVisible = false;
+			spinner.IsRunning = false;
+			buttonGet.IsVisible = true;
+			buttonLogin.IsVisible = true;
+			reg.IsVisible = true;
+			or.IsVisible = true;
+			boxUno.IsVisible = true;
+			boxDue.IsVisible = true;
+			loadingLabel.IsVisible = false;
+			buttonProfile.IsVisible = false;
+			buttonLogout.IsVisible = false;
+		}
+
+		public void getObj(JObject ogg) 
+		{
+			this.newOjb = ogg;
+			Debug.WriteLine("dentro: " + newOjb);
+		}
+
+		async void profileClicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new ProfilePage(this.newOjb));
 		}
 
 	}

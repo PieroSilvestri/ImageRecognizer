@@ -13,13 +13,17 @@ namespace ImageRecognizer
 	{
 
 		JObject oggetto;
+		//LoginPage lgnPage;
+
 		//MainViewModel vm;
 		//JArray myJsonArray;
 
 		public PasswordPage(JObject getJsonItem)
 		{
+			//lgnPage = new LoginPage(oggetto);
 			//vm = new MainViewModel();
 			InitializeComponent();
+
 			this.Title = "Password";
 
 			ProfilePicture.Source = "";
@@ -90,7 +94,6 @@ namespace ImageRecognizer
 			}
 
 		}
-
 
 
 	}

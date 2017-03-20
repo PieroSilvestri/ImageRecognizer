@@ -11,6 +11,7 @@ namespace ImageRecognizer
 {
 	public partial class ProfilePage : ContentPage
 	{
+
 		public ProfilePage(JObject oggetto)
 		{
 			InitializeComponent();
@@ -26,7 +27,7 @@ namespace ImageRecognizer
 			labelNome.Text = username;
 			labelAge.Text = oggetto["Age"].ToString();
 
-
 		}
+
 	}
 }
