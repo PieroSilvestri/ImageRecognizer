@@ -15,7 +15,7 @@ namespace ImageRecognizer
 		public ProfilePage(JObject oggetto)
 		{
 			InitializeComponent();
-
+			NavigationPage.SetHasNavigationBar(this, false);
 			profileImage.Source = "http://placehold.it/350x350";
 
 			string nome = oggetto["FirstName"].ToString();
@@ -27,6 +27,11 @@ namespace ImageRecognizer
 			labelNome.Text = username;
 			labelAge.Text = oggetto["Age"].ToString();
 
+		}
+
+		void backEvent(object sender, EventArgs e)
+		{
+			Navigation.PopAsync(true);
 		}
 
 	}

@@ -12,20 +12,18 @@ namespace ImageRecognizer
 	public partial class PasswordPage : ContentPage
 	{
 
-		JObject oggetto;
-		//LoginPage lgnPage;
+		public JObject oggetto;
 
 		//MainViewModel vm;
 		//JArray myJsonArray;
 
 		public PasswordPage(JObject getJsonItem)
 		{
-			//lgnPage = new LoginPage(oggetto);
+			
 			//vm = new MainViewModel();
 			InitializeComponent();
-
 			this.Title = "Password";
-
+			NavigationPage.SetHasNavigationBar(this, false);
 			ProfilePicture.Source = "";
 
 			Debug.WriteLine("GetJsonItem");
@@ -95,6 +93,18 @@ namespace ImageRecognizer
 
 		}
 
+		async void backEvent(object sender, EventArgs e)
+		{
+			var disp = await DisplayAlert("Exit?", "Press 'yes' to logout", "Yes", "No");
+
+			if (disp)
+			{
+				await Navigation.PopAsync(true);
+			}
+
+
+
+		}
 
 	}
 }

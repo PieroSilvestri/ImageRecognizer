@@ -35,9 +35,6 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Button buttonGet;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button buttonProfile;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button buttonLogin;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -56,9 +53,6 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Button reg;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button buttonLogout;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LoginPage));
             sfondo = this.FindByName <global::Xamarin.Forms.StackLayout>("sfondo");
@@ -67,14 +61,12 @@ namespace ImageRecognizer {
             LogoImage2 = this.FindByName <global::Xamarin.Forms.Image>("LogoImage2");
             spinner = this.FindByName <global::Xamarin.Forms.ActivityIndicator>("spinner");
             buttonGet = this.FindByName <global::Xamarin.Forms.Button>("buttonGet");
-            buttonProfile = this.FindByName <global::Xamarin.Forms.Button>("buttonProfile");
             buttonLogin = this.FindByName <global::Xamarin.Forms.Button>("buttonLogin");
             boxUno = this.FindByName <global::Xamarin.Forms.BoxView>("boxUno");
             or = this.FindByName <global::Xamarin.Forms.Label>("or");
             loadingLabel = this.FindByName <global::Xamarin.Forms.Label>("loadingLabel");
             boxDue = this.FindByName <global::Xamarin.Forms.BoxView>("boxDue");
             reg = this.FindByName <global::Xamarin.Forms.Button>("reg");
-            buttonLogout = this.FindByName <global::Xamarin.Forms.Button>("buttonLogout");
         }
     }
 }

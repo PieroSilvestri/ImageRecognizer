@@ -29,7 +29,9 @@
 
 
 
-			<Button Text="Done" Clicked="DoneButton_OnCLicked" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />
+			<Button x:Name="buttonDone" IsVisible="true" Text="Done" Clicked="DoneButton_OnCLicked" Font="Small" BackgroundColor="#1A80FD" TextColor="White" />
+			<ActivityIndicator x:Name="spinner" WidthRequest="110" HeightRequest="70" IsRunning="false" IsVisible="false" Color="#1A80FD" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+			<Label x:Name="loadingLabel" Text="Loading..." HorizontalOptions="CenterAndExpand" IsVisible="false"/>
 		</StackLayout>
 
 

@@ -23,7 +23,10 @@ namespace ImageRecognizer
 		{
 			vm = new MainViewModel();
 			InitializeComponent();
-
+			spinner.IsVisible = false;
+			spinner.IsRunning = false;
+			loadingLabel.IsVisible = false;
+			buttonDone.IsVisible = true;
 			newId = id;
 		}
 
@@ -82,6 +85,11 @@ namespace ImageRecognizer
 
 		async void DoneButton_OnCLicked(object sender, EventArgs e)
 		{
+			spinner.IsVisible = true;
+			spinner.IsRunning = true;
+			loadingLabel.IsVisible = true;
+			buttonDone.IsVisible = false;
+
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
 			var url1 = await vm.UploadDoc(foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
@@ -99,15 +107,22 @@ namespace ImageRecognizer
 
 			Debug.WriteLine(newJson);
 
-			var myFlag = vm.RegistrationRequest(newJson);
+			var myFlag = await vm.RegistrationRequest(newJson);
 
 			if (myFlag)
 			{
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
+				loadingLabel.IsVisible = false;
 				await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
 				await Navigation.PushAsync(new LoginPage());
 			}
 			else
 			{
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
+				loadingLabel.IsVisible = false;
+				buttonDone.IsVisible = true;
 				await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
 			}
 

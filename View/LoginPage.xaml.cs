@@ -16,11 +16,10 @@ namespace ImageRecognizer
 
 		MainViewModel vm;
 
-		public JObject newOjb;
-
 		public LoginPage()
 		{
 			vm = new MainViewModel();
+
 
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
@@ -80,15 +79,13 @@ namespace ImageRecognizer
 			{
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
-				buttonGet.IsVisible = false;
-				buttonLogin.IsVisible = false;
-				reg.IsVisible = false;
-				or.IsVisible = false;
-				boxUno.IsVisible = false;
-				boxDue.IsVisible = false;
+				buttonGet.IsVisible = true;
+				buttonLogin.IsVisible = true;
+				reg.IsVisible = true;
+				or.IsVisible = true;
+				boxUno.IsVisible = true;
+				boxDue.IsVisible = true;
 				loadingLabel.IsVisible = false;
-				buttonProfile.IsVisible = true;
-				buttonLogout.IsVisible = true;
 
 				await Navigation.PushAsync(new PasswordPage(vm.GetJsonItem));
 			}
@@ -167,33 +164,6 @@ namespace ImageRecognizer
 				i = true;
 			}
 
-		}
-
-		void logutClicked(object sender, EventArgs e)
-		{ 
-			DisplayAlert("Loguot", "successful", "Ok");
-			spinner.IsVisible = false;
-			spinner.IsRunning = false;
-			buttonGet.IsVisible = true;
-			buttonLogin.IsVisible = true;
-			reg.IsVisible = true;
-			or.IsVisible = true;
-			boxUno.IsVisible = true;
-			boxDue.IsVisible = true;
-			loadingLabel.IsVisible = false;
-			buttonProfile.IsVisible = false;
-			buttonLogout.IsVisible = false;
-		}
-
-		public void getObj(JObject ogg) 
-		{
-			this.newOjb = ogg;
-			Debug.WriteLine("dentro: " + newOjb);
-		}
-
-		async void profileClicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new ProfilePage(this.newOjb));
 		}
 
 	}

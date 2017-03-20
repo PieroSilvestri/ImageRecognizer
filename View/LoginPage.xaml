@@ -24,7 +24,6 @@
 			<StackLayout Orientation="Vertical" Padding = "0, 80, 0, 0">
 			<ActivityIndicator x:Name="spinner" WidthRequest="110" HeightRequest="70" IsRunning="false" IsVisible="false" Color="#1A80FD" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 				<Button x:Name="buttonGet" Text="Get" Clicked="Get_OnClicked" BackgroundColor="#1A80FD" TextColor="White" IsVisible="true"/>
-				<Button x:Name="buttonProfile" Text="Profile View" Clicked="profileClicked" BackgroundColor="#1A80FD" TextColor="White" IsVisible="false"/>
 				<Button x:Name="buttonLogin" Text="Login" Clicked="LoginImage_OnClicked" BackgroundColor="#1A80FD" TextColor="White" IsVisible="true"/>
 	
 			</StackLayout>
@@ -44,7 +43,7 @@
 			
 			<StackLayout Orientation="Vertical" Spacing="10" >
 				<Button x:Name="reg" Text="Register" Clicked="DoRegistrator" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1" BorderColor="Black" IsVisible="true"/>
-				<Button x:Name="buttonLogout" Text="Logout" Clicked="logutClicked" BackgroundColor="Transparent" TextColor="Black" BorderWidth="1" BorderColor="Black" IsVisible="false"/>
+
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>
