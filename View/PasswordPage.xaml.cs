@@ -24,7 +24,6 @@ namespace ImageRecognizer
 			InitializeComponent();
 			this.Title = "Password";
 			NavigationPage.SetHasNavigationBar(this, false);
-			ProfilePicture.Source = "";
 
 			Debug.WriteLine("GetJsonItem");
 			Debug.WriteLine(getJsonItem["results"]);
@@ -34,7 +33,7 @@ namespace ImageRecognizer
 			string nome = proviamo["FirstName"].ToString();
 			string cognome = proviamo["LastName"].ToString();
 
-			string profileName = nome + " " + cognome + " inserisci la tua password:";
+			string profileName = "Benvenuto " + nome + " " + cognome + "!";
 
 			labelNome.Text = profileName;
 		}
@@ -48,9 +47,6 @@ namespace ImageRecognizer
 
 		public async void DoLoginWithPassword(object o, EventArgs e)
 		{
-			var password = Password.Text;
-
-			await DisplayAlert("Login Effettuato!", "Con la password " + password + " hai fatto il Login.", "OK");
 
 			await Navigation.PushAsync(new ProfilePage(oggetto));
 			/*string url = "http://jsonplaceholder.typicode.com/posts";
@@ -75,24 +71,6 @@ namespace ImageRecognizer
 
 
 
-		bool i = true;
-		public void EasterEgg(object sender, EventArgs e)
-		{
-
-			if (i == true)
-			{
-				LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
-				i = false;
-			}
-			else
-			{
-				LogoImage.Source = ImageSource.FromFile("NewLogo.png");
-
-				i = true;
-			}
-
-		}
-
 		async void backEvent(object sender, EventArgs e)
 		{
 			var disp = await DisplayAlert("Exit?", "Press 'yes' to logout", "Yes", "No");
@@ -103,6 +81,27 @@ namespace ImageRecognizer
 			}
 
 
+
+		}
+
+		bool i = true;
+		public void EasterEgg(object sender, EventArgs e)
+		{
+
+			if (i)
+			{
+				LogoImage.IsVisible = false;
+				LogoImage2.IsVisible = true;
+
+				i = false;
+			}
+			else
+			{
+				LogoImage2.IsVisible = false;
+				LogoImage.IsVisible = true;
+
+				i = true;
+			}
 
 		}
 

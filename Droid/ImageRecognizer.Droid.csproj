@@ -155,6 +155,10 @@
     <AndroidResource Include="Resources\drawable\NewLogo2.png" />
     <AndroidResource Include="Resources\drawable\user.png" />
     <AndroidResource Include="Resources\drawable\ageIcon.png" />
+    <AndroidResource Include="Resources\drawable\profileIcon.png" />
+    <AndroidResource Include="Resources\drawable\emotionIcon.png" />
+    <AndroidResource Include="Resources\drawable\feedbackIcon.png" />
+    <AndroidResource Include="Resources\drawable\logoutIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

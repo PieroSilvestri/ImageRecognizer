@@ -17,8 +17,20 @@ namespace ImageRecognizer {
     public partial class ProvaPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Image LogoImage;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label labelNome;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Grid grid;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
+            LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
+            labelNome = this.FindByName <global::Xamarin.Forms.Label>("labelNome");
+            grid = this.FindByName <global::Xamarin.Forms.Grid>("grid");
         }
     }
 }

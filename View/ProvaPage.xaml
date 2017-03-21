@@ -1,5 +1,95 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProvaPage">
 	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="20" Padding="15">
+			<!--<Button Text="Logout" 
+					BackgroundColor="#1A80FD" 
+					TextColor="White" 
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+					Clicked="backEvent"/> -->
+				
+				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="100" >
+					<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                NumberOfTapsRequired="1" />
+					</Image.GestureRecognizers>		
+				</Image>
+				<Label x:Name="labelNome" HorizontalTextAlignment="Start" HorizontalOptions = "Start" FontSize = "Medium"/>
+
+				<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
+					<Grid x:Name="grid" RowSpacing="20" ColumnSpacing="20">
+					  <Grid.RowDefinitions>
+					    <RowDefinition Height="130" />
+					    <RowDefinition Height="130" />
+						<RowDefinition Height="130" />
+					  </Grid.RowDefinitions>
+					  <Grid.ColumnDefinitions>
+					    <ColumnDefinition Width="130" />
+					    <ColumnDefinition Width="130" />
+					  </Grid.ColumnDefinitions>
+						
+					  <Image Source="profileIcon.png" 
+							BackgroundColor="#1A80FD"
+							Grid.Row="0" Grid.Column="0">
+						<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                NumberOfTapsRequired="1"
+									Tapped="DoLoginWithPassword" />
+						</Image.GestureRecognizers>	
+							
+					  </Image>
+
+						<Image Source="emotionIcon.png" 
+							BackgroundColor="#1A80FD"
+							Grid.Row="0" Grid.Column="1">
+						<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                NumberOfTapsRequired="1"
+									Tapped="DoLoginWithPassword" />
+						</Image.GestureRecognizers>	
+					  </Image>
+
+					  <Button Text="Profile" 
+								BackgroundColor="#1A80FD" 
+								TextColor="White" 
+								HorizontalOptions="FillAndExpand"
+								HeightRequest="50" 
+								Grid.Row="1" Grid.Column="0" />
+					  <Button Text="Profile" 
+								BackgroundColor="#1A80FD" 
+								TextColor="White" 
+								HorizontalOptions="FillAndExpand"
+								HeightRequest="50" 
+								Grid.Row="1" Grid.Column="1" />
+
+					  <Image Source="feedbackIcon.png" 
+							BackgroundColor="#1A80FD"
+							Grid.Row="2" Grid.Column="0">
+						<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                NumberOfTapsRequired="1"
+									Tapped="DoLoginWithPassword" />
+						</Image.GestureRecognizers>	
+					  </Image>
+
+						<Image Source="logoutIcon.png" 
+							BackgroundColor="#1A80FD"
+							Grid.Row="2" Grid.Column="1">
+						<Image.GestureRecognizers>
+					        <TapGestureRecognizer
+					                NumberOfTapsRequired="1"
+									Tapped="DoLoginWithPassword" />
+						</Image.GestureRecognizers>	
+					  </Image>						
+
+					</Grid>
+				</StackLayout>
+					
+
+				
+			</StackLayout>
+		</ScrollView>
 	</ContentPage.Content>
-</ContentPage>
+</ContentPage> 

@@ -4,13 +4,14 @@
 	<!--
 	<Grid><Image Source="NewLogo.png" Opacity="50"> </Image></Grid>
 	-->
-	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 0, 10, 0"> 
+	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 20, 10, 0"> 
 			<Button Text="Back" 
 					BackgroundColor="#1A80FD" 
 					TextColor="White" 
 					HorizontalOptions="Start"
 					VerticalOptions="Start"
-					Clicked="backEvent"/>
+					Clicked="backEvent"
+					WidthRequest="40"/>
 		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 20" Spacing="10">
 			<Label x:Name="header" HorizontalOptions="CenterAndExpand" FontSize="25" />
 			<Image x:Name="profileImage" HeightRequest="100"/> 

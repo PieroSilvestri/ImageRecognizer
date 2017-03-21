@@ -142,6 +142,10 @@
     <BundleResource Include="Resources\NewLogo2.png" />
     <BundleResource Include="Resources\user.png" />
     <BundleResource Include="Resources\ageIcon.png" />
+    <BundleResource Include="Resources\profileIcon.png" />
+    <BundleResource Include="Resources\emotionIcon.png" />
+    <BundleResource Include="Resources\feedbackIcon.png" />
+    <BundleResource Include="Resources\logoutIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

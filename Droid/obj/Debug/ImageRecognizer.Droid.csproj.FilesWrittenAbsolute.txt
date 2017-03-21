@@ -31,6 +31,10 @@
 /Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/newlogo2.png
 /Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/user.png
 /Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/ageicon.png
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/profileicon.png
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/emotionicon.png
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/feedbackicon.png
+/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/res/drawable/logouticon.png
 /Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/R.cs.flag
 /Users/andrea/Projects/ImageRecognizer/Droid/bin/Debug/it.pierosilvestri.imagerecognizer-Signed.apk
 /Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/uploadflags.txt

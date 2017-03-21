@@ -12,5 +12,13 @@ namespace ImageRecognizer
 			InitializeComponent();
 
 		}
+
+
+		public async void DoLoginWithPassword(object o, EventArgs e)
+		{
+		}
+
+
+
 	}
 }
