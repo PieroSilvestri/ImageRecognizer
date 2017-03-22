@@ -159,6 +159,8 @@
     <AndroidResource Include="Resources\drawable\emotionIcon.png" />
     <AndroidResource Include="Resources\drawable\feedbackIcon.png" />
     <AndroidResource Include="Resources\drawable\logoutIcon.png" />
+    <AndroidResource Include="Resources\drawable\cameraIcon.png" />
+    <AndroidResource Include="Resources\drawable\reportIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

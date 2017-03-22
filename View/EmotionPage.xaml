@@ -29,14 +29,15 @@
 							<ColumnDefinition Width="120" />
 						</Grid.ColumnDefinitions>
 						
-						<Image Source="profileIcon.png" BackgroundColor="#1A80FD" 
+						<Image Source="cameraIcon.png" BackgroundColor="#1A80FD" 
 							   Grid.Row="0" Grid.Column="0">
 							<Image.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1"/>
+								<TapGestureRecognizer NumberOfTapsRequired="1"
+														Tapped="TakeAPhoto"/>
 							</Image.GestureRecognizers>
 						</Image>
 						
-						<Image Source="emotionIcon.png" BackgroundColor="#1A80FD" 
+						<Image Source="reportIcon.png" BackgroundColor="#1A80FD" 
 							   Grid.Row="0" Grid.Column="1">
 							<Image.GestureRecognizers>
 								<TapGestureRecognizer NumberOfTapsRequired="1"
@@ -44,9 +45,20 @@
 							</Image.GestureRecognizers>
 						</Image>
 						
-						<Button Text="Profile" Clicked="TakeAPhoto" BackgroundColor="#1A80FD" TextColor="White" HorizontalOptions="FillAndExpand" HeightRequest="50" Grid.Row="1" Grid.Column="0" />
-
-						<Button Text="Profile" Clicked="ShowReports" BackgroundColor="#1A80FD" TextColor="White" HorizontalOptions="FillAndExpand" HeightRequest="50" Grid.Row="1" Grid.Column="1" />
+						<Image Source="profileIcon.png" BackgroundColor="#1A80FD" 
+							   Grid.Row="1" Grid.Column="0">
+							<Image.GestureRecognizers>
+								<TapGestureRecognizer NumberOfTapsRequired="1"/>
+							</Image.GestureRecognizers>
+						</Image>
+						
+						<Image Source="emotionIcon.png" BackgroundColor="#1A80FD" 
+							   Grid.Row="1" Grid.Column="1">
+							<Image.GestureRecognizers>
+								<TapGestureRecognizer NumberOfTapsRequired="1"
+														Tapped="ShowReports"/>
+							</Image.GestureRecognizers>
+						</Image>
 					</Grid>
 				</StackLayout>
 			</StackLayout>

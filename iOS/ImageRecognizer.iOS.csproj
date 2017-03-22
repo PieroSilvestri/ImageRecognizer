@@ -146,6 +146,8 @@
     <BundleResource Include="Resources\emotionIcon.png" />
     <BundleResource Include="Resources\feedbackIcon.png" />
     <BundleResource Include="Resources\logoutIcon.png" />
+    <BundleResource Include="Resources\cameraIcon.png" />
+    <BundleResource Include="Resources\reportIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

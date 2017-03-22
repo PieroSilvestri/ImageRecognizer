@@ -25,60 +25,16 @@ namespace ImageRecognizer
 	public class MainViewModel : INotifyPropertyChanged
 	{
 
-		private List<JsonItem> newJsonItemList;
-		public List<JsonItem> NewJsonItemList
+		public MainViewModel()
 		{
-			get
-			{
-				return newJsonItemList;
-			}
-
-			set
-			{
-				newJsonItemList = value;
-				NotifyPropertyChanged();
-			}
 		}
 
-		private JObject getJsonItem;
-		public JObject GetJsonItem
+
+		static byte[] GetImageAsByteArray(MediaFile imageFile)
 		{
-			get
-			{
-				return getJsonItem;
-			}
-			set
-			{
-				getJsonItem = value;
-				NotifyPropertyChanged();
-			}
+			BinaryReader binaryReader = new BinaryReader(imageFile.GetStream());
+			return binaryReader.ReadBytes((int)imageFile.GetStream().Length);
 		}
-
-		private string newLink;
-		public string NewLink
-		{
-			get
-			{
-				return newLink;
-			}
-			set
-			{
-				newLink = value;
-				NotifyPropertyChanged();
-			}
-		}
-
-		private int userId;
-		public int UserId { get { return userId; } set { userId = value; NotifyPropertyChanged(); } }
-
-		private int id;
-		public int Id { get { return id; } set { id = value; NotifyPropertyChanged(); } }
-
-		private int title;
-		public int Title { get { return title; } set { title = value; NotifyPropertyChanged(); } }
-
-		private int body;
-		public int Body { get { return body; } set { body = value; NotifyPropertyChanged(); } }
 
 		public async Task JsonPostProva() 
 		{
@@ -104,77 +60,48 @@ namespace ImageRecognizer
 			Debug.WriteLine(a);
 		}
 
-		public async Task<string> UploadDoc(MediaFile file)
+		public async Task<JObject> MakeDetectRequest(MediaFile imageFile)
 		{
-			using (var dbx = new DropboxClient("mRUyhXfE2KEAAAAAAAAIvIEHO5v-5iBbhBgRf5BYslj-bzR0fmjtC_NXLVi8xgfU"))
+			var client = new HttpClient();
+
+			// Request headers - replace this example key with your valid key.
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "1297619ba72542d38347e044905ed499");
+
+			// Request parameters and URI string.
+			string queryString = "returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender";
+			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + queryString;
+
+			HttpResponseMessage response;
+			string responseContent;
+
+			// Request body. Try this sample with a locally stored JPEG image.
+			byte[] byteData = GetImageAsByteArray(imageFile);
+
+			using (var content = new ByteArrayContent(byteData))
 			{
-				var full = await dbx.Users.GetCurrentAccountAsync();
-				var fileName = DateTime.Now;
-				return await Upload(dbx, @"/MyApp/imageRecognizer_v1", "ciaoATutti.jpg", file);
-			}
-		}
+				// This example uses content type "application/octet-stream".
+				// The other content types you can use are "application/json" and "multipart/form-data".
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				response = await client.PostAsync(uri, content);
+				responseContent = response.Content.ReadAsStringAsync().Result;
 
-		async Task<string> Upload(DropboxClient dbx, string folder, string file, MediaFile content)
-		{
-
-			using (var mem = content.GetStream())
-			{
-
-				var updated = await dbx.Files.UploadAsync(
-					folder + "/" + file,
-					WriteMode.Overwrite.Instance,
-					body: mem);
-
-				Debug.WriteLine("Saved {0}/{1} rev {2}", folder, file, updated.Rev);
-
+				Debug.WriteLine(responseContent);
+				return (JObject) JArray.Parse(responseContent.ToString()).First;
 			}
 
-			var newUrl = @"" + folder + "/" + file;
-			Debug.WriteLine("newUrl");
-			Debug.WriteLine(newUrl);
-			return await GetDropboxResponse(newUrl);
-
+			//A peak at the JSON response.
+			Debug.WriteLine(responseContent);
+			return null;
 		}
 
-		public async Task<string> GetDropboxResponse(string myUrlPath)
-		{
-			HttpClient dropboxClient = new HttpClient();
-			var url = @"https://api.dropboxapi.com/2/files/get_temporary_link";
-
-			var param = JsonConvert.SerializeObject(new { path = myUrlPath });
-
-			var myToken = @"mRUyhXfE2KEAAAAAAAAIvIEHO5v-5iBbhBgRf5BYslj-bzR0fmjtC_NXLVi8xgfU";
-
-			var content = new StringContent(param, null, "application/json");
-			dropboxClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer" , myToken);
-			//content.Headers.Add("Authorization", myToken);
-
-			var response = await dropboxClient.PostAsync(url, content);
-			response.EnsureSuccessStatusCode();
-
-			var JsonResult = response.Content.ReadAsStringAsync().Result;
-			Debug.WriteLine("DROPBOX JSONRESULT");
-			Debug.WriteLine(JsonResult);
-			//var items = JsonConvert.ToString(JsonResult);
-
-			JObject a = JObject.Parse(JsonResult);
-
-			Debug.WriteLine("DROPBOX JSONOBJECT");
-			Debug.WriteLine(a);
-
-			var newMyUrl = a["link"].ToString();
-
-			return newMyUrl;
-		}
-
-		public async Task PostUrlToServer(string myUrl)
+		public async Task<JObject> PostFaceIdToServer(string newFaceId)
 		{
 			HttpClient client = new HttpClient();
 			//client.BaseAddress = new Uri(url);
 
 			var url = "http://l-raggioli2.eng.teorema.net/api/values/";
 			//string trumpUrl = "https://dl.dropboxusercontent.com/apitl/1/AAA-vXk3UAyO45sE8upAMMp6wsYXdKps6JeJurLlftYGOuF55BDrLzXTniDTVUWfbWBeYlLOR0DmeGvN0wrWiXJELlhppN1vqcMBYXjWiCnAOBqw56WFb18M8YEfuJxQ1eqKbMeMbLS8fqz4TCiavrVA5ujktQkCTPJbeX5fJsTWJh88MGfP9Olcfr99OHqmEItzPb5yW7Eor7HTGqeoxiBguVheQ8XIKsUP0ZyRDEIHbTBtWVxqoVwxj4nPp-cj3ziqxa4jKXtkcPgRHRJNunuT".ToString();
-			string tempUrl = @"'"+myUrl+"'";
+			string tempUrl = @"'"+newFaceId+"'";
 
 			var content = new StringContent(tempUrl, null, "application/json");
 
@@ -187,22 +114,21 @@ namespace ImageRecognizer
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);
+			Debug.WriteLine("JSONPOSTPROVA");
+			Debug.WriteLine(a);
+
 			var success = (Boolean) a["success"];
 			if (success)
 			{
 				Debug.WriteLine("TRUE");
-				await GetUserByFaceId(a["value"].ToString());
-			}
-			else
-			{
-				Debug.WriteLine("FALSE");
+				return await GetUserByFaceId(a["value"].ToString());
 			}
 
-			Debug.WriteLine("JSONPOSTPROVA");
-			Debug.WriteLine(a);
+			Debug.WriteLine("FALSE");
+			return null;
 		}
 
-		public async Task GetUserByFaceId(string faceId)
+		public async Task<JObject> GetUserByFaceId(string faceId)
 		{
 
 			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + faceId;
@@ -217,15 +143,11 @@ namespace ImageRecognizer
 			Debug.WriteLine("KNOW YOUR ENEMIES");
 			//var items = JsonConvert.ToString(JsonResult);
 
-			JObject a = JObject.Parse(JsonResult);
-
-			Debug.WriteLine("JSONGETPROVA");
-			Debug.WriteLine(a);
-
-			GetJsonItem = a;
+			return JObject.Parse(JsonResult);
 		}
 
-		public async Task JsonGetProva(string url)
+
+		public async Task<JObject> JsonGetProva(string url)
 		{
 			HttpClient client = new HttpClient();
 			client.BaseAddress = new Uri(url); ;
@@ -242,8 +164,9 @@ namespace ImageRecognizer
 			Debug.WriteLine("JSONGETPROVA");
 			Debug.WriteLine(a);
 
-			GetJsonItem = a;
+			return a;
 		}
+
 
 		public async Task<int> CreateANewUser(JObject newPerson)
 		{
@@ -307,6 +230,8 @@ namespace ImageRecognizer
 			return myFlag;
 		}
 
+		/*
+
 		public async Task GetJsonResponse(string url)
 		{
 			HttpClient client = new HttpClient();
@@ -343,7 +268,7 @@ namespace ImageRecognizer
 
 					Debug.WriteLine(name + " -- " + value);
 				}
-				*/
+
 
 				JsonItem newItem = new JsonItem();
 				newItem.userId = newUserId;
@@ -362,9 +287,8 @@ namespace ImageRecognizer
 			NewJsonItemList = myNewList;
 		}
 
-		public MainViewModel()
-		{
-		}
+		*/
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

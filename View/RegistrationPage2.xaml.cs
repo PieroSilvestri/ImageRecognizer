@@ -90,6 +90,7 @@ namespace ImageRecognizer
 			loadingLabel.IsVisible = true;
 			buttonDone.IsVisible = false;
 
+			/*
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
 			var url1 = await vm.UploadDoc(foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
@@ -125,6 +126,7 @@ namespace ImageRecognizer
 				buttonDone.IsVisible = true;
 				await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
 			}
+			*/
 
 		}
 
