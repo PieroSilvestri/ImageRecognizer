@@ -342,7 +342,7 @@ namespace ImageRecognizer
 			// Request parameters. A third optional parameter is "details".
 			string requestParameters = "visualFeatures=Categories,Faces&language=en";
 			string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + requestParameters;
-			Debug.WriteLine(uri);
+			//Debug.WriteLine(uri);
 
 			HttpResponseMessage response;
 
@@ -377,7 +377,7 @@ namespace ImageRecognizer
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("registration Request");
-			Debug.WriteLine(JsonResult);
+			//Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);
@@ -385,6 +385,22 @@ namespace ImageRecognizer
 			bool myFlag = (bool)a["success"];
 
 			return myFlag;
+		}
+
+		public async Task<JObject> GetEmotionsReport(int userId)
+		{
+			var url = @"http://l-raggioli2.eng.teorema.net/api/detect/" + userId;
+			HttpClient client = new HttpClient();
+
+			var response = await client.GetAsync(url);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			return a;
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
