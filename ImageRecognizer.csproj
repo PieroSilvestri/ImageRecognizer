@@ -51,6 +51,9 @@
     <EmbeddedResource Include="View\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\EmotionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -84,6 +87,9 @@
     <Compile Include="Model\RegistrationPerson.cs" />
     <Compile Include="View\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmotionPage.xaml.cs">
+      <DependentUpon>EmotionPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -69,7 +69,10 @@ namespace ImageRecognizer
 			}*/
 		}
 
-
+		public async void GoToEmotionPage(object o, EventArgs e)
+		{
+			await Navigation.PushAsync(new EmotionPage());
+		}
 
 		async void backEvent(object sender, EventArgs e)
 		{
@@ -87,21 +90,19 @@ namespace ImageRecognizer
 		bool i = true;
 		public void EasterEgg(object sender, EventArgs e)
 		{
-
+			
 			if (i)
 			{
 				LogoImage.IsVisible = false;
 				LogoImage2.IsVisible = true;
-
-				i = false;
 			}
 			else
 			{
 				LogoImage2.IsVisible = false;
 				LogoImage.IsVisible = true;
-
-				i = true;
 			}
+
+			i = !i;
 
 		}
 
