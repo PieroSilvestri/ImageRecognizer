@@ -20,8 +20,6 @@ namespace ImageRecognizer
 		{
 			vm = new MainViewModel();
 
-			DisplayAlert("Prova", "Prova", "Porco dio");
-
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
 		}
@@ -78,7 +76,7 @@ namespace ImageRecognizer
 			{
 				JObject myUser = await vm.PostFaceIdToServer(newUrl["faceId"].ToString());
 
-				if (myUser != null)
+				if (myUser != null || (bool)myUser["success"])
 				{
 					
 
@@ -96,7 +94,6 @@ namespace ImageRecognizer
 			}
 			else
 			{
-				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
 				buttonGet.IsVisible = true;
@@ -106,6 +103,7 @@ namespace ImageRecognizer
 				boxUno.IsVisible = true;
 				boxDue.IsVisible = true;
 				loadingLabel.IsVisible = false;
+				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
 			}
 
 

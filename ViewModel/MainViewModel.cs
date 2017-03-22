@@ -135,6 +135,7 @@ namespace ImageRecognizer
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("KNOW YOUR ENEMIES");
+			Debug.WriteLine(JObject.Parse(JsonResult));
 			//var items = JsonConvert.ToString(JsonResult);
 
 			return JObject.Parse(JsonResult);
