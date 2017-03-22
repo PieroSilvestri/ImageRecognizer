@@ -6,7 +6,8 @@
 		<provider android:name="android.support.v4.content.FileProvider" 
 					android:authorities="it.pierosilvestri.imagerecognizer.fileprovider" 
 					android:exported="false" 
-					android:grantUriPermissions="true">
+					android:grantUriPermissions="true"
+					android:largeHeap="true">
 				<meta-data android:name="android.support.FILE_PROVIDER_PATHS" 
 					android:resource="@xml/file_paths"></meta-data>
 		</provider>
