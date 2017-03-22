@@ -28,50 +28,30 @@ namespace ImageRecognizer
 			Debug.WriteLine("GetJsonItem");
 			Debug.WriteLine(getJsonItem["results"]);
 
-			JObject proviamo = getJsonItem;
-			takeObject(proviamo);
-			string nome = proviamo["FirstName"].ToString();
-			string cognome = proviamo["LastName"].ToString();
+			this.oggetto = getJsonItem;
+			string nome = oggetto["FirstName"].ToString();
+			string cognome = oggetto["LastName"].ToString();
 
 			string profileName = "Benvenuto " + nome + " " + cognome + "!";
 
 			labelNome.Text = profileName;
 		}
 
-		public void takeObject(JObject obj)
+		public async void GoToEmotionpage(object o, EventArgs e)
 		{
-			oggetto = obj;
-			Debug.WriteLine("oggetto:");
-			Debug.WriteLine(oggetto);
+			int user_id = (int)oggetto["ID"];
+			await Navigation.PushAsync(new EmotionPage(user_id));
 		}
+			
 
-		public async void DoLoginWithPassword(object o, EventArgs e)
+		public async void GoToProfile(object o, EventArgs e)
 		{
-
 			await Navigation.PushAsync(new ProfilePage(oggetto));
-			/*string url = "http://jsonplaceholder.typicode.com/posts";
-
-			try
-			{
-				await vm.GetJsonResponse(url);
-
-			}
-			catch (Exception exc)
-			{
-				Debug.WriteLine("ERROR EXCEPTION");
-				Debug.WriteLine(exc);
-			}
-
-			if (vm.NewJsonItemList != null)
-			{
-				List<JsonItem> newList = vm.NewJsonItemList;
-
-			}*/
 		}
 
 		public async void GoToEmotionPage(object o, EventArgs e)
 		{
-			await Navigation.PushAsync(new EmotionPage());
+			await Navigation.PushAsync(new EmotionPage(1));
 		}
 
 		async void backEvent(object sender, EventArgs e)

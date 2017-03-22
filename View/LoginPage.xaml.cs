@@ -111,19 +111,6 @@ namespace ImageRecognizer
 
 		}
 
-		/*
-		public byte[] ReadImageFile(string imageLocation)
-		{
-			byte[] imageData = null;
-			FileInfo fileInfo = new FileInfo(imageLocation);
-			long imageFileLength = fileInfo.Length;
-			FileStream fs = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
-			BinaryReader br = new BinaryReader(fs);
-			imageData = br.ReadBytes((int)imageFileLength);
-			return imageData;
-		}
-		*/
-
 		public async void Get_OnClicked(object o, EventArgs e) 
 		{
 
@@ -138,17 +125,6 @@ namespace ImageRecognizer
 				await Navigation.PushAsync(new PasswordPage(getItem));
 			}
 		}
-
-
-
-		/*
-		public async void DoLogin(object o, EventArgs e)
-		{
-			//var username = UsernameMy.Text;
-			//var password = Password.Text;
-
-		}
-		*/
 
 		public void DoRegistrator(object o, EventArgs e)
 		{

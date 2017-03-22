@@ -1,24 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Net.Http;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
+using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
-
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using Microsoft.ProjectOxford.Emotion;
+using Microsoft.ProjectOxford.Emotion.Contract;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using Plugin.Media;
-using System.Text;
-using Dropbox;
-using Dropbox.Api;
-using Dropbox.Api.Files;
 using Plugin.Media.Abstractions;
-using Xamarin.Forms;
-
 
 namespace ImageRecognizer
 {
@@ -289,6 +283,85 @@ namespace ImageRecognizer
 
 		*/
 
+		public async Task<JArray> DetectFaceAndEmotionsAsync(EmotionServiceClient emotionServiceClient, MediaFile inputFile)
+		{
+			Emotion[] emotionResult = await emotionServiceClient.RecognizeAsync(inputFile.GetStream());
+			if (emotionResult.Any())
+			{
+				// Emotions detected are happiness, sadness, surprise, anger, fear, contempt, disgust, or neutral.
+				// emotionResult.FirstOrDefault().Scores.ToRankedList().FirstOrDefault().Key;
+				var emozione = emotionResult.FirstOrDefault().Scores.ToRankedList().ToList();
+				JArray a = JArray.Parse(JsonConvert.SerializeObject(emozione));
+
+				return a;
+			}
+			else
+			{
+				Debug.WriteLine("Error");
+				return null;
+			}
+
+		}
+
+		public async Task<string> GetPeopleEmotions(string emotionKey, MediaFile imageFile)
+		{
+			var client = new HttpClient();
+
+			// Request headers
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", emotionKey);
+
+			string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
+			HttpResponseMessage response;
+			string responseContent;
+
+			// Request body. Try this sample with a locally stored JPEG image.
+			byte[] byteData = GetImageAsByteArray(imageFile);
+
+			using (var content = new ByteArrayContent(byteData))
+			{
+				// This example uses content type "application/octet-stream".
+				// The other content types you can use are "application/json" and "multipart/form-data".
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				response = await client.PostAsync(uri, content);
+				responseContent = response.Content.ReadAsStringAsync().Result;
+			}
+
+			//A peak at the JSON response.
+
+			return responseContent;
+		}
+
+		public async Task<string> MakeAnalysisRequest(string computerVisionKey, MediaFile imageFile)
+		{
+			var client = new HttpClient();
+
+			// Request headers. Replace the second parameter with a valid subscription key.
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", computerVisionKey);
+
+			// Request parameters. A third optional parameter is "details".
+			string requestParameters = "visualFeatures=Categories,Faces&language=en";
+			string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + requestParameters;
+			Debug.WriteLine(uri);
+
+			HttpResponseMessage response;
+
+			// Request body. Try this sample with a locally stored JPEG image.
+			byte[] byteData = GetImageAsByteArray(imageFile);
+
+			using (var content = new ByteArrayContent(byteData))
+			{
+				// This example uses content type "application/octet-stream".
+				// The other content types you can use are "application/json" and "multipart/form-data".
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				response = await client.PostAsync(uri, content);
+
+			}
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+
+
+			return JsonResult;
+		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
