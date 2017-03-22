@@ -49,7 +49,7 @@ namespace ImageRecognizer
 			Debug.WriteLine(file);
 
 
-			await Navigation.PushAsync(new ImageEmotionPage(file));
+			await Navigation.PushAsync(new ImageEmotionPage(this.user_id, file));
 		}
 
 		public void ShowReports(object o, EventArgs e)

@@ -21,18 +21,21 @@ namespace ImageRecognizer
 
 
 		private MainViewModel cognityServices;
+		private int user_id;
 
-		public ImageEmotionPage(MediaFile imageSource)
+		public ImageEmotionPage(int id, MediaFile imageSource)
 		{
 			InitializeComponent();
 			Image1.Source = ImageSource.FromStream(() => imageSource.GetStream());;
-			//Ozecky sdk 
-
+			//Ozecky sdk
+			user_id = id;
+			cognityServices = new MainViewModel();
+			this.faceServiceClient = new FaceServiceClient(faceKey);
+			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
 			this.Title = "Foto Scattata";
 
-			if(imageSource != null){
-				DoTheProgramm(imageSource);
-			}
+
+			DoTheProgramm(imageSource);
 		}
 
 		public async void RetakeAPhoto(object o, EventArgs e)
@@ -63,17 +66,24 @@ namespace ImageRecognizer
 			Debug.WriteLine(file);
 
 			Image1.Source = ImageSource.FromStream(() => file.GetStream());
+
+			DoTheProgramm(file);
 		}
 
 		private async void DoTheProgramm(MediaFile file)
 		{
-			
+
+			/*
 			JArray emozione = await cognityServices.DetectFaceAndEmotionsAsync(emotionServiceClient, file);
 			if (emozione != null)
 			{
 				Debug.WriteLine("DETECTEMOTION");
 				Debug.WriteLine(emozione.First["Key"]);
 			}
+			*/
+
+			JArray scores = new JArray();
+			JArray faces = new JArray();
 
 			string peopleEmotions = await cognityServices.GetPeopleEmotions(emotionKey, file);
 			if (peopleEmotions != null)
@@ -81,9 +91,15 @@ namespace ImageRecognizer
 				JArray jArrayResponse = JArray.Parse(peopleEmotions);
 				Debug.WriteLine("GETPEOPLEEMOTIONS");
 				Debug.WriteLine(jArrayResponse);
+
+				foreach (JObject item in jArrayResponse)
+				{
+					scores.Add((JObject)item["scores"]);
+				}
 			}
 
 			string imageAnalysis = await cognityServices.MakeAnalysisRequest(computerVisionKey, file);
+
 			if (imageAnalysis != null)
 			{
 				Debug.WriteLine("MAKEANALYSISREQUEST");
@@ -91,8 +107,44 @@ namespace ImageRecognizer
 				Debug.WriteLine("MAKEANALYSISJSON");
 				JObject imageAnalysisJSON = JObject.Parse(imageAnalysis);
 				Debug.WriteLine(imageAnalysisJSON);
+
+				foreach (JObject item in imageAnalysisJSON["faces"])
+				{
+					faces.Add(item);
+				}
 			}
 
+			Debug.WriteLine("JSONTOPOST");
+			JObject jsonToPass = new JObject(
+				new JProperty("success", true),
+				new JProperty("faces", faces),
+				new JProperty("emotions", scores),
+				new JProperty("id_user", this.user_id));
+			Debug.WriteLine(jsonToPass);
+
+			bool response;
+
+			if (!faces.HasValues)
+			{
+				response = false;
+			}
+			else if (!scores.HasValues)
+			{
+				response = false;
+			}
+			else
+			{
+				response = await cognityServices.SendEmotions(jsonToPass);
+			}
+
+			if (response)
+			{
+				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
+			}
+			else
+			{
+				await DisplayAlert("Error!", "Value not inserted.", "Ok");
+			}
 
 		}
 	}

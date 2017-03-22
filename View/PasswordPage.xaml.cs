@@ -37,7 +37,7 @@ namespace ImageRecognizer
 			labelNome.Text = profileName;
 		}
 
-		public async void GoToEmotionpage(object o, EventArgs e)
+		public async void GoToEmotionPage(object o, EventArgs e)
 		{
 			int user_id = (int)oggetto["ID"];
 			await Navigation.PushAsync(new EmotionPage(user_id));
@@ -47,11 +47,6 @@ namespace ImageRecognizer
 		public async void GoToProfile(object o, EventArgs e)
 		{
 			await Navigation.PushAsync(new ProfilePage(oggetto));
-		}
-
-		public async void GoToEmotionPage(object o, EventArgs e)
-		{
-			await Navigation.PushAsync(new EmotionPage(1));
 		}
 
 		async void backEvent(object sender, EventArgs e)

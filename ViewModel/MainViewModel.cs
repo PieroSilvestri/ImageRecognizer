@@ -363,6 +363,29 @@ namespace ImageRecognizer
 			return JsonResult;
 		}
 
+		public async Task<bool> SendEmotions(JObject jsonToPass)
+		{
+			var url = @"http://l-raggioli2.eng.teorema.net/api/detect/";
+
+			HttpClient client = new HttpClient();
+
+			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
+
+			var response = await client.PostAsync(url, content);
+			response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("registration Request");
+			Debug.WriteLine(JsonResult);
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			bool myFlag = (bool)a["success"];
+
+			return myFlag;
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
