@@ -20,6 +20,7 @@ namespace ImageRecognizer
 		{
 			vm = new MainViewModel();
 
+			DisplayAlert("Prova", "Prova", "Porco dio");
 
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
@@ -64,19 +65,38 @@ namespace ImageRecognizer
 
 			var myPath = file.AlbumPath;
 
-			Debug.WriteLine("MYPATH");
+			Debug.WriteLine("MYFILE");
 			Debug.WriteLine(file);
 
 			//await Navigation.PushAsync(new PasswordPage(file.AlbumPath));
 
 			//var url = "http://l-raggioli2.eng.teorema.net/api/upload/";
 
-			var newUrl = await vm.UploadDoc(file);
+			var newUrl = await vm.MakeDetectRequest(file);
 
-			await vm.PostUrlToServer(newUrl);
-
-			if (vm.GetJsonItem != null)
+			if (newUrl != null)
 			{
+				JObject myUser = await vm.PostFaceIdToServer(newUrl["faceId"].ToString());
+
+				if (myUser != null)
+				{
+					
+
+					await Navigation.PushAsync(new PasswordPage(myUser));
+					spinner.IsVisible = false;
+					spinner.IsRunning = false;
+					buttonGet.IsVisible = true;
+					buttonLogin.IsVisible = true;
+					reg.IsVisible = true;
+					or.IsVisible = true;
+					boxUno.IsVisible = true;
+					boxDue.IsVisible = true;
+					loadingLabel.IsVisible = false;
+				}
+			}
+			else
+			{
+				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
 				buttonGet.IsVisible = true;
@@ -86,9 +106,9 @@ namespace ImageRecognizer
 				boxUno.IsVisible = true;
 				boxDue.IsVisible = true;
 				loadingLabel.IsVisible = false;
-
-				await Navigation.PushAsync(new PasswordPage(vm.GetJsonItem));
 			}
+
+
 		}
 
 		/*
@@ -111,11 +131,11 @@ namespace ImageRecognizer
 
 			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + key;
 
-			await vm.JsonGetProva(url);
+			var getItem = await vm.JsonGetProva(url);
 
-			if (vm.GetJsonItem != null)
+			if (getItem != null)
 			{
-				await Navigation.PushAsync(new PasswordPage(vm.GetJsonItem));
+				await Navigation.PushAsync(new PasswordPage(getItem));
 			}
 		}
 

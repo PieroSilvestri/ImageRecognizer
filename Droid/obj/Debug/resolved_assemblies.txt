@@ -65,6 +65,3 @@
 /Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/Microsoft.CSharp.dll
 /Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/Mono.CSharp.dll
 /Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/System.Diagnostics.Tools.dll
-/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/Dropbox.Api.dll
-/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/Microsoft.Threading.Tasks.dll
-/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/android/assets/System.Net.dll

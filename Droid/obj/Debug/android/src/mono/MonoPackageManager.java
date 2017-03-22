@@ -127,8 +127,6 @@ class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.v7.MediaRouter.dll",
 		"ImageRecognizer.dll",
 		"Newtonsoft.Json.dll",
-		"Dropbox.Api.dll",
-		"Microsoft.Threading.Tasks.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};
