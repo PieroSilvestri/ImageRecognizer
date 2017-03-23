@@ -50,6 +50,8 @@ namespace ImageRecognizer
 			{
 				Debug.WriteLine("GetReportsException");
 				Debug.WriteLine(exc);
+				await DisplayAlert("Error", "There are no report", "Ok");
+				await Navigation.PopAsync(true);
 			}
 
 
