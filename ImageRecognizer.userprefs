@@ -1,5 +1,30 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="View/LoginPage.xaml.cs">
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/LoginPage.xaml.cs">
+    <Files>
+      <File FileName="View/ProfilePage.xaml.cs" Line="34" Column="30" />
+      <File FileName="View/ReportPage.xaml.cs" Line="28" Column="4" />
+      <File FileName="View/EmotionPage.xaml.cs" Line="67" Column="26" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="393" Column="41" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="33" Column="1" />
+      <File FileName="View/LoginPage.xaml.cs" Line="83" Column="1" />
+    </Files>
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Model/RegistrationPerson.cs">
+=======
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="View/EmotionPage.xaml.cs" Line="19" Column="22" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="104" Column="36" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/ReportPage.xaml.cs">
+>>>>>>> master
+>>>>>>> master
     <Files>
       <File FileName="View/PasswordPage.xaml.cs" Line="1" Column="1" />
       <File FileName="View/ProvaPage.xaml.cs" Line="1" Column="1" />
@@ -41,6 +66,7 @@
         </State>
       </Pad>
     </Pads>
+>>>>>>> master
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -51,6 +77,11 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
   <MultiItemStartupConfigurations />
+<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.emulator-5554" />
+=======
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.S7M0215928015797" />
+>>>>>>> master
 </Properties>

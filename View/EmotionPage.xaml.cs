@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace ImageRecognizer
 
 		private bool i = true;
 		private int user_id;
+		MainViewModel vm;
 
 		public EmotionPage(int id)
 		{
@@ -54,10 +56,20 @@ namespace ImageRecognizer
 			await Navigation.PushAsync(new ImageEmotionPage(this.user_id, file));
 		}
 
-		public void ShowReports(object o, EventArgs e)
+		async public void ShowReports(object o, EventArgs e)
 		{
-			Navigation.PushAsync(new ReportPage(user_id));
+			try
+			{
+				if (vm.GetEmotionsReport(user_id) != null)
+				{
+					await Navigation.PushAsync(new ReportPage(user_id));
+				}
+			} catch (Exception exc){
+				await DisplayAlert("Error", "There are no reports", "Ok");
+			}
 		}
+
+
 
 
 		async void loadDelayAnimation()

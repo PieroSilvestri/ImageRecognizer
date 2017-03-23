@@ -30,7 +30,7 @@ namespace ImageRecognizer
 			Debug.WriteLine(myReport);
 
 			ReportItem reportItem = new ReportItem();
-			reportItem.Success = (bool) myReport["success"];
+			reportItem.Success = (bool)myReport["success"];
 			reportItem.Average_age = (int)myReport["average_age"];
 			reportItem.Male_count = (int)myReport["male_count"];
 			reportItem.Female_count = (int)myReport["female_count"];
