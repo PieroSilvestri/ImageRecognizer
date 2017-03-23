@@ -94,6 +94,7 @@ namespace ImageRecognizer
 					Debug.WriteLine("FaceId Error");
 					Debug.WriteLine(exc);
 					await DisplayAlert("Error!", "Your face id is not valid. Try again.", "OK");
+					HideSpinner();
 				}
 
 			}
