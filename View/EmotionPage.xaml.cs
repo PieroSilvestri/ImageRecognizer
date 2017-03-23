@@ -58,15 +58,7 @@ namespace ImageRecognizer
 
 		async public void ShowReports(object o, EventArgs e)
 		{
-			try
-			{
-				if (vm.GetEmotionsReport(user_id) != null)
-				{
-					await Navigation.PushAsync(new ReportPage(user_id));
-				}
-			} catch (Exception exc){
-				await DisplayAlert("Error", "There are no reports", "Ok");
-			}
+			await Navigation.PushAsync(new ReportPage(user_id));
 		}
 
 

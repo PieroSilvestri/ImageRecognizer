@@ -24,25 +24,34 @@ namespace ImageRecognizer
 
 		public async void GetReports()
 		{
-			JObject myReport = await vm.GetEmotionsReport(user_id);
+			try
+			{
+				JObject myReport = await vm.GetEmotionsReport(user_id);
 
-			Debug.WriteLine("GetEmotionsReport");
-			Debug.WriteLine(myReport);
+				Debug.WriteLine("GetEmotionsReport");
+				Debug.WriteLine(myReport);
 
-			ReportItem reportItem = new ReportItem();
-			reportItem.Success = (bool)myReport["success"];
-			reportItem.Average_age = (int)myReport["average_age"];
-			reportItem.Male_count = (int)myReport["male_count"];
-			reportItem.Female_count = (int)myReport["female_count"];
-			reportItem.Not_adult_count = (int)myReport["not_adult_count"];
-			reportItem.Male_older_age = (int)myReport["male_older_age"];
-			reportItem.Female_older_age = (int)myReport["female_older_age"];
-			reportItem.Last_face_detected = myReport["last_face_detected"].ToString();
-			reportItem.Number_of_face_detected_today = (int)myReport["number_of_face_detected_today"];
-			reportItem.Total_face_detected = (int)myReport["total_face_detected"];
-			reportItem.Description = myReport["description"].ToString();
+				ReportItem reportItem = new ReportItem();
+				reportItem.Success = (bool)myReport["success"];
+				reportItem.Average_age = (int)myReport["average_age"];
+				reportItem.Male_count = (int)myReport["male_count"];
+				reportItem.Female_count = (int)myReport["female_count"];
+				reportItem.Not_adult_count = (int)myReport["not_adult_count"];
+				reportItem.Male_older_age = (int)myReport["male_older_age"];
+				reportItem.Female_older_age = (int)myReport["female_older_age"];
+				reportItem.Last_face_detected = myReport["last_face_detected"].ToString();
+				reportItem.Number_of_face_detected_today = (int)myReport["number_of_face_detected_today"];
+				reportItem.Total_face_detected = (int)myReport["total_face_detected"];
+				reportItem.Description = myReport["description"].ToString();
 
-			this.BindingContext = reportItem;
+				this.BindingContext = reportItem;
+			}
+			catch (Exception exc)
+			{
+				Debug.WriteLine("GetReportsException");
+				Debug.WriteLine(exc);
+			}
+
 
 		}
 		/*
