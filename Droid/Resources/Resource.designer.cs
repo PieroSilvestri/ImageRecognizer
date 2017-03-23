@@ -27,6 +27,7 @@ namespace ImageRecognizer.Droid
 		public static void UpdateIdValues()
 		{
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ImageRecognizer.Droid.Resource.Attribute.actionBarSize;
+			global::NGraphics.Android.Custom.Resource.String.library_name = global::ImageRecognizer.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -2208,7 +2209,7 @@ namespace ImageRecognizer.Droid
 			public const int avd_show_password_3 = 2130837786;
 			
 			// aapt resource value: 0x7f020057
-			public const int cameraIcon = 2130837591;
+			public const int camera = 2130837591;
 			
 			// aapt resource value: 0x7f020058
 			public const int design_bottom_navigation_item_background = 2130837592;
@@ -2229,10 +2230,10 @@ namespace ImageRecognizer.Droid
 			public const int design_snackbar_background = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int emotionIcon = 2130837598;
+			public const int feed = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int feedbackIcon = 2130837599;
+			public const int graph = 2130837599;
 			
 			// aapt resource value: 0x7f020060
 			public const int ic_audiotrack_dark = 2130837600;
@@ -2667,7 +2668,7 @@ namespace ImageRecognizer.Droid
 			public const int icon = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int logoutIcon = 2130837744;
+			public const int logout = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
 			public const int mr_button_connected_dark = 2130837745;
@@ -2769,13 +2770,13 @@ namespace ImageRecognizer.Droid
 			public const int notify_panel_notification_icon_bg = 2130837775;
 			
 			// aapt resource value: 0x7f020110
-			public const int profileIcon = 2130837776;
+			public const int smile = 2130837776;
 			
 			// aapt resource value: 0x7f020111
-			public const int reportIcon = 2130837777;
+			public const int user = 2130837777;
 			
 			// aapt resource value: 0x7f020112
-			public const int user = 2130837778;
+			public const int utente = 2130837778;
 			
 			static Drawable()
 			{
@@ -3729,6 +3730,9 @@ namespace ImageRecognizer.Droid
 			
 			// aapt resource value: 0x7f080016
 			public const int character_counter_pattern = 2131230742;
+			
+			// aapt resource value: 0x7f08003d
+			public const int library_name = 2131230781;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;

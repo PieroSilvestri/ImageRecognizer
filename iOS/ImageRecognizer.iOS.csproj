@@ -110,6 +110,18 @@
     <Reference Include="Plugin.Media">
       <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
     </Reference>
+    <Reference Include="NGraphics.Custom">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\Xamarin.iOS10\NGraphics.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics.iOS.Custom">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\Xamarin.iOS10\NGraphics.iOS.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="SVG.Forms.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\Xamarin.iOS10\SVG.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="SVG.Forms.Plugin.iOS">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\Xamarin.iOS10\SVG.Forms.Plugin.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ImageRecognizer.csproj">
@@ -142,12 +154,12 @@
     <BundleResource Include="Resources\NewLogo2.png" />
     <BundleResource Include="Resources\user.png" />
     <BundleResource Include="Resources\ageIcon.png" />
-    <BundleResource Include="Resources\profileIcon.png" />
-    <BundleResource Include="Resources\emotionIcon.png" />
-    <BundleResource Include="Resources\feedbackIcon.png" />
-    <BundleResource Include="Resources\logoutIcon.png" />
-    <BundleResource Include="Resources\cameraIcon.png" />
-    <BundleResource Include="Resources\reportIcon.png" />
+    <BundleResource Include="Resources\utente.png" />
+    <BundleResource Include="Resources\smile.png" />
+    <BundleResource Include="Resources\feed.png" />
+    <BundleResource Include="Resources\graph.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\camera.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

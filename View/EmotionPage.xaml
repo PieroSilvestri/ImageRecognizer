@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.EmotionPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions" x:Class="ImageRecognizer.EmotionPage">
 	<ContentPage.Content>
 		<ScrollView>
 			<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="20" Padding="15">
-				
-				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="80" IsVisible="true">
-					<Image.GestureRecognizers>
-						<TapGestureRecognizer Tapped="EasterEgg" NumberOfTapsRequired="1" />
-					</Image.GestureRecognizers>
-				</Image>
-				<Image x:Name="LogoImage2" Source="NewLogo2.png" HeightRequest="80" IsVisible="false">
-					<Image.GestureRecognizers>
-						<TapGestureRecognizer Tapped="EasterEgg" NumberOfTapsRequired="1" />
-					</Image.GestureRecognizers>
-				</Image>
 				
 				<Label x:Name="labelNome" HorizontalTextAlignment="Start" HorizontalOptions="Start" FontSize="Medium" />
 
@@ -28,37 +17,29 @@
 							<ColumnDefinition Width="120" />
 							<ColumnDefinition Width="120" />
 						</Grid.ColumnDefinitions>
-						
-						<Image Source="cameraIcon.png" BackgroundColor="#1A80FD" 
-							   Grid.Row="0" Grid.Column="0">
-							<Image.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1"
-														Tapped="TakeAPhoto"/>
-							</Image.GestureRecognizers>
+
+						<StackLayout x:Name="cameraIcon" Orientation="Vertical" Spacing="-25" Grid.Row="0" Grid.Column="0" BackgroundColor="#1A80FD">
+					    <StackLayout.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1"
+													Tapped="TakeAPhoto"/>
+						</StackLayout.GestureRecognizers>
+						<Image Source="camera.png">
 						</Image>
-						
-						<Image Source="reportIcon.png" BackgroundColor="#1A80FD" 
-							   Grid.Row="0" Grid.Column="1">
-							<Image.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1"
-														Tapped="ShowReports"/>
-							</Image.GestureRecognizers>
+						<Label Text="CAMERA" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						</StackLayout>
+
+
+						<StackLayout x:Name="reportsIcon" Orientation="Vertical" Spacing="-25" Grid.Row="0" Grid.Column="1" BackgroundColor="#1A80FD">
+					    <StackLayout.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1"
+													Tapped="ShowReports"/>
+						</StackLayout.GestureRecognizers>
+						<Image Source="graph.png">
 						</Image>
-						
-						<Image Source="profileIcon.png" BackgroundColor="#1A80FD" 
-							   Grid.Row="1" Grid.Column="0">
-							<Image.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1"/>
-							</Image.GestureRecognizers>
-						</Image>
-						
-						<Image Source="emotionIcon.png" BackgroundColor="#1A80FD" 
-							   Grid.Row="1" Grid.Column="1">
-							<Image.GestureRecognizers>
-								<TapGestureRecognizer NumberOfTapsRequired="1"
-														Tapped="ShowReports"/>
-							</Image.GestureRecognizers>
-						</Image>
+						<Label Text="REPORTS" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						</StackLayout>
+
+
 					</Grid>
 				</StackLayout>
 			</StackLayout>

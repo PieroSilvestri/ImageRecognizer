@@ -122,6 +122,18 @@
     <Reference Include="Plugin.Media">
       <HintPath>..\packages\Xam.Plugin.Media.2.6.2\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
     </Reference>
+    <Reference Include="NGraphics.Android.Custom">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\NGraphics.Android.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="NGraphics.Custom">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\NGraphics.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="SVG.Forms.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\SVG.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="SVG.Forms.Plugin.Android">
+      <HintPath>..\packages\Xam.Plugins.Forms.Svg.1.0.0.27\lib\MonoAndroid10\SVG.Forms.Plugin.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ImageRecognizer.csproj">
@@ -155,12 +167,12 @@
     <AndroidResource Include="Resources\drawable\NewLogo2.png" />
     <AndroidResource Include="Resources\drawable\user.png" />
     <AndroidResource Include="Resources\drawable\ageIcon.png" />
-    <AndroidResource Include="Resources\drawable\profileIcon.png" />
-    <AndroidResource Include="Resources\drawable\emotionIcon.png" />
-    <AndroidResource Include="Resources\drawable\feedbackIcon.png" />
-    <AndroidResource Include="Resources\drawable\logoutIcon.png" />
-    <AndroidResource Include="Resources\drawable\cameraIcon.png" />
-    <AndroidResource Include="Resources\drawable\reportIcon.png" />
+    <AndroidResource Include="Resources\drawable\utente.png" />
+    <AndroidResource Include="Resources\drawable\smile.png" />
+    <AndroidResource Include="Resources\drawable\feed.png" />
+    <AndroidResource Include="Resources\drawable\graph.png" />
+    <AndroidResource Include="Resources\drawable\logout.png" />
+    <AndroidResource Include="Resources\drawable\camera.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">
