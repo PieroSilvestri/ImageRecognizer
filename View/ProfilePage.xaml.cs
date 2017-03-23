@@ -18,14 +18,38 @@ namespace ImageRecognizer
 			NavigationPage.SetHasNavigationBar(this, false);
 			profileImage.Source = "http://placehold.it/350x350";
 
+
+
+			/*    "ID": 1110,
+				  "LastName": "Scocchi",
+				  "FirstName": "Andrea",
+				  "UserName": "AndreaScocchi",
+				  "Password": null,
+				  "Age": 22,
+				  "DataRegistration": "3/23/2017 2:11:59 PM",
+				  "Birthday": null,
+				  "Role": null,
+				  "Email": null,
+				  "success": "true"   */
+
+
 			string nome = oggetto["FirstName"].ToString();
 			string cognome = oggetto["LastName"].ToString();
+			//string age = oggetto["Age"].ToString();
 			string username = oggetto["UserName"].ToString();
+			//string dataReg = oggetto["DataRegistration"].ToString();
+			string birthday = oggetto["Birthday"].ToString();
+			string role = oggetto["Role"].ToString();
+			string email = oggetto["Email"].ToString();
 
-			this.Title = nome + " " + cognome;
+			this.Title = username;
 
-			labelNome.Text = username;
-			labelAge.Text = oggetto["Age"].ToString();
+			labelNome.Text = nome + " " + cognome;
+			//labelAge.Text = age;
+			//labelDataReg.Text = dataReg;
+			labelBirthday.Text = birthday;
+			labelRole.Text = role;
+			labelEmail.Text = email;
 
 		}
 

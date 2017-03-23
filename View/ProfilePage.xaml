@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProfilePage">
 	<ContentPage.Content>
-	<!--
-	<Grid><Image Source="NewLogo.png" Opacity="50"> </Image></Grid>
-	-->
-	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 20, 10, 0"> 
+	<ScrollView>
+	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 15, 10, 0"> 
 			<Button Text="Back" 
 					BackgroundColor="#1A80FD" 
 					TextColor="White" 
@@ -12,8 +10,7 @@
 					VerticalOptions="Start"
 					Clicked="backEvent"
 					WidthRequest="70"/>
-		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 20" Spacing="10">
-			<Label x:Name="header" HorizontalOptions="CenterAndExpand" FontSize="25" />
+		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 15" Spacing="10">
 			<Image x:Name="profileImage" HeightRequest="100"/> 
 			<Button x:Name="chageImage" Text="Change profile picture"
 					FontSize="Small" TextColor = "#1A80FD" 
@@ -30,12 +27,26 @@
 
 		<StackLayout Orientation="Horizontal">
 			<Image Source="ageIcon.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelAge" FontSize="25" />
+			<Label x:Name="labelBirthday" FontSize="25" />
+		</StackLayout>
+
+		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+
+		<StackLayout Orientation="Horizontal">
+			<Image Source="ageIcon.png" HeightRequest="30" ></Image>
+			<Label x:Name="labelRole" FontSize="25" />
+		</StackLayout>
+
+		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+
+		<StackLayout Orientation="Horizontal">
+			<Image Source="ageIcon.png" HeightRequest="30" ></Image>
+			<Label x:Name="labelEmail" FontSize="25" />
 		</StackLayout>
 
 		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
 			
 	</StackLayout>
-		
+	</ScrollView>	
 	</ContentPage.Content>
 </ContentPage>
