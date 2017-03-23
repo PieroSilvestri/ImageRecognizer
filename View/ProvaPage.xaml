@@ -1,95 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProvaPage">
 	<ContentPage.Content>
-		<ScrollView>
-			<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Spacing="20" Padding="15">
-			<!--<Button Text="Logout" 
+	<!--
+	<Grid><Image Source="NewLogo.png" Opacity="50"> </Image></Grid>
+	-->
+	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 20, 10, 0"> 
+			<Button Text="Back" 
 					BackgroundColor="#1A80FD" 
 					TextColor="White" 
 					HorizontalOptions="Start"
 					VerticalOptions="Start"
-					Clicked="backEvent"/> -->
-				
-				<Image x:Name="LogoImage" Source="NewLogo.png" HeightRequest="100" >
-					<Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                NumberOfTapsRequired="1" />
-					</Image.GestureRecognizers>		
-				</Image>
-				<Label x:Name="labelNome" HorizontalTextAlignment="Start" HorizontalOptions = "Start" FontSize = "Medium"/>
+					WidthRequest="70"/>
+		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 20" Spacing="10">
+			<Label x:Name="header" HorizontalOptions="CenterAndExpand" FontSize="25" />
+			<Image x:Name="profileImage" HeightRequest="100"/> 
+			<Button x:Name="chageImage" Text="Change profile picture"
+					FontSize="Small" TextColor = "#1A80FD" 
+					BackgroundColor="Transparent" HorizontalOptions="Center"
+					BorderColor = "Transparent" />
+		</StackLayout>
 
-				<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" >
-					<Grid x:Name="grid" RowSpacing="20" ColumnSpacing="20">
-					  <Grid.RowDefinitions>
-					    <RowDefinition Height="130" />
-					    <RowDefinition Height="130" />
-						<RowDefinition Height="130" />
-					  </Grid.RowDefinitions>
-					  <Grid.ColumnDefinitions>
-					    <ColumnDefinition Width="130" />
-					    <ColumnDefinition Width="130" />
-					  </Grid.ColumnDefinitions>
-						
-					  <StackLayout Orientation="Vertical" Spacing="-25" Grid.Row="0" Grid.Column="0" BackgroundColor="#1A80FD">
-					    <StackLayout.GestureRecognizers>
-							<TapGestureRecognizer NumberOfTapsRequired="1"/>
-						</StackLayout.GestureRecognizers>
+		<StackLayout Orientation="Horizontal">
+			<Image Source="user.png" HeightRequest="30" ></Image>
+			<Label x:Name="labelNome" FontSize="25" />
+		</StackLayout>
 
-						<Image x:Name="profileIcon" Source="utente.png">
-						</Image>
-							
-						<Label Text="PROFILE" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
-						</StackLayout>
+		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
 
-						<Image Source="emotionIcon.png" 
-							BackgroundColor="#1A80FD"
-							Grid.Row="0" Grid.Column="1">
-						<Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                NumberOfTapsRequired="1"
-									Tapped="DoLoginWithPassword" />
-						</Image.GestureRecognizers>	
-					  </Image>
+		<StackLayout Orientation="Horizontal">
+			<Image Source="ageIcon.png" HeightRequest="30" ></Image>
+			<Label x:Name="labelAge" FontSize="25" />
+		</StackLayout>
 
-					  <Button Text="Profile" 
-								BackgroundColor="#1A80FD" 
-								TextColor="White" 
-								HorizontalOptions="FillAndExpand"
-								HeightRequest="50" 
-								Grid.Row="1" Grid.Column="0" />
-					  <Button Text="Profile" 
-								BackgroundColor="#1A80FD" 
-								TextColor="White" 
-								HorizontalOptions="FillAndExpand"
-								HeightRequest="50" 
-								Grid.Row="1" Grid.Column="1" />
-
-					  <Image Source="feedbackIcon.png" 
-							BackgroundColor="#1A80FD"
-							Grid.Row="2" Grid.Column="0">
-						<Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                NumberOfTapsRequired="1"
-									Tapped="DoLoginWithPassword" />
-						</Image.GestureRecognizers>	
-					  </Image>
-
-						<Image Source="logoutIcon.png" 
-							BackgroundColor="#1A80FD"
-							Grid.Row="2" Grid.Column="1">
-						<Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                NumberOfTapsRequired="1"
-									Tapped="DoLoginWithPassword" />
-						</Image.GestureRecognizers>	
-					  </Image>						
-
-					</Grid>
-				</StackLayout>
-					
-
-				
-			</StackLayout>
-		</ScrollView>
+		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+			
+	</StackLayout>
+		
 	</ContentPage.Content>
-</ContentPage> 
+</ContentPage>

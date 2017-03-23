@@ -17,24 +17,28 @@ namespace ImageRecognizer {
     public partial class ProvaPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image LogoImage;
+        private global::Xamarin.Forms.Label header;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Image profileImage;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button chageImage;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label labelNome;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Grid grid;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image profileIcon;
+        private global::Xamarin.Forms.Label labelAge;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
-            LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
+            header = this.FindByName <global::Xamarin.Forms.Label>("header");
+            profileImage = this.FindByName <global::Xamarin.Forms.Image>("profileImage");
+            chageImage = this.FindByName <global::Xamarin.Forms.Button>("chageImage");
             labelNome = this.FindByName <global::Xamarin.Forms.Label>("labelNome");
-            grid = this.FindByName <global::Xamarin.Forms.Grid>("grid");
-            profileIcon = this.FindByName <global::Xamarin.Forms.Image>("profileIcon");
+            labelAge = this.FindByName <global::Xamarin.Forms.Label>("labelAge");
         }
     }
 }

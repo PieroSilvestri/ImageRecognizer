@@ -11,7 +11,7 @@
 					HorizontalOptions="Start"
 					VerticalOptions="Start"
 					Clicked="backEvent"
-					WidthRequest="40"/>
+					WidthRequest="70"/>
 		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 20" Spacing="10">
 			<Label x:Name="header" HorizontalOptions="CenterAndExpand" FontSize="25" />
 			<Image x:Name="profileImage" HeightRequest="100"/> 
