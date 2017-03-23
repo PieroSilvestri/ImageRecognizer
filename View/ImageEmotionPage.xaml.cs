@@ -148,7 +148,10 @@ namespace ImageRecognizer
 			}
 			else
 			{
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
 				await DisplayAlert("Error!", "Value not inserted.", "Ok");
+				facesDetected.Text = "No faces Detected";
 			}
 
 		}
