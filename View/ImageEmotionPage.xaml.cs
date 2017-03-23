@@ -140,20 +140,19 @@ namespace ImageRecognizer
 
 			if (response)
 			{
-				
-				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
+				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
 				facesDetected.Text = "Face detected: " + faces.Count.ToString();
 				facesDetected.IsVisible = true;
 			}
 			else
 			{
-				
-				await DisplayAlert("Error!", "Value not inserted.", "Ok");
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
+				await DisplayAlert("Error!", "Value not inserted.", "Ok");
 				facesDetected.Text = "No faces Detected";
+				facesDetected.IsVisible = true;
 			}
 
 		}
