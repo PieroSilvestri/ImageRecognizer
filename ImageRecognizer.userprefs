@@ -1,48 +1,34 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Model/RegistrationPerson.cs">
-=======
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="View/EmotionPage.xaml.cs" Line="19" Column="22" />
-      <File FileName="View/PasswordPage.xaml.cs" Line="104" Column="36" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/ReportPage.xaml.cs">
->>>>>>> master
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/LoginPage.xaml.cs">
     <Files>
       <File FileName="View/PasswordPage.xaml.cs" Line="1" Column="1" />
       <File FileName="View/ProvaPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/EmotionPage.xaml.cs" Line="57" Column="1" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="335" Column="46" />
-      <File FileName="View/LoginPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="111" Column="45" />
-      <File FileName="View/ImageEmotionPage.xaml.cs" Line="139" Column="4" />
+      <File FileName="View/EmotionPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="91" Column="48" />
+      <File FileName="View/LoginPage.xaml.cs" Line="78" Column="18" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="111" Column="1" />
+      <File FileName="View/ImageEmotionPage.xaml.cs" Line="18" Column="25" />
       <File FileName="obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs" Line="1" Column="1" />
       <File FileName="View/ReportPage.xaml.cs" Line="22" Column="17" />
       <File FileName="Model/ReportItem.cs" Line="19" Column="3" />
-<<<<<<< HEAD
       <File FileName="obj/Debug/ImageRecognizer.View.ReportPage.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="View/RegistrationPage.xaml.cs" Line="88" Column="23" />
-      <File FileName="Model/RegistrationPerson.cs" Line="8" Column="18" />
-=======
-      <File FileName="obj/Debug/ImageRecognizer.View.ReportPage.xaml.g.cs" Line="42" Column="1" />
->>>>>>> master
->>>>>>> master
+      <File FileName="View/RegistrationPage.xaml.cs" Line="102" Column="1" />
+      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="36" />
+      <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ImageRecognizer" expanded="True">
             <Node name="ImageRecognizer" expanded="True">
-              <Node name="Model" expanded="True">
-                <Node name="RegistrationPerson.cs" selected="True" />
-              </Node>
+              <Node name="Model" expanded="True" />
               <Node name="View" expanded="True">
                 <Node name="EmotionPage.xaml" expanded="True" />
                 <Node name="ImageEmotionPage.xaml" expanded="True" />
                 <Node name="ListPage_v1.xaml" expanded="True" />
-                <Node name="LoginPage.xaml" expanded="True" />
+                <Node name="LoginPage.xaml" expanded="True">
+                  <Node name="LoginPage.xaml.cs" selected="True" />
+                </Node>
                 <Node name="PasswordPage.xaml" expanded="True" />
                 <Node name="RegistrationPage.xaml" expanded="True" />
                 <Node name="RegistrationPage2.xaml" expanded="True" />
@@ -58,9 +44,13 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage.xaml.cs" relfile="View/RegistrationPage.xaml.cs" line="102" column="26" />
+      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="104" column="1" />
+      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/LoginPage.xaml.cs" relfile="View/LoginPage.xaml.cs" line="80" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.emulator-5554" />
 </Properties>

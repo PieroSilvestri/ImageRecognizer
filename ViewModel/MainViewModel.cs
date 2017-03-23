@@ -411,7 +411,7 @@ namespace ImageRecognizer
 			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", faceKey);
 
 			// Request parameters. A third optional parameter is "details".
-			string requestParameters = "teorema_stage_images";
+			string requestParameters = "teorema_faces";
 			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/"+requestParameters+"/persistedFaces" ;
 			//Debug.WriteLine(uri);
 

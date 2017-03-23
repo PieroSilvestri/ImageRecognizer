@@ -74,39 +74,48 @@ namespace ImageRecognizer
 
 			if (newUrl != null)
 			{
-				JObject myUser = await vm.PostFaceIdToServer(newUrl["faceId"].ToString());
-
-				if (myUser != null || (bool)myUser["success"])
+				try
 				{
-					
+					JObject myUser = await vm.PostFaceIdToServer(newUrl["faceId"].ToString());
 
-					await Navigation.PushAsync(new PasswordPage(myUser));
-					spinner.IsVisible = false;
-					spinner.IsRunning = false;
-					buttonGet.IsVisible = true;
-					buttonLogin.IsVisible = true;
-					reg.IsVisible = true;
-					or.IsVisible = true;
-					boxUno.IsVisible = true;
-					boxDue.IsVisible = true;
-					loadingLabel.IsVisible = false;
+					if ((bool)myUser["success"])
+					{
+						await Navigation.PushAsync(new PasswordPage(myUser));
+						HideSpinner();
+					}
+					else
+					{
+						HideSpinner();
+						await DisplayAlert("Error!", "Your are FAKE! Try again.", "OK");
+					}
 				}
+				catch (Exception exc)
+				{
+					Debug.WriteLine("FaceId Error");
+					Debug.WriteLine(exc);
+					await DisplayAlert("Error!", "Your face id is not valid. Try again.", "OK");
+				}
+
 			}
 			else
 			{
-				spinner.IsVisible = false;
-				spinner.IsRunning = false;
-				buttonGet.IsVisible = true;
-				buttonLogin.IsVisible = true;
-				reg.IsVisible = true;
-				or.IsVisible = true;
-				boxUno.IsVisible = true;
-				boxDue.IsVisible = true;
-				loadingLabel.IsVisible = false;
+				HideSpinner();
 				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
 			}
 
+		}
 
+		private void HideSpinner()
+		{
+			spinner.IsVisible = false;
+			spinner.IsRunning = false;
+			buttonGet.IsVisible = true;
+			buttonLogin.IsVisible = true;
+			reg.IsVisible = true;
+			or.IsVisible = true;
+			boxUno.IsVisible = true;
+			boxDue.IsVisible = true;
+			loadingLabel.IsVisible = false;
 		}
 
 		public async void Get_OnClicked(object o, EventArgs e) 
