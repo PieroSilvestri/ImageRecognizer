@@ -56,7 +56,7 @@ namespace ImageRecognizer
 
 		public void ShowReports(object o, EventArgs e)
 		{
-
+			Navigation.PushAsync(new ReportPage(user_id));
 		}
 
 

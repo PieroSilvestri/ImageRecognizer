@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ReportPage">
+	<ContentPage.Content>
+		
+		<StackLayout Orientation="Vertical">
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Success: " />
+				<Label x:Name="SuccessLabel" Text="{Binding Path=Success}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Average_age: " />
+				<Label x:Name="Average_ageLabel" Text="{Binding Path=Average_age}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Male_count: " />
+				<Label x:Name="Male_countLabel" Text="{Binding Path=Male_count}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Female_count: " />
+				<Label x:Name="Female_countLabel" Text="{Binding Path=Female_count}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Not_adult_count: " />
+				<Label x:Name="Not_adult_countLabel" Text="{Binding Path=Not_adult_count}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Male_older_age: " />
+				<Label x:Name="Male_older_ageLabel" Text="{Binding Path=Male_older_age}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Female_older_age: " />
+				<Label x:Name="Female_older_ageLabel" Text="{Binding Path=Female_older_age}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Male_younger_age: " />
+				<Label x:Name="Male_younger_ageLabel" Text="{Binding Path=Male_younger_age}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Female_younger_age: " />
+				<Label x:Name="Female_younger_ageLabel" Text="{Binding Path=Female_younger_age}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Last_face_detected: " />
+				<Label x:Name="Last_face_detectedLabel" Text="{Binding Path=Last_face_detected}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Number_of_face_detected_today: " />
+				<Label x:Name="Number_of_face_detected_todayLabel" Text="{Binding Path=Number_of_face_detected_today}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Total_face_detected: " />
+				<Label x:Name="Total_face_detectedLabel" Text="{Binding Path=Total_face_detected}" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" Padding="3">
+				<Label Text="Description: " />
+				<Label x:Name="DescriptionLabel" Text="{Binding Path=Description}" />
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
