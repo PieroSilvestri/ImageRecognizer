@@ -80,8 +80,9 @@ namespace ImageRecognizer
 
 					if ((bool)myUser["success"])
 					{
-						await Navigation.PushAsync(new PasswordPage(myUser));
 						HideSpinner();
+						await Navigation.PushAsync(new PasswordPage(myUser));
+
 					}
 					else
 					{
@@ -93,8 +94,9 @@ namespace ImageRecognizer
 				{
 					Debug.WriteLine("FaceId Error");
 					Debug.WriteLine(exc);
-					await DisplayAlert("Error!", "Your face id is not valid. Try again.", "OK");
 					HideSpinner();
+					await DisplayAlert("Error!", "Your face id is not valid. Try again.", "OK");
+
 				}
 
 			}
