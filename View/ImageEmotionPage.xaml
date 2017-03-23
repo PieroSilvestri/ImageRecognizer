@@ -8,9 +8,11 @@
 										Tapped="RetakeAPhoto"/>
 				</Image.GestureRecognizers>
 			</Image>
-			<StackLayout Orientation="Horizontal">
-				<Label Text="Face detected: "></Label>
-				<Label x:Name="facesLabel"></Label>
+			<StackLayout Orientation="Horizontal" Padding="20" HorizontalOptions="Center">
+				<Label x:Name="facesDetected" HorizontalTextAlignment="Center" IsVisible="false"></Label>
+
+				<ActivityIndicator x:Name="spinner" WidthRequest="110" HeightRequest="70" IsRunning="true" IsVisible="true" Color="#1A80FD" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
 			</StackLayout>
 
 		</StackLayout>

@@ -41,7 +41,7 @@ namespace ImageRecognizer
 		public async void RetakeAPhoto(object o, EventArgs e)
 		{
 			await CrossMedia.Current.Initialize();
-
+			facesDetected.IsVisible = false;
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
@@ -66,7 +66,8 @@ namespace ImageRecognizer
 			Debug.WriteLine(file);
 
 			Image1.Source = ImageSource.FromStream(() => file.GetStream());
-
+			spinner.IsVisible = true;
+			spinner.IsRunning = true;
 			DoTheProgramm(file);
 		}
 
@@ -122,7 +123,6 @@ namespace ImageRecognizer
 				new JProperty("id_user", this.user_id));
 			Debug.WriteLine(jsonToPass);
 
-			facesLabel.Text = faces.Count.ToString();
 			bool response;
 
 			if (!faces.HasValues)
@@ -140,7 +140,11 @@ namespace ImageRecognizer
 
 			if (response)
 			{
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
 				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
+				facesDetected.Text = "Face detected: " + faces.Count.ToString();
+				facesDetected.IsVisible = true;
 			}
 			else
 			{
