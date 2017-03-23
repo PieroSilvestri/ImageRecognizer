@@ -2803,15 +2803,15 @@ containing a value of this type.
         public static final int avd_show_password_1=0x7f020118;
         public static final int avd_show_password_2=0x7f020119;
         public static final int avd_show_password_3=0x7f02011a;
-        public static final int cameraicon=0x7f020057;
+        public static final int camera=0x7f020057;
         public static final int design_bottom_navigation_item_background=0x7f020058;
         public static final int design_fab_background=0x7f020059;
         public static final int design_ic_visibility=0x7f02005a;
         public static final int design_ic_visibility_off=0x7f02005b;
         public static final int design_password_eye=0x7f02005c;
         public static final int design_snackbar_background=0x7f02005d;
-        public static final int emotionicon=0x7f02005e;
-        public static final int feedbackicon=0x7f02005f;
+        public static final int feed=0x7f02005e;
+        public static final int graph=0x7f02005f;
         public static final int ic_audiotrack_dark=0x7f020060;
         public static final int ic_audiotrack_light=0x7f020061;
         public static final int ic_dialog_close_dark=0x7f020062;
@@ -2956,7 +2956,7 @@ containing a value of this type.
         public static final int ic_vol_type_tv_dark=0x7f0200ed;
         public static final int ic_vol_type_tv_light=0x7f0200ee;
         public static final int icon=0x7f0200ef;
-        public static final int logouticon=0x7f0200f0;
+        public static final int logout=0x7f0200f0;
         public static final int mr_button_connected_dark=0x7f0200f1;
         public static final int mr_button_connected_light=0x7f0200f2;
         public static final int mr_button_connecting_dark=0x7f0200f3;
@@ -2990,9 +2990,9 @@ containing a value of this type.
         public static final int notification_template_icon_low_bg=0x7f020114;
         public static final int notification_tile_bg=0x7f02010e;
         public static final int notify_panel_notification_icon_bg=0x7f02010f;
-        public static final int profileicon=0x7f020110;
-        public static final int reporticon=0x7f020111;
-        public static final int user=0x7f020112;
+        public static final int smile=0x7f020110;
+        public static final int user=0x7f020111;
+        public static final int utente=0x7f020112;
     }
     public static final class id {
         public static final int action0=0x7f0d009c;
@@ -3299,6 +3299,7 @@ containing a value of this type.
         public static final int appbar_scrolling_view_behavior=0x7f080014;
         public static final int bottom_sheet_behavior=0x7f080015;
         public static final int character_counter_pattern=0x7f080016;
+        public static final int library_name=0x7f08003d;
         public static final int mr_button_content_description=0x7f080000;
         public static final int mr_cast_button_connected=0x7f080001;
         public static final int mr_cast_button_connecting=0x7f080002;

@@ -30,16 +30,16 @@
 					    <ColumnDefinition Width="130" />
 					  </Grid.ColumnDefinitions>
 						
-					  <Image Source="profileIcon.png" 
-							BackgroundColor="#1A80FD"
-							Grid.Row="0" Grid.Column="0">
-						<Image.GestureRecognizers>
-					        <TapGestureRecognizer
-					                NumberOfTapsRequired="1"
-									Tapped="DoLoginWithPassword" />
-						</Image.GestureRecognizers>	
+					  <StackLayout Orientation="Vertical" Spacing="-25" Grid.Row="0" Grid.Column="0" BackgroundColor="#1A80FD">
+					    <StackLayout.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1"/>
+						</StackLayout.GestureRecognizers>
+
+						<Image x:Name="profileIcon" Source="utente.png">
+						</Image>
 							
-					  </Image>
+						<Label Text="PROFILE" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						</StackLayout>
 
 						<Image Source="emotionIcon.png" 
 							BackgroundColor="#1A80FD"

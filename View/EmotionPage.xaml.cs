@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
@@ -18,8 +19,9 @@ namespace ImageRecognizer
 			InitializeComponent();
 			this.user_id = id;
 			this.Title = "Emotion Page";
+			loadDelayAnimation();
 		}
-
+		 
 
 		public async void TakeAPhoto(object o, EventArgs e)
 		{
@@ -58,22 +60,18 @@ namespace ImageRecognizer
 		}
 
 
-		public void EasterEgg(object sender, EventArgs e)
+		async void loadDelayAnimation()
 		{
+			cameraIcon.Opacity = 0;
+			reportsIcon.Opacity = 0;
 
-			if (i)
-			{
-				LogoImage.IsVisible = false;
-				LogoImage2.IsVisible = true;
-			}
-			else
-			{
-				LogoImage2.IsVisible = false;
-				LogoImage.IsVisible = true;
-			}
-
-			i = !i;
+			await Task.Delay(500);
+			await cameraIcon.FadeTo(1, 200);
+			await reportsIcon.FadeTo(1, 200);
 
 		}
+
+
+
 	}
 }

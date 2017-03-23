@@ -94,20 +94,14 @@ namespace ImageRecognizer
 			feedbackIcon.Opacity = 0;
 			logoutIcon.Opacity = 0;
 			labelNome.Opacity = 0;
-			await Task.Delay(1000);
-			await labelNome.FadeTo(1, 250);
-			await Task.Delay(100);
-			await profileIcon.FadeTo(1, 250);
-			await Task.Delay(100);
-			await emoticonIcon.FadeTo(1, 250);
-			await Task.Delay(100);
-			await prova1.FadeTo(1, 250);
-			await Task.Delay(100);
-			await prova2.FadeTo(1, 250);
-			await Task.Delay(100);
-			await feedbackIcon.FadeTo(1, 250);
-			await Task.Delay(100);
-			await logoutIcon.FadeTo(1, 250);
+			await Task.Delay(500);
+			await labelNome.FadeTo(1, 200);
+			await profileIcon.FadeTo(1, 200);
+			await emoticonIcon.FadeTo(1, 200);
+			await prova1.FadeTo(1, 200);
+			await prova2.FadeTo(1, 200);
+			await feedbackIcon.FadeTo(1, 200);
+			await logoutIcon.FadeTo(1, 200);
 		}
 
 	}
