@@ -14,7 +14,7 @@ namespace ImageRecognizer
 
 		public ReportPage(int id)
 		{
-			InitializeComponent();
+			//InitializeComponent();
 			vm = new MainViewModel();
 			Title = "Report";
 			this.user_id = id;
@@ -44,6 +44,7 @@ namespace ImageRecognizer
 				reportItem.Total_face_detected = (int)myReport["total_face_detected"];
 				reportItem.Description = myReport["description"].ToString();
 
+				InitializeComponent();
 				this.BindingContext = reportItem;
 			}
 			catch (Exception exc)
