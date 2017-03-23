@@ -8,6 +8,11 @@
 										Tapped="RetakeAPhoto"/>
 				</Image.GestureRecognizers>
 			</Image>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Face detected: "></Label>
+				<Label x:Name="facesLabel"></Label>
+			</StackLayout>
+
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

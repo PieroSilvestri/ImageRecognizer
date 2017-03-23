@@ -122,6 +122,7 @@ namespace ImageRecognizer
 				new JProperty("id_user", this.user_id));
 			Debug.WriteLine(jsonToPass);
 
+			facesLabel.Text = faces.Count.ToString();
 			bool response;
 
 			if (!faces.HasValues)
