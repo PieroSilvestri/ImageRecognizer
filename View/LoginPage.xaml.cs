@@ -80,9 +80,9 @@ namespace ImageRecognizer
 
 					if ((bool)myUser["success"])
 					{
-						HideSpinner();
+						
 						await Navigation.PushAsync(new PasswordPage(myUser));
-
+						HideSpinner();
 					}
 					else
 					{
