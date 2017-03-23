@@ -15,9 +15,11 @@ namespace ImageRecognizer
 	public partial class RegistrationPage2 : ContentPage
 	{
 
-		MediaFile foto1, foto2;
-		MainViewModel vm;
-		int newId;
+		private MediaFile foto1, foto2;
+		private MainViewModel vm;
+		private int newId;
+		private string faceKey = "1297619ba72542d38347e044905ed499";
+
 
 		public RegistrationPage2(int id)
 		{
@@ -90,25 +92,23 @@ namespace ImageRecognizer
 			loadingLabel.IsVisible = true;
 			buttonDone.IsVisible = false;
 
-			/*
+
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
-			var url1 = await vm.UploadDoc(foto1);
+			JObject pfi1 = await vm.AddFaceToList(faceKey, foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
-			var url2 = await vm.UploadDoc(foto2);
+			JObject pfi2 = await vm.AddFaceToList(faceKey, foto2);
 
-			string newStringJson = "{" +
-				"ID: " + newId + "," +
-				"Url1: " + url1 + "," +
-				"Url2:" + url2 + "}";
+			Debug.WriteLine(pfi1);
+			Debug.WriteLine(pfi2);
 
-			dynamic newJson = new JObject();
-			newJson.ID = newId;
-			newJson.Url1 = url1;
-			newJson.Url2 = url2;
+			JObject sendRegistrationImages = new JObject(
+				new JProperty("ID", newId),
+				new JProperty("faceId_1", pfi1["persistedFaceId"].ToString()),
+				new JProperty("faceId_2", pfi2["persistedFaceId"].ToString()));
+			Debug.WriteLine("sendregistrationimages");
+			Debug.WriteLine(sendRegistrationImages);
 
-			Debug.WriteLine(newJson);
-
-			var myFlag = await vm.RegistrationRequest(newJson);
+			var myFlag = await vm.RegistrationRequest(sendRegistrationImages);
 
 			if (myFlag)
 			{
@@ -126,7 +126,7 @@ namespace ImageRecognizer
 				buttonDone.IsVisible = true;
 				await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
 			}
-			*/
+
 
 		}
 

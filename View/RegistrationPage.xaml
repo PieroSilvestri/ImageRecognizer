@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.RegistrationPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="ImageRecognizer.RegistrationPage">
 	<ContentPage.Content>
 		<ScrollView>
 		<StackLayout Orientation="Vertical" Padding="10">
@@ -13,42 +16,58 @@
 				</Image>
 			</StackLayout>
 			<StackLayout Orientation="Vertical" Spacing="5" Padding="0, 10, 0, 0">
-				<Entry x:Name="FirstName" HorizontalOptions="FillAndExpand"
-					Placeholder="First name" TextChanged="CleanFirstName"/>
+				<Entry x:Name="Name" HorizontalOptions="FillAndExpand"
+					Placeholder="Name" TextChanged="CleanFirstName"/>
 				<Label x:Name="FirstNameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical" Spacing="5">
-				<Entry x:Name="LastName" HorizontalOptions="FillAndExpand"
-					Placeholder="Last name" TextChanged="CleanLastName"/>
+				<Entry x:Name="Surname" HorizontalOptions="FillAndExpand"
+					Placeholder="Surname" TextChanged="CleanLastName"/>
 				<Label x:Name="LastNameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 		
 			<StackLayout Orientation="Vertical" Spacing="5">
-				<Entry x:Name="age" HorizontalOptions="FillAndExpand"
-					Placeholder="Age" Keyboard="Numeric"
-					TextChanged="Age_Control"/>
+				<Entry x:Name="Role" HorizontalOptions="FillAndExpand"
+					Placeholder="Role"/>
 				<Label x:Name="AgeError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 				
-			<StackLayout Orientation="Vertical" Padding="0, 10, 0 ,10">
-			</StackLayout>	
+			<StackLayout>
+			      <DatePicker x:Name="DatePickerText" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+			         <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+			         <DatePicker.MinimumDate>
+			            <sys:DateTime x:FactoryMethod="Parse">
+			               <x:Arguments>
+			                  <x:String>Jan 1 1930</x:String>
+			               </x:Arguments>
+			            </sys:DateTime>
+			         </DatePicker.MinimumDate>
+			         <DatePicker.MaximumDate>
+			            <sys:DateTime x:FactoryMethod="Parse">
+			               <x:Arguments>
+			                  <x:String>Dec 31 2050</x:String>
+			               </x:Arguments>
+			            </sys:DateTime>
+			         </DatePicker.MaximumDate>
+			      </DatePicker>
+			   </StackLayout>
 				
 			<StackLayout Orientation="Vertical" Spacing="5">
-				<Entry x:Name="nickname" HorizontalOptions="FillAndExpand"
-					Placeholder="Nickname" TextChanged="CleanNick"/>
+				<Entry x:Name="Email" HorizontalOptions="FillAndExpand"
+					Placeholder="Email" TextChanged="CleanNick"/>
 				<Label x:Name="NicknameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
 
 			<StackLayout Orientation="Vertical" Spacing="5">
-				<Entry x:Name="password" HorizontalOptions="FillAndExpand"
+				<Entry x:Name="Password" HorizontalOptions="FillAndExpand"
 					   Placeholder="Password" IsPassword="true" 
 					   TextChanged="Password_Length_Control"/>
 				<Label x:Name="PswError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red" />
 			</StackLayout>
 
 			<StackLayout Padding="0, 0, 0, 15" Orientation="Vertical" Spacing="5">
-				<Entry x:Name="confPassword" HorizontalOptions="FillAndExpand"
+				<Entry x:Name="ConfPassword" HorizontalOptions="FillAndExpand"
 					Placeholder="Confirm Password" IsPassword="true"
 					TextChanged="PasswordConfirm"/>
 				<Label x:Name="ConfPsw" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>

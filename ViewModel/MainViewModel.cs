@@ -403,6 +403,38 @@ namespace ImageRecognizer
 			return a;
 		}
 
+		public async Task<JObject> AddFaceToList(string faceKey, MediaFile imageFile)
+		{
+			var client = new HttpClient();
+
+			// Request headers. Replace the second parameter with a valid subscription key.
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", faceKey);
+
+			// Request parameters. A third optional parameter is "details".
+			string requestParameters = "teorema_stage_images";
+			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/"+requestParameters+"/persistedFaces" ;
+			//Debug.WriteLine(uri);
+
+			HttpResponseMessage response;
+
+			// Request body. Try this sample with a locally stored JPEG image.
+			byte[] byteData = GetImageAsByteArray(imageFile);
+
+			using (var content = new ByteArrayContent(byteData))
+			{
+				// This example uses content type "application/octet-stream".
+				// The other content types you can use are "application/json" and "multipart/form-data".
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				response = await client.PostAsync(uri, content);
+
+			}
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+
+
+			return JObject.Parse(JsonResult);
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
