@@ -28,12 +28,12 @@ namespace ImageRecognizer
 
 			this.Title = "Registration";
 
-			FirstName.Text = "";
-			LastName.Text = "";
-			age.Text = "";
-			nickname.Text = "";
-			password.Text = "";
-			confPassword.Text = "";
+			Name.Text = "";
+			Surname.Text = "";
+			Role.Text = "";
+			Email.Text = "";
+			Password.Text = "";
+			ConfPassword.Text = "";
 		}
 
 
@@ -43,39 +43,39 @@ namespace ImageRecognizer
 			if (AgeError.IsVisible == true || 
 			    PswError.IsVisible == true || 
 			    ConfPsw.IsVisible == true || 
-			    FirstName.Text == "" || 
-			    LastName.Text == "" ||
-			    age.Text == "" ||
-			    nickname.Text == "" ||
-			    password.Text == "" ||
-			    confPassword.Text == "")
+			    Name.Text == "" || 
+			    Surname.Text == "" ||
+			    Role.Text == "" ||
+			    Email.Text == "" ||
+			    Password.Text == "" ||
+			    ConfPassword.Text == "")
 			{
 				await DisplayAlert("Error", "Resolve errors!", "Ok");
-				if (FirstName.Text == "") {
+				if (Name.Text == "") {
 					FirstNameError.Text = errorMsg;
 					FirstNameError.IsVisible = true;
 				}
-				if (LastName.Text == "" || LastName.Text == null)
+				if (Surname.Text == "" || Surname.Text == null)
 				{
 					LastNameError.Text = errorMsg;
 					LastNameError.IsVisible = true;
 				}
-				if (age.Text == "")
+				if (Role.Text == "")
 				{
 					AgeError.Text = errorMsg;
 					AgeError.IsVisible = true;
 				}
-				if (nickname.Text == "")
+				if (Email.Text == "")
 				{
 					NicknameError.Text = errorMsg;
 					NicknameError.IsVisible = true;
 				}
-				if (password.Text == "")
+				if (Password.Text == "")
 				{
 					PswError.Text = errorMsg;
 					PswError.IsVisible = true;
 				}
-				if (confPassword.Text == "")
+				if (ConfPassword.Text == "")
 				{
 					ConfPsw.Text = errorMsg;
 					ConfPsw.IsVisible = true;
@@ -86,12 +86,12 @@ namespace ImageRecognizer
 
 				RegistrationPerson myPerson = new RegistrationPerson();
 
-				myPerson.FirstName = FirstName.Text;
-				myPerson.LastName = LastName.Text;
-				string eta = age.Text;
-				myPerson.Age = Convert.ToInt32(eta);
-				myPerson.UserName = nickname.Text;
-				myPerson.Password = password.Text;
+				myPerson.Name = Name.Text;
+				myPerson.Surname = Surname.Text;
+				myPerson.Role = Role.Text;
+				myPerson.Email = Email.Text;
+				myPerson.Password = Password.Text;
+				myPerson.Birthday = DatePickerText.Date.ToString("yyyy-MM-dd");
 				myPerson.DataRegistration = DateTime.Now.ToString();
 
 				JObject myObj = JObject.Parse(JsonConvert.SerializeObject(myPerson));
@@ -166,8 +166,7 @@ namespace ImageRecognizer
 			}
 			} catch(FormatException exForm) {
 				Debug.WriteLine(exForm);
-				age.Text = "";
-
+				Role.Text = "";
 			}
 
 			if (AgeError.Text == errorMsg) 
