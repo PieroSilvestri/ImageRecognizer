@@ -30,6 +30,7 @@ namespace ImageRecognizer
 			Debug.WriteLine(getJsonItem["results"]);
 
 			this.oggetto = getJsonItem;
+
 			string nome = oggetto["FirstName"].ToString();
 			string cognome = oggetto["LastName"].ToString();
 

@@ -33,7 +33,6 @@ namespace ImageRecognizer
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported) 
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
-				await Navigation.PushAsync(new PasswordPage(null));
 				return;
 			}
 
@@ -59,7 +58,7 @@ namespace ImageRecognizer
 			boxDue.IsVisible = false;
 
 
-			var picture = ImageSource.FromStream(() => file.GetStream());
+			//var picture = ImageSource.FromStream(() => file.GetStream());
 
 			var myPath = file.AlbumPath;
 
@@ -130,9 +129,14 @@ namespace ImageRecognizer
 
 			var getItem = await vm.JsonGetProva(url);
 
-			if (getItem != null)
+			if (getItem != null && (bool)getItem["success"])
 			{
 				await Navigation.PushAsync(new PasswordPage(getItem));
+			}
+			else
+			{
+				HideSpinner();
+				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
 			}
 		}
 

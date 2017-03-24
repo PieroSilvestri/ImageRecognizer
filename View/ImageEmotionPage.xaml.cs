@@ -19,7 +19,6 @@ namespace ImageRecognizer
 		private string emotionKey = "9384bddf115345fc94d27bf69723de98";
 		private string computerVisionKey = "1ffcd7811f1d4980a936adc5aaf63dc8";
 
-
 		private MainViewModel cognityServices;
 		private int user_id;
 
