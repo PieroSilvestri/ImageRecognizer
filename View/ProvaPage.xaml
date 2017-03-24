@@ -1,40 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProvaPage">
 	<ContentPage.Content>
-	<!--
-	<Grid><Image Source="NewLogo.png" Opacity="50"> </Image></Grid>
-	-->
-	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 20, 10, 0"> 
-			<Button Text="Back" 
-					BackgroundColor="#1A80FD" 
-					TextColor="White" 
-					HorizontalOptions="Start"
-					VerticalOptions="Start"
-					WidthRequest="70"/>
-		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 20" Spacing="10">
-			<Label x:Name="header" HorizontalOptions="CenterAndExpand" FontSize="25" />
-			<Image x:Name="profileImage" HeightRequest="100"/> 
-			<Button x:Name="chageImage" Text="Change profile picture"
-					FontSize="Small" TextColor = "#1A80FD" 
-					BackgroundColor="Transparent" HorizontalOptions="Center"
-					BorderColor = "Transparent" />
-		</StackLayout>
+	<ScrollView>
+	<StackLayout Orientation="Vertical" Padding = "10, 15, 10, 15">
 
-		<StackLayout Orientation="Horizontal">
-			<Image Source="user.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelNome" FontSize="25" />
-		</StackLayout>
-
-		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
-
-		<StackLayout Orientation="Horizontal">
-			<Image Source="ageIcon.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelAge" FontSize="25" />
-		</StackLayout>
-
-		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+    <BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+				
+	<Label Text="Emotions counter:" FontSize="Medium" HorizontalOptions="StartAndExpand"/>	
 			
-	</StackLayout>
+    
+				
+	<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+
+	<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="10">
+					<Grid x:Name="grid" ColumnSpacing="10">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="100" />
+							<RowDefinition Height="100" />
+							<RowDefinition Height="100" />
+							<RowDefinition Height="100" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="150" />
+							<ColumnDefinition Width="150" />
+						</Grid.ColumnDefinitions>
+
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="0">
+						    <Label Text="Happiness" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="happy.png" HeightRequest="30" />
+							<ProgressBar x:Name="barHappy" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="1">
+						    <Label Text="Surprised" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="surprised.png" HeightRequest="30" />
+							<ProgressBar x:Name="barSurprised" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="0">
+						    <Label Text="Neutral" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="nutral.png" HeightRequest="30" />
+							<ProgressBar x:Name="barNeutral" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="1">
+						    <Label Text="Sadness" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="sad.png" HeightRequest="30" />
+							<ProgressBar x:Name="barSadness" Progress="0"/>
+					    </StackLayout>
+					    <StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="0">
+						    <Label Text="Fear" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="fear.png" HeightRequest="30" />
+							<ProgressBar x:Name="barFear" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="1">
+						    <Label Text="Disgust" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="disgust.png" HeightRequest="30" />
+							<ProgressBar x:Name="barDisgust" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="0">
+						    <Label Text="Contempt" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="contempt.png" HeightRequest="30" />
+							<ProgressBar x:Name="barContempt" Progress="0"/>
+					    </StackLayout>
+						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="1">
+						    <Label Text="Anger" HorizontalOptions="CenterAndExpand"/>
+							<Image Source="anger.png" HeightRequest="30" />
+							<ProgressBar x:Name="barAnger" Progress="0"/>
+   					 	</StackLayout>
+
+
+						
+					</Grid>
+				</StackLayout>
+
+
+
+				
 		
+	</StackLayout>
+	</ScrollView>
 	</ContentPage.Content>
 </ContentPage>

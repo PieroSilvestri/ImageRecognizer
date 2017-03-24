@@ -1,20 +1,9 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/ImageEmotionPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/PasswordPage.xaml.cs">
     <Files>
-      <File FileName="View/PasswordPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/ProvaPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="View/EmotionPage.xaml.cs" Line="21" Column="4" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="395" Column="1" />
-      <File FileName="View/LoginPage.xaml.cs" Line="74" Column="4" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="104" Column="1" />
-      <File FileName="View/ImageEmotionPage.xaml.cs" Line="53" Column="5" />
-      <File FileName="obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="View/ReportPage.xaml.cs" Line="47" Column="27" />
-      <File FileName="Model/ReportItem.cs" Line="19" Column="3" />
-      <File FileName="obj/Debug/ImageRecognizer.View.ReportPage.xaml.g.cs" Line="1" Column="1" />
-      <File FileName="View/RegistrationPage.xaml.cs" Line="87" Column="41" />
-      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="36" />
-      <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
+      <File FileName="View/ProvaPage.xaml.cs" Line="22" Column="18" />
+      <File FileName="View/ReportPage.xaml.cs" Line="111" Column="44" />
+      <File FileName="View/PasswordPage.xaml.cs" Line="44" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -22,6 +11,7 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.0B395313-4EF6-4D54-B28A-A25A3F355987" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexusss" />
 </Properties>

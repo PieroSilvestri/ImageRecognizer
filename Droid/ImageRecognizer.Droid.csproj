@@ -173,6 +173,20 @@
     <AndroidResource Include="Resources\drawable\graph.png" />
     <AndroidResource Include="Resources\drawable\logout.png" />
     <AndroidResource Include="Resources\drawable\camera.png" />
+    <AndroidResource Include="Resources\drawable\birthday.png" />
+    <AndroidResource Include="Resources\drawable\email.png" />
+    <AndroidResource Include="Resources\drawable\name.png" />
+    <AndroidResource Include="Resources\drawable\role.png" />
+    <AndroidResource Include="Resources\drawable\female.png" />
+    <AndroidResource Include="Resources\drawable\male.png" />
+    <AndroidResource Include="Resources\drawable\anger.png" />
+    <AndroidResource Include="Resources\drawable\contempt.png" />
+    <AndroidResource Include="Resources\drawable\disgust.png" />
+    <AndroidResource Include="Resources\drawable\fear.png" />
+    <AndroidResource Include="Resources\drawable\happy.png" />
+    <AndroidResource Include="Resources\drawable\nutral.png" />
+    <AndroidResource Include="Resources\drawable\sad.png" />
+    <AndroidResource Include="Resources\drawable\surprised.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

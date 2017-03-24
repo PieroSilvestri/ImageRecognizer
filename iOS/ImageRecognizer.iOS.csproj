@@ -160,6 +160,20 @@
     <BundleResource Include="Resources\graph.png" />
     <BundleResource Include="Resources\logout.png" />
     <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\birthday.png" />
+    <BundleResource Include="Resources\email.png" />
+    <BundleResource Include="Resources\name.png" />
+    <BundleResource Include="Resources\role.png" />
+    <BundleResource Include="Resources\female.png" />
+    <BundleResource Include="Resources\male.png" />
+    <BundleResource Include="Resources\anger.png" />
+    <BundleResource Include="Resources\contempt.png" />
+    <BundleResource Include="Resources\disgust.png" />
+    <BundleResource Include="Resources\fear.png" />
+    <BundleResource Include="Resources\happy.png" />
+    <BundleResource Include="Resources\nutral.png" />
+    <BundleResource Include="Resources\sad.png" />
+    <BundleResource Include="Resources\surprised.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

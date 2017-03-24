@@ -6,7 +6,7 @@
 				
 				<Label x:Name="labelNome" HorizontalTextAlignment="Start" HorizontalOptions="Start" FontSize="Medium" />
 
-				<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="10">
+				<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
 					<Grid x:Name="grid" RowSpacing="10" ColumnSpacing="10">
 						<Grid.RowDefinitions>
 							<RowDefinition Height="120" />
