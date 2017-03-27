@@ -147,6 +147,7 @@ namespace ImageRecognizer
 				JObject jsonEmotionDetected = SetEmotionUI(jsonToPass);
 				Debug.WriteLine("JSON EMOTIUON DETECTED");
 				Debug.WriteLine(jsonEmotionDetected);
+				int personCount = (int) jsonEmotionDetected["PersonsCount"];
 
 			}
 			else
@@ -160,7 +161,7 @@ namespace ImageRecognizer
 
 		}
 
-		private JObject SetEmotionUI(JObject jsonToParse)
+		private  JObject SetEmotionUI(JObject jsonToParse)
 		{
 			JArray faces = (JArray)jsonToParse["faces"];
 			JArray emotions = (JArray)jsonToParse["emotions"];
@@ -183,79 +184,63 @@ namespace ImageRecognizer
 			}
 			ageAverage = ageAverage / personsCount;
 
-			double anger = 0;
-			double contempt = 0;
-			double disgust = 0;
-			double fear = 0;
-			double happiness = 0; 
-			double neutral = 0;
-			double sadness = 0;
-			double surprise = 0;
-			string maxEmotion = "";
-			double max = 0;
+			List<string> listEmotions = new List<string>();
 			foreach (JObject emotion in emotions)
 			{
-				anger += (double)emotion["anger"];
-				contempt += (double)emotion["contempt"];
-				disgust += (double)emotion["disgust"];
-				fear += (double)emotion["fear"];
-				happiness += (double)emotion["happiness"];
-				neutral += (double)emotion["neutral"];
-				sadness += (double)emotion["sadness"];
-				surprise += (double)emotion["surprise"];
-			}
-			anger = anger / personsCount;
-			contempt = contempt / personsCount;
-			disgust = disgust / personsCount;
-			fear = fear / personsCount;
-			happiness = happiness / personsCount;
-			neutral = neutral / personsCount;
-			sadness = sadness / personsCount;
-			surprise = surprise / personsCount;
-
-			double[] emotionValues = { anger, contempt, disgust, fear, happiness, neutral, sadness, surprise};
-			int index = 0;
-			for (int i = 0; i < 8; i++)
-			{
-				if (emotionValues[i] > max)
+				double max = 0;
+				double anger = (double)emotion["anger"];
+				double contempt = (double)emotion["contempt"];
+				double disgust = (double)emotion["disgust"];
+				double fear = (double)emotion["fear"];
+				double happiness = (double)emotion["happiness"];
+				double neutral = (double)emotion["neutral"];
+				double sadness = (double)emotion["sadness"];
+				double surprise = (double)emotion["surprise"];
+				double[] emotionValues = { anger, contempt, disgust, fear, happiness, neutral, sadness, surprise };
+				int index = 0;
+				for (int i = 0; i < 8; i++)
 				{
-					max = emotionValues[i];
-					index = i;
+					if (emotionValues[i] > max)
+					{
+						max = emotionValues[i];
+						index = i;
+					}
 				}
-			}
-
-			switch (index)
-			{
-				case 0:
-					maxEmotion = "Anger";
-					break;
-				case 1:
-					maxEmotion = "Contempt";
-					break;
-				case 2:
-					maxEmotion = "Disgust";
-					break;
-				case 3:
-					maxEmotion = "Fear";
-					break;
-				case 4:
-					maxEmotion = "Happiness";
-					break;
-				case 5:
-					maxEmotion = "Neutral";
-					break;
-				case 6:
-					maxEmotion = "Sadness";
-					break;
-				case 7:
-					maxEmotion = "Surprise";
-					break;
+				switch (index)
+				{
+					case 0:
+						listEmotions.Add("Anger");
+						break;
+					case 1:
+						listEmotions.Add("Contempt");
+						break;
+					case 2:
+						listEmotions.Add("Disgust");
+						break;
+					case 3:
+						listEmotions.Add( "Fear");
+						break;
+					case 4:
+						listEmotions.Add("Happiness");
+						break;
+					case 5:
+						listEmotions.Add("Neutral");
+						break;
+					case 6:
+						listEmotions.Add("Sadness");
+						break;
+					case 7:
+						listEmotions.Add("Surprise");
+						break;
+				}
 			}
 
 			JObject results = new JObject(
 				new JProperty("PersonCount", personsCount),
 				new JProperty("MaleCount", maleCount),
-				new JProperty("Age", ageAverage));
+				new JProperty("FemaleCount", femaleCount),
+				new JProperty("Age", ageAverage),
+				new JProperty("Emotions", listEmotions));
 
 			return results;
 		}
