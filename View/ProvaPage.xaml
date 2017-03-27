@@ -25,8 +25,8 @@
 							<ColumnDefinition Width="150" />
 						</Grid.ColumnDefinitions>
 
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="0">
-						    <Label Text="Happiness" HorizontalOptions="CenterAndExpand"/>
+						<StackLayout BackgroundColor="#1A80FD" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="0">
+						    <Label Text="Happiness" TextColor="White" HorizontalOptions="CenterAndExpand"/>
 							<Image Source="happy.png" HeightRequest="30" />
 							<ProgressBar x:Name="barHappy" Progress="0"/>
 					    </StackLayout>

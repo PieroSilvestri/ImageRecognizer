@@ -64,6 +64,47 @@ namespace ImageRecognizer
 				surpriseValue = ((double)myReport["surprise_count"]) / tot;
 				topEmotion = myReport["top_emotion"].ToString();
 				Debug.WriteLine("TOP: " + topEmotion);
+				if (topEmotion == "happiness")
+				{
+					happyTab.BackgroundColor = Color.FromHex("#1A80FD");
+					happyLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "neutral")
+				{
+					neutralTab.BackgroundColor = Color.FromHex("#1A80FD");
+					neutralLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "fear")
+				{
+					fearTab.BackgroundColor = Color.FromHex("#1A80FD");
+					fearLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "anger")
+				{
+					angerTab.BackgroundColor = Color.FromHex("#1A80FD");
+					angerLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "disgust")
+				{
+					disgustTab.BackgroundColor = Color.FromHex("#1A80FD");
+					disgustLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "contempt")
+				{
+					contemptTab.BackgroundColor = Color.FromHex("#1A80FD");
+					contemptLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "sadness")
+				{
+					sadTab.BackgroundColor = Color.FromHex("#1A80FD");
+					sadLabel.TextColor = Color.White;
+				}
+				if (topEmotion == "surprise")
+				{
+					surprisedTab.BackgroundColor = Color.FromHex("#1A80FD");
+					surprisedLabel.TextColor = Color.White;
+				}
+
 				calculateEmotions();
 				/*
 				  "success": "true",

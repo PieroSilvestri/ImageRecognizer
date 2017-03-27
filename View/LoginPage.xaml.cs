@@ -123,7 +123,7 @@ namespace ImageRecognizer
 		public async void Get_OnClicked(object o, EventArgs e) 
 		{
 
-			var key = "8f5a96d2-007a-478a-bb2e-e8098891becf";
+			var key = "8bbfb460-b022-4f7b-844e-a7f15c66dff6";
 
 			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + key;
 
