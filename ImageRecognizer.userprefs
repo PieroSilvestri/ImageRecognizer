@@ -1,9 +1,28 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workbench ActiveDocument="View/PasswordPage.xaml.cs">
     <Files>
       <File FileName="View/ProvaPage.xaml.cs" Line="22" Column="18" />
       <File FileName="View/ReportPage.xaml.cs" Line="111" Column="44" />
       <File FileName="View/PasswordPage.xaml.cs" Line="44" Column="9" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModel/MainViewModel.cs">
+    <Files>
+      <File FileName="View/PasswordPage.xaml.cs" Line="32" Column="1" />
+      <File FileName="View/ProvaPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="View/EmotionPage.xaml.cs" Line="21" Column="4" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="404" Column="4" />
+      <File FileName="View/LoginPage.xaml.cs" Line="138" Column="19" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="104" Column="1" />
+      <File FileName="View/ImageEmotionPage.xaml.cs" Line="30" Column="17" />
+      <File FileName="obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="View/ReportPage.xaml.cs" Line="47" Column="27" />
+      <File FileName="Model/ReportItem.cs" Line="19" Column="3" />
+      <File FileName="obj/Debug/ImageRecognizer.View.ReportPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="View/RegistrationPage.xaml.cs" Line="87" Column="41" />
+      <File FileName="Model/RegistrationPerson.cs" Line="10" Column="36" />
+      <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
