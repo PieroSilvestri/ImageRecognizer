@@ -22,8 +22,11 @@ namespace ImageRecognizer
 			await barHappy.ProgressTo(.8, 1000, Easing.Linear);
 		}
 
-		public async void DoLoginWithPassword(object o, EventArgs e)
+		public async void loadProgress(object o, EventArgs e)
 		{
+
+
+
 		}
 
 

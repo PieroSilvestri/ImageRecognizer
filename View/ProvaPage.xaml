@@ -35,36 +35,6 @@
 							<Image Source="surprised.png" HeightRequest="30" />
 							<ProgressBar x:Name="barSurprised" Progress="0"/>
 					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="0">
-						    <Label Text="Neutral" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="nutral.png" HeightRequest="30" />
-							<ProgressBar x:Name="barNeutral" Progress="0"/>
-					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="1">
-						    <Label Text="Sadness" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="sad.png" HeightRequest="30" />
-							<ProgressBar x:Name="barSadness" Progress="0"/>
-					    </StackLayout>
-					    <StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="0">
-						    <Label Text="Fear" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="fear.png" HeightRequest="30" />
-							<ProgressBar x:Name="barFear" Progress="0"/>
-					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="1">
-						    <Label Text="Disgust" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="disgust.png" HeightRequest="30" />
-							<ProgressBar x:Name="barDisgust" Progress="0"/>
-					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="0">
-						    <Label Text="Contempt" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="contempt.png" HeightRequest="30" />
-							<ProgressBar x:Name="barContempt" Progress="0"/>
-					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="1">
-						    <Label Text="Anger" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="anger.png" HeightRequest="30" />
-							<ProgressBar x:Name="barAnger" Progress="0"/>
-   					 	</StackLayout>
 
 
 						
