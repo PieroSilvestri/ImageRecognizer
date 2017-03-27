@@ -1,10 +1,18 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="View/EmotionPage.xaml.cs">
     <Files>
       <File FileName="View/LoginPage.xaml.cs" Line="78" Column="1" />
       <File FileName="ViewModel/MainViewModel.cs" Line="83" Column="1" />
       <File FileName="View/ImageEmotionPage.xaml.cs" Line="145" Column="51" />
       <File FileName="View/EmotionPage.xaml.cs" Line="56" Column="3" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/LoginPage.xaml.cs">
+    <Files>
+      <File FileName="View/ProvaPage.xaml.cs" Line="21" Column="4" />
+      <File FileName="View/ReportPage.xaml.cs" Line="105" Column="20" />
+      <File FileName="View/LoginPage.xaml.cs" Line="98" Column="1" />
+>>>>>>> master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -17,5 +25,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AD321142-D730-447A-9F7F-F90BE0028EF0" />
   <MultiItemStartupConfigurations />
+<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+=======
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.S7M0215928015797" />
+>>>>>>> master
 </Properties>

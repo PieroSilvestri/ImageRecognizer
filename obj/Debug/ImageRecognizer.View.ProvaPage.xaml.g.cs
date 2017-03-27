@@ -26,35 +26,11 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.ProgressBar barSurprised;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barNeutral;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barSadness;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barFear;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barDisgust;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barContempt;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barAnger;
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
             grid = this.FindByName <global::Xamarin.Forms.Grid>("grid");
             barHappy = this.FindByName <global::Xamarin.Forms.ProgressBar>("barHappy");
             barSurprised = this.FindByName <global::Xamarin.Forms.ProgressBar>("barSurprised");
-            barNeutral = this.FindByName <global::Xamarin.Forms.ProgressBar>("barNeutral");
-            barSadness = this.FindByName <global::Xamarin.Forms.ProgressBar>("barSadness");
-            barFear = this.FindByName <global::Xamarin.Forms.ProgressBar>("barFear");
-            barDisgust = this.FindByName <global::Xamarin.Forms.ProgressBar>("barDisgust");
-            barContempt = this.FindByName <global::Xamarin.Forms.ProgressBar>("barContempt");
-            barAnger = this.FindByName <global::Xamarin.Forms.ProgressBar>("barAnger");
         }
     }
 }
