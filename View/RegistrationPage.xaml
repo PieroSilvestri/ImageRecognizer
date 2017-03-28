@@ -55,6 +55,7 @@
 				
 			<StackLayout Orientation="Vertical" Spacing="5">
 				<Entry x:Name="Email" HorizontalOptions="FillAndExpand"
+						Keyboard="Email"
 					Placeholder="Email" TextChanged="CleanNick"/>
 				<Label x:Name="NicknameError" IsVisible="false" FontSize="Small" HorizontalOptions="Center" TextColor="Red"/>
 			</StackLayout>
