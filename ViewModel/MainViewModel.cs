@@ -287,14 +287,56 @@ namespace ImageRecognizer
 			}
 			SetValues(myJsonList);
 		}
+		*/
 
-
-		private void SetValues(List<JsonItem> myNewList)
+		public async Task<JObject> GetListReport(int user_id)
 		{
-			NewJsonItemList = myNewList;
+
+			var url = "http://l-raggioli2.eng.teorema.net/api/list/" + user_id;
+
+			HttpClient client = new HttpClient();
+			client.BaseAddress = new Uri(url); ;
+
+			var response = await client.GetAsync(client.BaseAddress);
+			var status = response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("KNOW YOUR ENEMIES");
+			Debug.WriteLine(JObject.Parse(JsonResult));
+			//var items = JsonConvert.ToString(JsonResult);
+
+			return JObject.Parse(JsonResult);
 		}
 
-		*/
+		public async Task<bool> CreateNewList(string newListName, int user_id)
+		{
+			var url = @"http://l-raggioli2.eng.teorema.net/api/list/";
+
+			HttpClient client = new HttpClient();
+
+			JObject jsonToPass = new JObject(
+				new JProperty("User_id", user_id),
+				new JProperty("Name", newListName),
+				new JProperty("DataCreation", DateTime.Now.ToString()));
+
+			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
+
+			var response = await client.PostAsync(url, content);
+			var status = response.EnsureSuccessStatusCode();
+
+			var JsonResult = response.Content.ReadAsStringAsync().Result;
+			Debug.WriteLine("registration Request");
+			//Debug.WriteLine(JsonResult);
+			//var items = JsonConvert.ToString(JsonResult);
+
+			JObject a = JObject.Parse(JsonResult);
+
+			bool myFlag = (bool)a["success"];
+
+			return myFlag;
+		}
+
+		
 
 		public async Task<JArray> DetectFaceAndEmotionsAsync(EmotionServiceClient emotionServiceClient, MediaFile inputFile)
 		{

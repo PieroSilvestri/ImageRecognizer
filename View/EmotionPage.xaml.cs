@@ -58,7 +58,7 @@ namespace ImageRecognizer
 
 		async public void ShowReports(object o, EventArgs e)
 		{
-			await Navigation.PushAsync(new ReportPage(user_id));
+			await Navigation.PushAsync(new ListReportPage(user_id));
 		}
 
 

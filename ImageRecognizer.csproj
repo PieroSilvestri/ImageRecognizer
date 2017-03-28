@@ -60,6 +60,9 @@
     <EmbeddedResource Include="View\ReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ListReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -104,6 +107,10 @@
       <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ReportItem.cs" />
+    <Compile Include="View\ListReportPage.xaml.cs">
+      <DependentUpon>ListReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

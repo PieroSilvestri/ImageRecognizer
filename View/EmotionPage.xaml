@@ -22,7 +22,7 @@
 						</StackLayout.GestureRecognizers>
 						<Image Source="graph.png" HeightRequest="150">
 						</Image>
-						<Label Text="REPORTS" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						<Label Text="LIST REPORTS" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
 						</StackLayout>
 
 			</StackLayout> 
