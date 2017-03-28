@@ -101,32 +101,45 @@ namespace ImageRecognizer
 			Debug.WriteLine(pfi1);
 			Debug.WriteLine(pfi2);
 
-			JObject sendRegistrationImages = new JObject(
+			try
+			{
+				JObject sendRegistrationImages = new JObject(
 				new JProperty("ID", newId),
 				new JProperty("faceId_1", pfi1["persistedFaceId"].ToString()),
 				new JProperty("faceId_2", pfi2["persistedFaceId"].ToString()));
-			Debug.WriteLine("sendregistrationimages");
-			Debug.WriteLine(sendRegistrationImages);
+				Debug.WriteLine("sendregistrationimages");
+				Debug.WriteLine(sendRegistrationImages);
 
-			var myFlag = await vm.RegistrationRequest(sendRegistrationImages);
+				var myFlag = await vm.RegistrationRequest(sendRegistrationImages);
 
-			if (myFlag)
-			{
-				spinner.IsVisible = false;
-				spinner.IsRunning = false;
-				loadingLabel.IsVisible = false;
-				await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
-				await Navigation.PushAsync(new LoginPage());
+				if (myFlag)
+				{
+					spinner.IsVisible = false;
+					spinner.IsRunning = false;
+					loadingLabel.IsVisible = false;
+					await DisplayAlert("Well Done!", "The registration has been done! :)", "OK");
+					await Navigation.PushAsync(new LoginPage());
+				}
+				else
+				{
+					spinner.IsVisible = false;
+					spinner.IsRunning = false;
+					loadingLabel.IsVisible = false;
+					buttonDone.IsVisible = true;
+					await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
+				}
 			}
-			else
+			catch (Exception exc)
 			{
+				Debug.WriteLine("Error");
+				Debug.WriteLine(exc);
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
 				loadingLabel.IsVisible = false;
 				buttonDone.IsVisible = true;
-				await DisplayAlert("OPS!", "Something went wrong! :(", "OK");
+				await DisplayAlert("Error", "Something went wrong. Try again!", "OK");
 			}
-
+				
 
 		}
 

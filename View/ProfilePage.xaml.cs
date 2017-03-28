@@ -35,7 +35,7 @@ namespace ImageRecognizer
 
 			string nome = oggetto["FirstName"].ToString();
 			string cognome = oggetto["LastName"].ToString();
-			//string age = oggetto["Age"].ToString();
+			string age = oggetto["Age"].ToString();
 			string username = oggetto["UserName"].ToString();
 			//string dataReg = oggetto["DataRegistration"].ToString();
 			string birthday = oggetto["Birthday"].ToString();
@@ -47,7 +47,7 @@ namespace ImageRecognizer
 			labelNome.Text = nome + " " + cognome;
 			//labelAge.Text = age;
 			//labelDataReg.Text = dataReg;
-			labelBirthday.Text = birthday;
+			labelBirthday.Text = age;
 			labelRole.Text = role;
 			labelEmail.Text = email;
 

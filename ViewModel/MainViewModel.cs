@@ -182,7 +182,7 @@ namespace ImageRecognizer
 
 			var content = new StringContent(newPerson.ToString(), null, "application/json");
 
-			var response = await client.PostAsync(url, content);
+			var response = await client.PostAsync(url2, content);
 			try
 			{
 				response.EnsureSuccessStatusCode();
@@ -204,7 +204,7 @@ namespace ImageRecognizer
 			if ((bool)a["success"])
 			{
 				JObject body = (JObject)a["body"];
-				int newId = (int)a["value"];
+				int newId = (int)body["insertId"];
 
 				return newId;
 			}
@@ -212,23 +212,6 @@ namespace ImageRecognizer
 			{
 				return -1;
 			}
-
-
-			/*
-			var success = (Boolean)a["success"];
-			if (success)
-			{
-				Debug.WriteLine("TRUE");
-				await GetUserByFaceId(a["persistedFaceId"].ToString());
-			}
-			else
-			{
-				Debug.WriteLine("FALSE");
-			}
-
-			Debug.WriteLine("JSONPOSTPROVA");
-			Debug.WriteLine(a);
-			*/
 		}
 
 		public async Task<bool> RegistrationRequest(JObject newJson)
