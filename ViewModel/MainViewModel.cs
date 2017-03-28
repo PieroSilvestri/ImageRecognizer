@@ -80,7 +80,16 @@ namespace ImageRecognizer
 				responseContent = response.Content.ReadAsStringAsync().Result;
 
 				Debug.WriteLine(responseContent);
-				return (JObject) JArray.Parse(responseContent.ToString()).First;
+				try
+				{
+					return (JObject)JArray.Parse(responseContent.ToString()).First;
+
+				}
+				catch(Exception exc)
+				{
+					Debug.WriteLine(exc);
+					return JObject.Parse(responseContent);
+				}
 			}
 
 			//A peak at the JSON response.
@@ -167,12 +176,13 @@ namespace ImageRecognizer
 		{
 
 			var url = @"http://l-raggioli2.eng.teorema.net/api/registration/";
+			var url2 = @"https://image-recognizer-v1.herokuapp.com/api/v1/users/add";
 
 			HttpClient client = new HttpClient();
 
 			var content = new StringContent(newPerson.ToString(), null, "application/json");
 
-			var response = await client.PostAsync(url, content);
+			var response = await client.PostAsync(url2, content);
 			response.EnsureSuccessStatusCode();
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
@@ -182,9 +192,19 @@ namespace ImageRecognizer
 
 			JObject a = JObject.Parse(JsonResult);
 
-			int newId = (int)a["value"];
+			if ((bool)a["success"])
+			{
+				JObject body = (JObject)a["body"];
+				int newId = (int)body["insertId"];
 
-			return newId;
+				return newId;
+			}
+			else
+			{
+				return -1;
+			}
+
+
 			/*
 			var success = (Boolean)a["success"];
 			if (success)

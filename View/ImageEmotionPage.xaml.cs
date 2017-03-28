@@ -147,7 +147,7 @@ namespace ImageRecognizer
 				JObject jsonEmotionDetected = SetEmotionUI(jsonToPass);
 				Debug.WriteLine("JSON EMOTIUON DETECTED");
 				Debug.WriteLine(jsonEmotionDetected);
-				int personCount = (int) jsonEmotionDetected["PersonsCount"];
+				int personCount = (int) jsonEmotionDetected["PersonCount"];
 
 			}
 			else

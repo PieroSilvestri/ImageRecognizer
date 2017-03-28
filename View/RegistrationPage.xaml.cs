@@ -99,9 +99,18 @@ namespace ImageRecognizer
 				Debug.WriteLine("MYPERSON");
 				Debug.WriteLine(myObj);
 
-				var id = await vm.CreateANewUser(myObj);
+				int id = await vm.CreateANewUser(myObj);
 
-				await Navigation.PushAsync(new RegistrationPage2(id));
+				if (id > 0)
+				{
+					await Navigation.PushAsync(new RegistrationPage2(id));
+				}
+				else
+				{
+					await DisplayAlert("Error!","Inserted values not correct.", "OK");
+				}
+
+
 			}
 		}
 
