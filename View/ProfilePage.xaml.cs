@@ -16,7 +16,7 @@ namespace ImageRecognizer
 		{
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
-			profileImage.Source = "http://placehold.it/350x350";
+
 
 
 

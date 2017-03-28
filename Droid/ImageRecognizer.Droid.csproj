@@ -187,6 +187,7 @@
     <AndroidResource Include="Resources\drawable\nutral.png" />
     <AndroidResource Include="Resources\drawable\sad.png" />
     <AndroidResource Include="Resources\drawable\surprised.png" />
+    <AndroidResource Include="Resources\drawable\NewLogo3.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">

@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProfilePage">
-	<ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProfilePage" BackgroundColor="White">
+<ContentPage.Content>
 	<ScrollView>
-	<StackLayout Orientation="Vertical" Spacing="20" Padding="10, 15, 10, 0"> 
+	<StackLayout Orientation="Vertical" Spacing="20">
+		<StackLayout Orientation="Vertical" Spacing="20" BackgroundColor="#1A80FD" > 
+				
 			<Button Text="Back" 
-					BackgroundColor="#1A80FD" 
-					TextColor="White" 
+					BackgroundColor="White" 
+					Opacity="0.7"
+					TextColor="#1A80FD" 
 					HorizontalOptions="Start"
 					VerticalOptions="Start"
-					Clicked="backEvent"
 					WidthRequest="70"/>
 		<StackLayout Orientation="Vertical" Padding="0, 0, 0, 15" Spacing="10">
-			<Image x:Name="profileImage" HeightRequest="100"/> 
-			<Button x:Name="chageImage" Text="Change profile picture"
+			<Image x:Name="profileImage" Source="happy" HeightRequest="100"/> 
+			<Button x:Name="chageImage" Text="  Change profile picture  "
 					FontSize="Small" TextColor = "#1A80FD" 
-					BackgroundColor="Transparent" HorizontalOptions="Center"
-					BorderColor = "Transparent" />
+					BackgroundColor="White" HorizontalOptions="Center"
+					BorderColor = "Transparent" Margin="10" Opacity="0.7"/>
 		</StackLayout>
+	</StackLayout>
 
+		<StackLayout Orientation="Vertical" BackgroundColor="White" Spacing="20" Padding="20">
 		<StackLayout Orientation="Horizontal">
 			<Image Source="name.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelNome" FontSize="25" />
+			<Label x:Name="labelNome" FontSize="Large" />
 		</StackLayout>
 
 		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
 
 		<StackLayout Orientation="Horizontal">
 			<Image Source="birthday.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelBirthday" FontSize="25" />
+			<Label x:Name="labelBirthday" FontSize="Large" />
 		</StackLayout>
 
 		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
 
 		<StackLayout Orientation="Horizontal">
 			<Image Source="role.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelRole" FontSize="25" />
+			<Label x:Name="labelRole" FontSize="Large" />
 		</StackLayout>
 
 		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
 
 		<StackLayout Orientation="Horizontal">
 			<Image Source="email.png" HeightRequest="30" ></Image>
-			<Label x:Name="labelEmail" FontSize="25" />
+			<Label x:Name="labelEmail" FontSize="Large" />
 		</StackLayout>
 
 		<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
-			
+		</StackLayout>	
 	</StackLayout>
 	</ScrollView>	
 	</ContentPage.Content>

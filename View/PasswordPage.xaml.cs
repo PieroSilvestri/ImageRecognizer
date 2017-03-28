@@ -67,24 +67,7 @@ namespace ImageRecognizer
 
 		}
 
-		bool i = true;
-		public void EasterEgg(object sender, EventArgs e)
-		{
-			
-			if (i)
-			{
-				LogoImage.IsVisible = false;
-				LogoImage2.IsVisible = true;
-			}
-			else
-			{
-				LogoImage2.IsVisible = false;
-				LogoImage.IsVisible = true;
-			}
 
-			i = !i;
-
-		}
 
 		async void loadDelayAnimation()
 		{

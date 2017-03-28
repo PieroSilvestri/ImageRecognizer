@@ -17,20 +17,32 @@ namespace ImageRecognizer {
     public partial class ProvaPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Image profileImage;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button chageImage;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label labelNome;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.StackLayout cameraIcon;
+        private global::Xamarin.Forms.Label labelBirthday;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.StackLayout reportsIcon;
+        private global::Xamarin.Forms.Label labelRole;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label labelEmail;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
+            profileImage = this.FindByName <global::Xamarin.Forms.Image>("profileImage");
+            chageImage = this.FindByName <global::Xamarin.Forms.Button>("chageImage");
             labelNome = this.FindByName <global::Xamarin.Forms.Label>("labelNome");
-            cameraIcon = this.FindByName <global::Xamarin.Forms.StackLayout>("cameraIcon");
-            reportsIcon = this.FindByName <global::Xamarin.Forms.StackLayout>("reportsIcon");
+            labelBirthday = this.FindByName <global::Xamarin.Forms.Label>("labelBirthday");
+            labelRole = this.FindByName <global::Xamarin.Forms.Label>("labelRole");
+            labelEmail = this.FindByName <global::Xamarin.Forms.Label>("labelEmail");
         }
     }
 }
