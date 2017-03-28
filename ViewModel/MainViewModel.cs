@@ -431,7 +431,7 @@ namespace ImageRecognizer
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("registration Request");
-			//Debug.WriteLine(JsonResult);
+			Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);

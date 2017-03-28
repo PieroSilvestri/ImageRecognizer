@@ -25,14 +25,13 @@ namespace ImageRecognizer
 		public ImageEmotionPage(int id, MediaFile imageSource)
 		{
 			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
 			Image1.Source = ImageSource.FromStream(() => imageSource.GetStream());;
 			//Ozecky sdk
 			user_id = id;
 			cognityServices = new MainViewModel();
 			this.faceServiceClient = new FaceServiceClient(faceKey);
 			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
-			this.Title = "Foto Scattata";
-
 
 			DoTheProgramm(imageSource);
 		}
@@ -69,8 +68,12 @@ namespace ImageRecognizer
 			spinner.IsRunning = true;
 			DoTheProgramm(file);
 		}
+	
 
-		private async void DoTheProgramm(MediaFile file)
+
+
+
+	private async void DoTheProgramm(MediaFile file)
 		{
 
 			/*
@@ -134,7 +137,8 @@ namespace ImageRecognizer
 				new JProperty("success", true),
 				new JProperty("faces", faces),
 				new JProperty("emotions", scores),
-				new JProperty("id_user", this.user_id));
+				new JProperty("id_user", this.user_id),
+				new JProperty("id_list", 12));
 			Debug.WriteLine(jsonToPass);
 
 			bool response;
@@ -163,6 +167,90 @@ namespace ImageRecognizer
 				Debug.WriteLine("JSON EMOTIUON DETECTED");
 				Debug.WriteLine(jsonEmotionDetected);
 				int personCount = (int) jsonEmotionDetected["PersonCount"];
+				int maleCount = (int)jsonEmotionDetected["MaleCount"];
+				int femaleCount = (int)jsonEmotionDetected["FemaleCount"];
+				int age = (int)jsonEmotionDetected["Age"];
+
+				int angerCount = (int)jsonEmotionDetected["AngerCount"];
+				int contemptCount = (int)jsonEmotionDetected["ContemptCount"];
+				int disgustCount = (int)jsonEmotionDetected["DisgustCount"];
+				int fearCount = (int)jsonEmotionDetected["FearCount"];
+				int happinessCount = (int)jsonEmotionDetected["HappinessCount"];
+				int neutralCount = (int)jsonEmotionDetected["NeutralCount"];
+				int sadnessCount = (int)jsonEmotionDetected["SadnessCount"];
+				int surpriseCount = (int)jsonEmotionDetected["SurpriseCount"];
+
+				if (angerCount != 0)
+				{
+					angerTab.IsVisible = true;
+					angerLabel.Text = "Anger: " + angerCount;
+				}
+				else { angerTab.IsVisible = false; }
+
+				if (contemptCount != 0)
+				{
+					contemptTab.IsVisible = true;
+					contemptLabel.Text = "Contempt: " + contemptCount;
+				}
+				else { contemptTab.IsVisible = false; }
+
+				if (disgustCount != 0)
+				{
+					disgustTab.IsVisible = true;
+					disgustLabel.Text = "Disgust: " + disgustCount;
+				}
+				else { disgustTab.IsVisible = false; }
+
+				if (fearCount != 0)
+				{
+					fearTab.IsVisible = true;
+					fearLabel.Text = "Fear: " + fearCount;
+				}
+				else { fearTab.IsVisible = false; }
+
+				if (happinessCount != 0)
+				{
+					happyTab.IsVisible = true;
+					happyLabel.Text = "Happiness: " + happinessCount;
+				}
+				else { happyTab.IsVisible = false; }
+
+				if (neutralCount != 0)
+				{
+					neutralTab.IsVisible = true;
+					neutralLabel.Text = "Neutral: " + neutralCount;
+				}
+				else { neutralTab.IsVisible = false; }
+
+				if (sadnessCount != 0)
+				{
+					sadTab.IsVisible = true;
+					sadLabel.Text = "Sadness: " + sadnessCount;
+				}
+				else { sadTab.IsVisible = false; }
+
+				if (surpriseCount != 0)
+				{
+					surprisedTab.IsVisible = true;
+					surprisedLabel.Text = "Surprised: " + surpriseCount;
+				}
+				else { surprisedTab.IsVisible = false; }
+
+
+				/*
+					  "PersonCount": 1,
+					  "MaleCount": 1,
+					  "FemaleCount": 0,
+					  "Age": 32,
+					  "AngerCount": 0,
+					  "ContemptCount": 0,
+					  "DisgustCount": 0,
+					  "FearCount": 0,
+					  "HappinessCount": 0,
+					  "NeutralCount": 0,
+					  "SadnessCount": 0,
+					  "SurpriseCount": 1
+				*/
 
 			}
 			else
@@ -176,7 +264,11 @@ namespace ImageRecognizer
 
 		}
 
-		private  JObject SetEmotionUI(JObject jsonToParse)
+
+
+
+
+	private  JObject SetEmotionUI(JObject jsonToParse)
 		{
 			JArray faces = (JArray)jsonToParse["faces"];
 			JArray emotions = (JArray)jsonToParse["emotions"];
@@ -279,5 +371,6 @@ namespace ImageRecognizer
 
 			return results;
 		}
+
 	}
 }

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ImageEmotionPage">
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical">
-			<Frame>
+			<Frame BackgroundColor="#1A80FD">
 				<Image x:Name="Image1" HeightRequest="240">
 					<Image.GestureRecognizers>
 						<TapGestureRecognizer NumberOfTapsRequired="1"
@@ -18,6 +18,53 @@
 
 			</StackLayout>
 
+
+			
+			<ScrollView>
+			<StackLayout IsVisible="false" x:Name="happyTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="0">
+			    <Label x:Name="happyLabel" Text="Happiness" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="happy.png" HeightRequest="30" />
+			<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="surprisedTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="1">
+			    <Label x:Name="surprisedLabel" Text="Surprised" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="surprised.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="neutralTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="0">
+			    <Label x:Name="neutralLabel" Text="Neutral" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="nutral.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="sadTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="1" Grid.Column="1">
+			    <Label x:Name="sadLabel" Text="Sadness" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="sad.png" HeightRequest="30" />
+			<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+		    <StackLayout IsVisible="false" x:Name="fearTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="0">
+			    <Label x:Name="fearLabel" Text="Fear" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="fear.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="disgustTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="2" Grid.Column="1">
+			    <Label x:Name="disgustLabel" Text="Disgust" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="disgust.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="contemptTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="0">
+			    <Label x:Name="contemptLabel" Text="Contempt" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="contempt.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		    </StackLayout>
+			<StackLayout IsVisible="false" x:Name="angerTab" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="3" Grid.Column="1">
+			    <Label x:Name="angerLabel" Text="Anger" HorizontalOptions="CenterAndExpand"/>
+				<Image Source="anger.png" HeightRequest="30" />
+				<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
+		 	</StackLayout>	
+
+
+			
+			</ScrollView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

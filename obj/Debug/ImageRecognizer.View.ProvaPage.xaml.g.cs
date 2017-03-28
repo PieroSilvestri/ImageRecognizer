@@ -17,32 +17,116 @@ namespace ImageRecognizer {
     public partial class ProvaPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image profileImage;
+        private global::Xamarin.Forms.Image Image1;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button chageImage;
+        private global::Xamarin.Forms.Label facesDetected;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelNome;
+        private global::Xamarin.Forms.ActivityIndicator spinner;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelBirthday;
+        private global::Xamarin.Forms.StackLayout happyTab;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelRole;
+        private global::Xamarin.Forms.Label happyLabel;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Label labelEmail;
+        private global::Xamarin.Forms.ProgressBar barHappy;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout surprisedTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label surprisedLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barSurprised;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout neutralTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label neutralLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barNeutral;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout sadTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label sadLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barSadness;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout fearTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label fearLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barFear;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout disgustTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label disgustLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barDisgust;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout contemptTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label contemptLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barContempt;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout angerTab;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label angerLabel;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ProgressBar barAnger;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
-            profileImage = this.FindByName <global::Xamarin.Forms.Image>("profileImage");
-            chageImage = this.FindByName <global::Xamarin.Forms.Button>("chageImage");
-            labelNome = this.FindByName <global::Xamarin.Forms.Label>("labelNome");
-            labelBirthday = this.FindByName <global::Xamarin.Forms.Label>("labelBirthday");
-            labelRole = this.FindByName <global::Xamarin.Forms.Label>("labelRole");
-            labelEmail = this.FindByName <global::Xamarin.Forms.Label>("labelEmail");
+            Image1 = this.FindByName <global::Xamarin.Forms.Image>("Image1");
+            facesDetected = this.FindByName <global::Xamarin.Forms.Label>("facesDetected");
+            spinner = this.FindByName <global::Xamarin.Forms.ActivityIndicator>("spinner");
+            happyTab = this.FindByName <global::Xamarin.Forms.StackLayout>("happyTab");
+            happyLabel = this.FindByName <global::Xamarin.Forms.Label>("happyLabel");
+            barHappy = this.FindByName <global::Xamarin.Forms.ProgressBar>("barHappy");
+            surprisedTab = this.FindByName <global::Xamarin.Forms.StackLayout>("surprisedTab");
+            surprisedLabel = this.FindByName <global::Xamarin.Forms.Label>("surprisedLabel");
+            barSurprised = this.FindByName <global::Xamarin.Forms.ProgressBar>("barSurprised");
+            neutralTab = this.FindByName <global::Xamarin.Forms.StackLayout>("neutralTab");
+            neutralLabel = this.FindByName <global::Xamarin.Forms.Label>("neutralLabel");
+            barNeutral = this.FindByName <global::Xamarin.Forms.ProgressBar>("barNeutral");
+            sadTab = this.FindByName <global::Xamarin.Forms.StackLayout>("sadTab");
+            sadLabel = this.FindByName <global::Xamarin.Forms.Label>("sadLabel");
+            barSadness = this.FindByName <global::Xamarin.Forms.ProgressBar>("barSadness");
+            fearTab = this.FindByName <global::Xamarin.Forms.StackLayout>("fearTab");
+            fearLabel = this.FindByName <global::Xamarin.Forms.Label>("fearLabel");
+            barFear = this.FindByName <global::Xamarin.Forms.ProgressBar>("barFear");
+            disgustTab = this.FindByName <global::Xamarin.Forms.StackLayout>("disgustTab");
+            disgustLabel = this.FindByName <global::Xamarin.Forms.Label>("disgustLabel");
+            barDisgust = this.FindByName <global::Xamarin.Forms.ProgressBar>("barDisgust");
+            contemptTab = this.FindByName <global::Xamarin.Forms.StackLayout>("contemptTab");
+            contemptLabel = this.FindByName <global::Xamarin.Forms.Label>("contemptLabel");
+            barContempt = this.FindByName <global::Xamarin.Forms.ProgressBar>("barContempt");
+            angerTab = this.FindByName <global::Xamarin.Forms.StackLayout>("angerTab");
+            angerLabel = this.FindByName <global::Xamarin.Forms.Label>("angerLabel");
+            barAnger = this.FindByName <global::Xamarin.Forms.ProgressBar>("barAnger");
         }
     }
 }
