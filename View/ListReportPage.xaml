@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ListReportPage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			<Label Text="List Reports" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="Large" TextColor="#1A80FD"/>
+			<ListView x:Name="ListViewReports">
+			    <ListView.ItemTemplate>
+			      <DataTemplate>
+			        <TextCell Text="{Binding ListName}" />
+			      </DataTemplate>
+			    </ListView.ItemTemplate>
+		  </ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
