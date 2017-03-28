@@ -1,8 +1,10 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
+
 namespace ImageRecognizer
 {
 	public class ListItem
 	{
-		public string ListName { get; set; }
+		public string ListItemName { get; set; }
 	}
 }

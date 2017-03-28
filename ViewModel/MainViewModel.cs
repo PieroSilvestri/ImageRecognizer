@@ -308,7 +308,7 @@ namespace ImageRecognizer
 			return JObject.Parse(JsonResult);
 		}
 
-		public async Task<bool> CreateNewList(string newListName, int user_id)
+		public async Task<JObject> CreateNewList(string newListName, int user_id)
 		{
 			var url = @"http://l-raggioli2.eng.teorema.net/api/list/";
 
@@ -325,15 +325,13 @@ namespace ImageRecognizer
 			var status = response.EnsureSuccessStatusCode();
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
-			Debug.WriteLine("registration Request");
+			Debug.WriteLine("Create new list Request");
 			//Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);
 
-			bool myFlag = (bool)a["success"];
-
-			return myFlag;
+			return a;
 		}
 
 		
