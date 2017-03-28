@@ -182,8 +182,17 @@ namespace ImageRecognizer
 
 			var content = new StringContent(newPerson.ToString(), null, "application/json");
 
-			var response = await client.PostAsync(url2, content);
-			response.EnsureSuccessStatusCode();
+			var response = await client.PostAsync(url, content);
+			try
+			{
+				response.EnsureSuccessStatusCode();
+			}
+			catch (Exception exc)
+			{
+				Debug.WriteLine("Error");
+				Debug.WriteLine(exc);
+				return -1;
+			}
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("KNOW YOUR ENEMIES");
@@ -195,7 +204,7 @@ namespace ImageRecognizer
 			if ((bool)a["success"])
 			{
 				JObject body = (JObject)a["body"];
-				int newId = (int)body["insertId"];
+				int newId = (int)a["value"];
 
 				return newId;
 			}

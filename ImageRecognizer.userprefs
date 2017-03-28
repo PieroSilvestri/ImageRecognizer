@@ -1,8 +1,38 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="View/EmotionPage.xaml.cs">
     <Files>
       <File FileName="View/EmotionPage.xaml.cs" Line="54" Column="4" />
       <File FileName="View/PasswordPage.xaml.cs" Line="27" Column="4" />
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/EmotionPage.xaml.cs">
+    <Files>
+      <File FileName="View/ImageEmotionPage.xaml.cs" Line="60" Column="5" />
+      <File FileName="View/ReportPage.xaml.cs" Line="73" Column="33" />
+      <File FileName="View/EmotionPage.xaml.cs" Line="56" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/RegistrationPage.xaml.cs">
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/ReportPage.xaml.cs">
+>>>>>>> Stashed changes
+    <Files>
+      <File FileName="View/LoginPage.xaml.cs" Line="113" Column="1" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="223" Column="1" />
+      <File FileName="View/ImageEmotionPage.xaml.cs" Line="88" Column="1" />
+      <File FileName="View/EmotionPage.xaml.cs" Line="57" Column="1" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="33" Column="1" />
+      <File FileName="View/RegistrationPage.xaml.cs" Line="44" Column="1" />
+      <File FileName="Droid/MainApplication.cs" Line="48" Column="1" />
+      <File FileName="App.xaml.cs" Line="29" Column="1" />
+      <File FileName="obj/Debug/ImageRecognizer.View.RegistrationPage2.xaml.g.cs" Line="46" Column="1" />
+<<<<<<< Updated upstream
+>>>>>>> master
+=======
+      <File FileName="View/ReportPage.xaml.cs" Line="1" Column="1" />
+>>>>>>> Stashed changes
+>>>>>>> master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
