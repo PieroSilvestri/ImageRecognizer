@@ -26,8 +26,8 @@ namespace ImageRecognizer
 		public ReportPage(int id)
 		{
 			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
 			vm = new MainViewModel();
-			Title = "Report";
 			this.user_id = id;
 			GetReports();
 

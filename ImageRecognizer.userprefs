@@ -1,4 +1,5 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="View/ProfilePage.xaml.cs">
     <Files>
       <File FileName="View/LoginPage.xaml.cs" Line="134" Column="26" />
@@ -13,6 +14,11 @@
       <File FileName="View/ReportPage.xaml.cs" Line="119" Column="5" />
       <File FileName="View/PasswordPage.xaml.cs" Line="54" Column="54" />
       <File FileName="View/ProfilePage.xaml.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/ReportPage.xaml.cs">
+    <Files>
+      <File FileName="View/ReportPage.xaml.cs" Line="29" Column="52" />
+>>>>>>> master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -22,5 +28,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AD321142-D730-447A-9F7F-F90BE0028EF0" />
   <MultiItemStartupConfigurations />
+<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+=======
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+>>>>>>> master
 </Properties>

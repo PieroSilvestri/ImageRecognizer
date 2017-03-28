@@ -17,20 +17,20 @@ namespace ImageRecognizer {
     public partial class ProvaPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Grid grid;
+        private global::Xamarin.Forms.Label labelNome;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barHappy;
+        private global::Xamarin.Forms.StackLayout cameraIcon;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ProgressBar barSurprised;
+        private global::Xamarin.Forms.StackLayout reportsIcon;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ProvaPage));
-            grid = this.FindByName <global::Xamarin.Forms.Grid>("grid");
-            barHappy = this.FindByName <global::Xamarin.Forms.ProgressBar>("barHappy");
-            barSurprised = this.FindByName <global::Xamarin.Forms.ProgressBar>("barSurprised");
+            labelNome = this.FindByName <global::Xamarin.Forms.Label>("labelNome");
+            cameraIcon = this.FindByName <global::Xamarin.Forms.StackLayout>("cameraIcon");
+            reportsIcon = this.FindByName <global::Xamarin.Forms.StackLayout>("reportsIcon");
         }
     }
 }

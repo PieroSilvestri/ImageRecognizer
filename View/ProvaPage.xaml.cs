@@ -11,23 +11,12 @@ namespace ImageRecognizer
 		{
 			InitializeComponent();
 			this.Title = "Report";
-			progressBar();
-
-
-		}
-
-		async void progressBar() 
-		{ 
-			await Task.Delay(2000);
-			await barHappy.ProgressTo(.8, 1000, Easing.Linear);
-		}
-
-		public async void loadProgress(object o, EventArgs e)
-		{
 
 
 
 		}
+
+
 
 
 

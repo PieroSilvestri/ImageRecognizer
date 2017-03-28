@@ -1,51 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ProvaPage">
 	<ContentPage.Content>
-	<ScrollView>
-	<StackLayout Orientation="Vertical" Padding = "10, 15, 10, 15">
+			<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#1A80FD">
+					<Label x:Name="labelNome" Text="Emotion Page" HorizontalTextAlignment="Center" HorizontalOptions="Center" FontSize="Large" TextColor="White" Margin="0, 20, 0, -50" />
 
-    <BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
-				
-	<Label Text="Emotions counter:" FontSize="Medium" HorizontalOptions="StartAndExpand"/>	
-			
-    
-				
-	<BoxView HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1"/>
-
-	<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="10">
-					<Grid x:Name="grid" ColumnSpacing="10">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="100" />
-							<RowDefinition Height="100" />
-							<RowDefinition Height="100" />
-							<RowDefinition Height="100" />
-						</Grid.RowDefinitions>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="150" />
-							<ColumnDefinition Width="150" />
-						</Grid.ColumnDefinitions>
-
-						<StackLayout BackgroundColor="#1A80FD" Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="0">
-						    <Label Text="Happiness" TextColor="White" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="happy.png" HeightRequest="30" />
-							<ProgressBar x:Name="barHappy" Progress="0"/>
-					    </StackLayout>
-						<StackLayout Orientation="Vertical" Padding = "10" Spacing="10" Grid.Row="0" Grid.Column="1">
-						    <Label Text="Surprised" HorizontalOptions="CenterAndExpand"/>
-							<Image Source="surprised.png" HeightRequest="30" />
-							<ProgressBar x:Name="barSurprised" Progress="0"/>
-					    </StackLayout>
+						<StackLayout x:Name="cameraIcon" Orientation="Vertical" Spacing="-30" VerticalOptions="CenterAndExpand" BackgroundColor="#1A80FD" Margin="0, 0, 0, -150">
+					    <StackLayout.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1"/>
+						</StackLayout.GestureRecognizers>
+						<Image Source="camera.png" HeightRequest="150">
+						</Image>
+						<Label Text="CAMERA" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						</StackLayout>
 
 
-						
-					</Grid>
-				</StackLayout>
+						<StackLayout x:Name="reportsIcon" Orientation="Vertical" Spacing="-22" VerticalOptions="CenterAndExpand" BackgroundColor="#1A80FD">
+					    <StackLayout.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1"/>
+						</StackLayout.GestureRecognizers>
+						<Image Source="graph.png" HeightRequest="150">
+						</Image>
+						<Label Text="REPORTS" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="White"/>
+						</StackLayout>
 
-
-
-				
-		
-	</StackLayout>
-	</ScrollView>
+			</StackLayout> 
 	</ContentPage.Content>
 </ContentPage>

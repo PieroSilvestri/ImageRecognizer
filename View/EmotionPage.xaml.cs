@@ -19,8 +19,8 @@ namespace ImageRecognizer
 		public EmotionPage(int id)
 		{
 			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
 			this.user_id = id;
-			this.Title = "Emotion Page";
 			loadDelayAnimation();
 		}
 		 
