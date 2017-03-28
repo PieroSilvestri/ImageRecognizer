@@ -109,6 +109,7 @@ namespace ImageRecognizer
 				else
 				{
 					await DisplayAlert("Error!","Inserted values not correct.", "OK");
+					done.IsEnabled = true;
 				}
 
 
