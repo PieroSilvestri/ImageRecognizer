@@ -199,11 +199,20 @@ namespace ImageRecognizer
 			}
 			ageAverage = ageAverage / personsCount;
 
-			List<string> listEmotions = new List<string>();
+			int angerCount = 0;
+			int contemptCount = 0;
+			int disgustCount = 0;
+			int fearCount = 0;
+			int happinessCount = 0;
+			int neutralCount = 0;
+			int sadnessCount = 0;
+			int surpriseCount = 0;
+
 			foreach (JObject emotion in emotions)
 			{
 				double max = 0;
 				double anger = (double)emotion["anger"];
+
 				double contempt = (double)emotion["contempt"];
 				double disgust = (double)emotion["disgust"];
 				double fear = (double)emotion["fear"];
@@ -211,6 +220,7 @@ namespace ImageRecognizer
 				double neutral = (double)emotion["neutral"];
 				double sadness = (double)emotion["sadness"];
 				double surprise = (double)emotion["surprise"];
+
 				double[] emotionValues = { anger, contempt, disgust, fear, happiness, neutral, sadness, surprise };
 				int index = 0;
 				for (int i = 0; i < 8; i++)
@@ -224,38 +234,48 @@ namespace ImageRecognizer
 				switch (index)
 				{
 					case 0:
-						listEmotions.Add("Anger");
+						angerCount++;
 						break;
 					case 1:
-						listEmotions.Add("Contempt");
+						contemptCount++;
 						break;
 					case 2:
-						listEmotions.Add("Disgust");
+						disgustCount++;
 						break;
 					case 3:
-						listEmotions.Add( "Fear");
+						fearCount++;
 						break;
 					case 4:
-						listEmotions.Add("Happiness");
+						happinessCount++;
 						break;
 					case 5:
-						listEmotions.Add("Neutral");
+						neutralCount++;
 						break;
 					case 6:
-						listEmotions.Add("Sadness");
+						sadnessCount++;
 						break;
 					case 7:
-						listEmotions.Add("Surprise");
+						surpriseCount++;
 						break;
 				}
 			}
+
+	
+
 
 			JObject results = new JObject(
 				new JProperty("PersonCount", personsCount),
 				new JProperty("MaleCount", maleCount),
 				new JProperty("FemaleCount", femaleCount),
 				new JProperty("Age", ageAverage),
-				new JProperty("Emotions", listEmotions));
+				new JProperty("AngerCount", angerCount),
+				new JProperty("ContemptCount", contemptCount),
+				new JProperty("DisgustCount", disgustCount),
+				new JProperty("FearCount", fearCount),
+				new JProperty("HappinessCount", happinessCount),
+				new JProperty("NeutralCount", neutralCount),
+				new JProperty("SadnessCount", sadnessCount),
+				new JProperty("SurpriseCount", surpriseCount));
 
 			return results;
 		}

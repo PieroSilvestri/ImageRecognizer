@@ -116,45 +116,7 @@ namespace ImageRecognizer
 				}
 
 				calculateEmotions();
-				/*
-				  "success": "true",
-  "average_age": 27,
-  "male_count": 20,
-  "female_count": 0,
-  "not_adult_count": 0,
-  "male_older_age": 32,
-  "female_older_age": 0,
-  "male_younger_age": 22,
-  "female_younger_age": 0,
-  "last_face_detected": "3/24/2017 4:00:52 PM",
-  "number_of_face_detected_today": 0,
-  "total_face_detected": 20,
-  "anger_count": 0,
-  "contempt_count": 0,
-  "disgust_count": 0,
-  "fear_count": 0,
-  "happiness_count": 13,
-  "neutral_count": 6,
-  "sadness_count": 1,
-  "surprise_count": 0,
-  "top_emotion": "happiness",
-  "description": "Data Analysis of ID: 1110"
-}
-				 * 
-				 * 
-				 * reportItem.Success = (bool)myReport["success"];
-				reportItem.Male_count = (int)myReport["male_count"];
-				reportItem.Female_count = (int)myReport["female_count"];
-				reportItem.Not_adult_count = (int)myReport["not_adult_count"];
-				reportItem.Male_older_age = (int)myReport["male_older_age"];
-				reportItem.Female_older_age = (int)myReport["female_older_age"];
-				reportItem.Last_face_detected = myReport["last_face_detected"].ToString();
-				reportItem.Number_of_face_detected_today = (int)myReport["number_of_face_detected_today"];
-				reportItem.Total_face_detected = (int)myReport["total_face_detected"];
-				reportItem.Description = myReport["description"].ToString();
-*/
 
-				//this.BindingContext = reportItem;
 			}
 			catch (Exception exc)
 			{
