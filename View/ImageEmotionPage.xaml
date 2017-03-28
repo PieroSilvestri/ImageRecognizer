@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ImageRecognizer.ImageEmotionPage">
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical">
-			<Image x:Name="Image1" HeightRequest="240">
-			<Image.GestureRecognizers>
-				<TapGestureRecognizer NumberOfTapsRequired="1"
-										Tapped="RetakeAPhoto"/>
-				</Image.GestureRecognizers>
-			</Image>
+			<Frame>
+				<Image x:Name="Image1" HeightRequest="240">
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer NumberOfTapsRequired="1"
+												Tapped="RetakeAPhoto"/>
+					</Image.GestureRecognizers>
+				</Image>
+			</Frame>
+			
 			<StackLayout Orientation="Horizontal" Padding="20" HorizontalOptions="Center">
 				<Label x:Name="facesDetected" HorizontalTextAlignment="Center" IsVisible="false"></Label>
 

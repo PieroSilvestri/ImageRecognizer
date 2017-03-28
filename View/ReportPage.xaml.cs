@@ -62,6 +62,16 @@ namespace ImageRecognizer
 				neutralValue = ((double)myReport["neutral_count"]) / tot;
 				sadnessValue = ((double)myReport["sadness_count"]) / tot;
 				surpriseValue = ((double)myReport["surprise_count"]) / tot;
+
+				happyLabel.Text = "Happiness: " + (int)myReport["happiness_count"];
+				surprisedLabel.Text = "Surprised: " + (int)myReport["surprise_count"];
+				neutralLabel.Text = "Neutral: " + (int)myReport["neutral_count"];
+				sadLabel.Text = "Sadness: " + (int)myReport["sadness_count"];
+				fearLabel.Text = "Fear: " + (int)myReport["fear_count"];
+				disgustLabel.Text = "Disgust: " + (int)myReport["disgust_count"];
+				contemptLabel.Text = "Contempt: " + (int)myReport["contempt_count"];
+				angerLabel.Text = "Anger: " + (int)myReport["anger_count"];
+
 				topEmotion = myReport["top_emotion"].ToString();
 				Debug.WriteLine("TOP: " + topEmotion);
 				if (topEmotion == "happiness")
