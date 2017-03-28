@@ -13,14 +13,14 @@ namespace ImageRecognizer
 
 		private MainViewModel vm;
 		ObservableCollection<ListItem> listNames = new ObservableCollection<ListItem>();
-
+		List<JObject> listItems = new List<JObject>();
 
 		public ListReportPage(int id)
 		{
 			InitializeComponent();
 			vm = new MainViewModel();
 			ListViewReports.ItemsSource = listNames;
-
+			this.Title = "List Report";
 			GetListReports(id);
 
 			ToolbarItems.Add(new ToolbarItem("Add list", null, async () =>
@@ -29,21 +29,79 @@ namespace ImageRecognizer
 				//var result = await page.DisplayAlert("Title", "Message", "Accept", "Cancel");
 				string entryString = await InputBox(this.Navigation);
 				Debug.WriteLine("success: {0}", entryString);
-				bool flag = await vm.CreateNewList(entryString, id);
-				if (flag)
+				if (entryString != null)
 				{
-					listNames.Add(new ListItem { ListName = entryString });
+					JObject newList = await vm.CreateNewList(entryString, id);
+					if ((bool)newList["success"])
+					{
+						listNames.Add(new ListItem { ListItemName = entryString });
+					}
+					else
+					{
+						await DisplayAlert("Error", "New List not inserted.", "OK");
+					}
 				}
 				else
 				{
 					await DisplayAlert("Error", "New List not inserted.", "OK");
 				}
+
 			}));
+		}
+
+		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			if (e.SelectedItem == null)
+			{
+				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+			}
+			ListItem itemSelected = (ListItem)e.SelectedItem;
+			Debug.WriteLine(itemSelected.ListItemName);
+
+			int idSelected = GetIdByString(itemSelected.ListItemName);
+
+			if (idSelected > 0)
+			{
+				DisplayAlert("Ottimo", "Hai premuto " + itemSelected.ListItemName + " con l'id: " + idSelected, "OK");
+			}
+			else
+			{
+				DisplayAlert("Error", "Valore non trovato.", "OK");
+
+			}
+		}
+
+		private int GetIdByString(string text)
+		{
+			foreach (JObject item in listItems)
+			{
+				if (item["Name"].ToString() == text)
+				{
+					return (int) item["ID_List"];
+				}
+			}
+			return -1;
 		}
 
 		private async void GetListReports(int user_id)
 		{
 			JObject prova = await vm.GetListReport(user_id);
+			JArray listArray = (JArray)prova["Lists"];
+			if (listArray.Count > 0)
+			{
+				Debug.WriteLine("Maggiore");
+			}
+			else
+			{
+				Debug.WriteLine("Uguale: " + listArray.Count);
+			}
+
+			foreach (JObject item in listArray)
+			{
+				listItems.Add(item);
+				listNames.Add(new ListItem { ListItemName = (string)item["Name"] });
+			}
+
 		}
 
 
