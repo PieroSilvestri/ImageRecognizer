@@ -1,21 +1,20 @@
 ﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModel/MainViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/RegistrationPage.xaml.cs">
     <Files>
       <File FileName="View/LoginPage.xaml.cs" Line="113" Column="1" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="352" Column="1" />
-      <File FileName="View/ImageEmotionPage.xaml.cs" Line="38" Column="1" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="223" Column="1" />
+      <File FileName="View/ImageEmotionPage.xaml.cs" Line="88" Column="1" />
       <File FileName="View/EmotionPage.xaml.cs" Line="57" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="97" Column="31" />
-      <File FileName="View/RegistrationPage.xaml.cs" Line="73" Column="29" />
-      <File FileName="Droid/MainApplication.cs" Line="39" Column="1" />
+      <File FileName="View/RegistrationPage2.xaml.cs" Line="33" Column="1" />
+      <File FileName="View/RegistrationPage.xaml.cs" Line="42" Column="8" />
+      <File FileName="Droid/MainApplication.cs" Line="48" Column="1" />
+      <File FileName="App.xaml.cs" Line="29" Column="1" />
+      <File FileName="obj/Debug/ImageRecognizer.View.RegistrationPage2.xaml.g.cs" Line="46" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage.xaml.cs" relfile="View/RegistrationPage.xaml.cs" line="102" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/ImageEmotionPage.xaml.cs" relfile="View/ImageEmotionPage.xaml.cs" line="28" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AD321142-D730-447A-9F7F-F90BE0028EF0" />

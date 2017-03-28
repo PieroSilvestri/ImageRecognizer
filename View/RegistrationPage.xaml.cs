@@ -39,6 +39,7 @@ namespace ImageRecognizer
 
 		async void nextPage(object o, EventArgs e)
 		{
+			done.IsEnabled = false;
 
 			if (AgeError.IsVisible == true || 
 			    PswError.IsVisible == true || 
