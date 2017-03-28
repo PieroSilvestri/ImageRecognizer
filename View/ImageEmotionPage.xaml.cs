@@ -86,17 +86,32 @@ namespace ImageRecognizer
 			JArray faces = new JArray();
 
 			string peopleEmotions = await cognityServices.GetPeopleEmotions(emotionKey, file);
-			if (peopleEmotions != null)
+			try
 			{
-				JArray jArrayResponse = JArray.Parse(peopleEmotions);
-				Debug.WriteLine("GETPEOPLEEMOTIONS");
-				Debug.WriteLine(jArrayResponse);
-
-				foreach (JObject item in jArrayResponse)
+				if (peopleEmotions != null)
 				{
-					scores.Add((JObject)item["scores"]);
+					JArray jArrayResponse = JArray.Parse(peopleEmotions);
+					Debug.WriteLine("GETPEOPLEEMOTIONS");
+					Debug.WriteLine(jArrayResponse);
+
+					foreach (JObject item in jArrayResponse)
+					{
+						scores.Add((JObject)item["scores"]);
+					}
 				}
 			}
+			catch (Exception exc)
+			{
+				Debug.WriteLine("Error");
+				Debug.WriteLine(exc);
+				spinner.IsVisible = false;
+				spinner.IsRunning = false;
+				await DisplayAlert("Error!", "Value not inserted.", "Ok");
+				facesDetected.Text = "No faces Detected";
+				facesDetected.IsVisible = true;
+				return;
+			}
+
 
 			string imageAnalysis = await cognityServices.MakeAnalysisRequest(computerVisionKey, file);
 
