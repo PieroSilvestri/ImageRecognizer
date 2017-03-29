@@ -22,16 +22,27 @@ namespace ImageRecognizer
 		private MainViewModel cognityServices;
 		private int user_id;
 
+
+
 		public ImageEmotionPage(int id, MediaFile imageSource)
 		{
 			InitializeComponent();
-			NavigationPage.SetHasNavigationBar(this, false);
 			Image1.Source = ImageSource.FromStream(() => imageSource.GetStream());;
 			//Ozecky sdk
 			user_id = id;
 			cognityServices = new MainViewModel();
 			this.faceServiceClient = new FaceServiceClient(faceKey);
 			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
+
+			var refresh = new ToolbarItem
+			{
+				Icon = "happy.png",
+				Name = "facebook",
+				Priority = 0
+			};
+
+
+			ToolbarItems.Add(refresh);
 
 			DoTheProgramm(imageSource);
 		}
@@ -40,6 +51,17 @@ namespace ImageRecognizer
 		{
 			await CrossMedia.Current.Initialize();
 			facesDetected.IsVisible = false;
+			ageInfo.IsVisible = false;
+			maleFemale.IsVisible = false;
+			angerTab.IsVisible = false;
+			sadTab.IsVisible = false;
+			fearTab.IsVisible = false;
+			happyTab.IsVisible = false;
+			neutralTab.IsVisible = false;
+			disgustTab.IsVisible = false;
+			contemptTab.IsVisible = false;
+			surprisedTab.IsVisible = false;
+
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
@@ -163,6 +185,8 @@ namespace ImageRecognizer
 				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
 				facesDetected.Text = "Face detected: " + faces.Count.ToString();
 				facesDetected.IsVisible = true;
+				ageInfo.IsVisible = true;
+				maleFemale.IsVisible = true;
 				JObject jsonEmotionDetected = SetEmotionUI(jsonToPass);
 				Debug.WriteLine("JSON EMOTIUON DETECTED");
 				Debug.WriteLine(jsonEmotionDetected);
@@ -236,6 +260,9 @@ namespace ImageRecognizer
 				}
 				else { surprisedTab.IsVisible = false; }
 
+				ageAverage.Text = "Age average: " + age;
+				maleNum.Text = "" + maleCount;
+				femaleNum.Text = "" + femaleCount;
 
 				/*
 					  "PersonCount": 1,

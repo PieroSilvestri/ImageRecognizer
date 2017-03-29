@@ -88,5 +88,9 @@ namespace ImageRecognizer
 			await logoutIcon.FadeTo(1, 200);
 		}
 
+		public void test(object o, EventArgs e) { 
+			
+		}
+
 	}
 }

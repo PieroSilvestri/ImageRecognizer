@@ -8,7 +8,7 @@ namespace ImageRecognizer
 		{
 			InitializeComponent();
 
-			var starterPage = new NavigationPage(new LoginPage());
+			var starterPage = new NavigationPage(new ProvaPage());
 
 			MainPage = starterPage;
 		}
