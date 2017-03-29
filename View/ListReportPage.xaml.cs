@@ -31,9 +31,14 @@ namespace ImageRecognizer
 				Debug.WriteLine("success: {0}", entryString);
 				if (entryString != null)
 				{
-					JObject newList = await vm.CreateNewList(entryString, id);
-					if ((bool)newList["success"])
+					JObject tempList = await vm.CreateNewList(entryString, id);
+					JObject newList = new JObject(
+						new JProperty("ID_List", (int)tempList["value"]),
+						new JProperty("Name", entryString),
+						new JProperty("DataCreation", tempList["DataCreation"]));
+					if ((bool)tempList["success"])
 					{
+						listItems.Add(newList);
 						listNames.Add(new ListItem { ListItemName = entryString });
 					}
 					else
@@ -58,11 +63,12 @@ namespace ImageRecognizer
 			ListItem itemSelected = (ListItem)e.SelectedItem;
 			Debug.WriteLine(itemSelected.ListItemName);
 
-			int idSelected = GetIdByString(itemSelected.ListItemName);
+			JObject jItemSelected = GetIdByString(itemSelected.ListItemName);
 
-			if (idSelected > 0)
+			if (itemSelected != null)
 			{
-				DisplayAlert("Ottimo", "Hai premuto " + itemSelected.ListItemName + " con l'id: " + idSelected, "OK");
+				//DisplayAlert("Ottimo", "Hai premuto " + itemSelected.ListItemName + " con l'id: " + idSelected, "OK");
+				Navigation.PushAsync(new ReportPage(jItemSelected));
 			}
 			else
 			{
@@ -71,16 +77,16 @@ namespace ImageRecognizer
 			}
 		}
 
-		private int GetIdByString(string text)
+		private JObject GetIdByString(string text)
 		{
 			foreach (JObject item in listItems)
 			{
 				if (item["Name"].ToString() == text)
 				{
-					return (int) item["ID_List"];
+					return item;
 				}
 			}
-			return -1;
+			return null;
 		}
 
 		private async void GetListReports(int user_id)

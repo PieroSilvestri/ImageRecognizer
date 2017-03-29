@@ -439,9 +439,9 @@ namespace ImageRecognizer
 			return myFlag;
 		}
 
-		public async Task<JObject> GetEmotionsReport(int userId)
+		public async Task<JObject> GetEmotionsReport(int listId)
 		{
-			var url = @"http://l-raggioli2.eng.teorema.net/api/detect/" + userId;
+			var url = @"http://l-raggioli2.eng.teorema.net/api/report/" + listId;
 			HttpClient client = new HttpClient();
 
 			var response = await client.GetAsync(url);

@@ -23,21 +23,19 @@ namespace ImageRecognizer
 		string topEmotion;
 
 
-		public ReportPage(int id)
+		public ReportPage(JObject list)
 		{
 			InitializeComponent();
-			NavigationPage.SetHasNavigationBar(this, false);
 			vm = new MainViewModel();
-			this.user_id = id;
-			GetReports();
-
+			GetReports((int)list["ID_List"]);
+			Title = list["Name"].ToString();
 		}
 
-		public async void GetReports()
+		public async void GetReports(int list_id)
 		{
 			try
 			{
-				JObject myReport = await vm.GetEmotionsReport(user_id);
+				JObject myReport = await vm.GetEmotionsReport(list_id);
 
 				Debug.WriteLine("GetEmotionsReport");
 				Debug.WriteLine(myReport);
