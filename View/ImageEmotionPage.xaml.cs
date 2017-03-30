@@ -34,16 +34,6 @@ namespace ImageRecognizer
 			this.faceServiceClient = new FaceServiceClient(faceKey);
 			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
 
-			var refresh = new ToolbarItem
-			{
-				Icon = "happy.png",
-				Name = "facebook",
-				Priority = 0
-			};
-
-
-			ToolbarItems.Add(refresh);
-
 			DoTheProgramm(imageSource);
 		}
 

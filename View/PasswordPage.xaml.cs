@@ -7,6 +7,7 @@ using Xamarin.Forms.Internals;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ImageRecognizer
 {
@@ -88,9 +89,11 @@ namespace ImageRecognizer
 			await logoutIcon.FadeTo(1, 200);
 		}
 
-		public void test(object o, EventArgs e) { 
+
+		public void test(object o, EventArgs e) {
 			
 		}
+
 
 	}
 }
