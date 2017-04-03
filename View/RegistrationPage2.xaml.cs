@@ -18,13 +18,22 @@ namespace ImageRecognizer
 		private MediaFile foto1, foto2;
 		private MainViewModel vm;
 		private int newId;
-		private string faceKey = "1297619ba72542d38347e044905ed499";
+		private string faceKey;
+		private bool userFlag;
 
-
-		public RegistrationPage2(int id)
+		public RegistrationPage2(bool flag, int id)
 		{
 			vm = new MainViewModel();
 			InitializeComponent();
+			this.userFlag = flag;
+			if (flag)
+			{
+				faceKey = "1297619ba72542d38347e044905ed499";
+			}
+			else
+			{
+				faceKey = "e5d1028e78c14c75b0e1ca0b30cb9d3e";
+			}
 			spinner.IsVisible = false;
 			spinner.IsRunning = false;
 			loadingLabel.IsVisible = false;
@@ -94,9 +103,9 @@ namespace ImageRecognizer
 
 
 			Debug.WriteLine("Prima foto: " + foto1.AlbumPath);
-			JObject pfi1 = await vm.AddFaceToList(faceKey, foto1);
+			JObject pfi1 = await vm.AddFaceToList(userFlag, faceKey, foto1);
 			Debug.WriteLine("Seconda foto: " + foto2.AlbumPath);
-			JObject pfi2 = await vm.AddFaceToList(faceKey, foto2);
+			JObject pfi2 = await vm.AddFaceToList(userFlag, faceKey, foto2);
 
 			Debug.WriteLine(pfi1);
 			Debug.WriteLine(pfi2);
@@ -110,7 +119,7 @@ namespace ImageRecognizer
 				Debug.WriteLine("sendregistrationimages");
 				Debug.WriteLine(sendRegistrationImages);
 
-				var myFlag = await vm.RegistrationRequest(sendRegistrationImages);
+				var myFlag = await vm.RegistrationRequest(userFlag, sendRegistrationImages);
 
 				if (myFlag)
 				{

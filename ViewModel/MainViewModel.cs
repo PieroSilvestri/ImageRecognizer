@@ -54,15 +54,25 @@ namespace ImageRecognizer
 			Debug.WriteLine(a);
 		}
 
-		public async Task<JObject> MakeDetectRequest(MediaFile imageFile)
+		public async Task<JObject> MakeDetectRequest(bool userFlag, MediaFile imageFile)
 		{
 			var client = new HttpClient();
 
+			string faceKey;
+			if (userFlag)
+			{
+				faceKey = "1297619ba72542d38347e044905ed499";
+			}
+			else
+			{
+				faceKey = "e5d1028e78c14c75b0e1ca0b30cb9d3e";
+			}
+
 			// Request headers - replace this example key with your valid key.
-			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "1297619ba72542d38347e044905ed499");
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", faceKey);
 
 			// Request parameters and URI string.
-			string queryString = "returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender";
+			string queryString = "returnFaceId=true";
 			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + queryString;
 
 			HttpResponseMessage response;
@@ -91,63 +101,136 @@ namespace ImageRecognizer
 					return JObject.Parse(responseContent);
 				}
 			}
-
-			//A peak at the JSON response.
-			Debug.WriteLine(responseContent);
-			return null;
 		}
 
-		public async Task<JObject> PostFaceIdToServer(string newFaceId)
+		public async Task<string> FindSimilarFace(string newFaceId)
 		{
-			HttpClient client = new HttpClient();
-			//client.BaseAddress = new Uri(url);
+			var client = new HttpClient();
 
-			var url = "http://l-raggioli2.eng.teorema.net/api/values/";
-			//string trumpUrl = "https://dl.dropboxusercontent.com/apitl/1/AAA-vXk3UAyO45sE8upAMMp6wsYXdKps6JeJurLlftYGOuF55BDrLzXTniDTVUWfbWBeYlLOR0DmeGvN0wrWiXJELlhppN1vqcMBYXjWiCnAOBqw56WFb18M8YEfuJxQ1eqKbMeMbLS8fqz4TCiavrVA5ujktQkCTPJbeX5fJsTWJh88MGfP9Olcfr99OHqmEItzPb5yW7Eor7HTGqeoxiBguVheQ8XIKsUP0ZyRDEIHbTBtWVxqoVwxj4nPp-cj3ziqxa4jKXtkcPgRHRJNunuT".ToString();
-			string tempUrl = @"'"+newFaceId+"'";
+			JObject jsonToPass = new JObject(
+				new JProperty("faceId","1aed9905-dc65-4ec2-af00-51050f93f5cf"),
+				new JProperty("faceListId","face_list_v3"),  
+				new JProperty("maxNumOfCandidatesReturned",10),
+				new JProperty("mode", "matchFace"));
+			
+			// Request headers - replace this example key with your valid key.
+			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "e5d1028e78c14c75b0e1ca0b30cb9d3e");
 
-			var content = new StringContent(tempUrl, null, "application/json");
+			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
 
-			var response = await client.PostAsync(url, content);
+			var response = await client.PostAsync("https://westus.api.cognitive.microsoft.com/face/v1.0/findsimilars", content);
 			response.EnsureSuccessStatusCode();
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("KNOW YOUR ENEMIES");
 			Debug.WriteLine(JsonResult);
-			//var items = JsonConvert.ToString(JsonResult);
-
-			JObject a = JObject.Parse(JsonResult);
-			Debug.WriteLine("JSONPOSTPROVA");
-			Debug.WriteLine(a);
-
-			var success = (Boolean) a["success"];
-			if (success)
+			JArray facesFound = JArray.Parse(JsonResult);
+			double max = 0;
+			JObject faceFound = new JObject();
+			string faceId = "";
+			foreach (JObject face in facesFound)
 			{
-				Debug.WriteLine("TRUE");
-				return await GetUserByFaceId(a["value"].ToString());
+				if ((double)face["confidence"] > max)
+				{
+					max = (double)face["confidence"];
+					faceId = face["persistedFaceId"].ToString();
+				}
 			}
+
+
+			return faceId;
+		}
+
+		public async Task<JObject> PostFaceIdToServer(bool userFlag, string newFaceId)
+		{
+			HttpClient client = new HttpClient();
+			//client.BaseAddress = new Uri(url);
+
+			string url;
+			if (userFlag)
+			{
+				url = "http://l-raggioli2.eng.teorema.net/api/values/";
+				var content = new StringContent(url, null, "application/json");
+
+				var response = await client.PostAsync(url, content);
+				response.EnsureSuccessStatusCode();
+
+				var JsonResult = response.Content.ReadAsStringAsync().Result;
+				Debug.WriteLine("KNOW YOUR ENEMIES");
+				Debug.WriteLine(JsonResult);
+				//var items = JsonConvert.ToString(JsonResult);
+
+				JObject a = JObject.Parse(JsonResult);
+				Debug.WriteLine("JSONPOSTPROVA");
+				Debug.WriteLine(a);
+
+				var success = (Boolean)a["success"];
+				if (success)
+				{
+					Debug.WriteLine("TRUE");
+					return await GetUserByFaceId(userFlag, a["value"].ToString());
+				}
+			}
+			else
+			{
+				string userFaceId = await FindSimilarFace(newFaceId);
+				return await GetUserByFaceId(userFlag, userFaceId);
+			}
+
+			//string trumpUrl = "https://dl.dropboxusercontent.com/apitl/1/AAA-vXk3UAyO45sE8upAMMp6wsYXdKps6JeJurLlftYGOuF55BDrLzXTniDTVUWfbWBeYlLOR0DmeGvN0wrWiXJELlhppN1vqcMBYXjWiCnAOBqw56WFb18M8YEfuJxQ1eqKbMeMbLS8fqz4TCiavrVA5ujktQkCTPJbeX5fJsTWJh88MGfP9Olcfr99OHqmEItzPb5yW7Eor7HTGqeoxiBguVheQ8XIKsUP0ZyRDEIHbTBtWVxqoVwxj4nPp-cj3ziqxa4jKXtkcPgRHRJNunuT".ToString();
+			string tempUrl = @"'"+newFaceId+"'";
+
+
 
 			Debug.WriteLine("FALSE");
 			return null;
 		}
 
-		public async Task<JObject> GetUserByFaceId(string faceId)
+		public async Task<JObject> GetUserByFaceId(bool userFlag, string faceId)
 		{
 
-			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + faceId;
-
 			HttpClient client = new HttpClient();
-			client.BaseAddress = new Uri(url); ;
+			string url = "";
 
-			var response = await client.GetAsync(client.BaseAddress);
-			response.EnsureSuccessStatusCode();
+			if (userFlag)
+			{
+				url = "http://l-raggioli2.eng.teorema.net/api/values/" + faceId;
 
-			var JsonResult = response.Content.ReadAsStringAsync().Result;
-			Debug.WriteLine("KNOW YOUR ENEMIES");
-			Debug.WriteLine(JObject.Parse(JsonResult));
-			//var items = JsonConvert.ToString(JsonResult);
+				client.BaseAddress = new Uri(url); ;
 
-			return JObject.Parse(JsonResult);
+				var response = await client.GetAsync(client.BaseAddress);
+				response.EnsureSuccessStatusCode();
+
+				var JsonResult = response.Content.ReadAsStringAsync().Result;
+				Debug.WriteLine("KNOW YOUR ENEMIES");
+				Debug.WriteLine(JObject.Parse(JsonResult));
+				//var items = JsonConvert.ToString(JsonResult);
+
+				return JObject.Parse(JsonResult);
+			}
+			else
+			{
+				url = "https://image-recognizer-v1.herokuapp.com/api/v1/users/login";
+				JObject tempJ = new JObject(
+					new JProperty("faceId", faceId));
+				var content = new StringContent(tempJ.ToString(), null, "application/json");
+
+				var response = await client.PostAsync(url, content);
+				response.EnsureSuccessStatusCode();
+
+				var JsonResult = response.Content.ReadAsStringAsync().Result;
+				Debug.WriteLine("KNOW YOUR ENEMIES");
+				Debug.WriteLine(JsonResult);
+				//var items = JsonConvert.ToString(JsonResult);
+
+				JObject a = JObject.Parse(JsonResult);
+				Debug.WriteLine("JSONPOSTPROVA");
+				Debug.WriteLine(a);
+
+				return a;
+			}
+
+
 		}
 
 
@@ -157,7 +240,14 @@ namespace ImageRecognizer
 			client.BaseAddress = new Uri(url); ;
 
 			var response = await client.GetAsync(client.BaseAddress);
-			response.EnsureSuccessStatusCode();
+			try
+			{
+				response.EnsureSuccessStatusCode();
+			}
+			catch
+			{
+				return null;
+			}
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("KNOW YOUR ENEMIES");
@@ -172,17 +262,25 @@ namespace ImageRecognizer
 		}
 
 
-		public async Task<int> CreateANewUser(JObject newPerson)
+		public async Task<int> CreateANewUser(bool userFlag, JObject newPerson)
 		{
 
-			var url = @"http://l-raggioli2.eng.teorema.net/api/registration/";
-			var url2 = @"https://image-recognizer-v1.herokuapp.com/api/v1/users/add";
+			string url; 
+
+			if (userFlag)
+			{
+				url = @"http://l-raggioli2.eng.teorema.net/api/registration/";
+			}
+			else
+			{
+				url = @"https://image-recognizer-v1.herokuapp.com/api/v1/users/add";
+			}
 
 			HttpClient client = new HttpClient();
 
 			var content = new StringContent(newPerson.ToString(), null, "application/json");
 
-			var response = await client.PostAsync(url2, content);
+			var response = await client.PostAsync(url, content);
 			try
 			{
 				response.EnsureSuccessStatusCode();
@@ -201,22 +299,43 @@ namespace ImageRecognizer
 
 			JObject a = JObject.Parse(JsonResult);
 
-			if ((bool)a["success"])
+			if (userFlag)
 			{
-				JObject body = (JObject)a["body"];
-				int newId = (int)body["insertId"];
+				if ((bool)a["success"])
+				{
+					int newId = (int)a["value"];
 
-				return newId;
+					return newId;
+				}
 			}
 			else
 			{
-				return -1;
+				if ((bool)a["success"])
+				{
+					JObject body = (JObject)a["body"];
+					int newId = (int)body["insertId"];
+
+					return newId;
+				}
 			}
+
+			return -1;
+
 		}
 
-		public async Task<bool> RegistrationRequest(JObject newJson)
+		public async Task<bool> RegistrationRequest(bool userFlag, JObject newJson)
 		{
-			var url = @"http://l-raggioli2.eng.teorema.net/api/url/";
+			string url;
+
+			if (userFlag)
+			{
+				url = @"http://l-raggioli2.eng.teorema.net/api/url/";
+
+			}
+			else
+			{
+				url = @"https://image-recognizer-v1.herokuapp.com/api/v1/users/add/images";
+			}
 
 			HttpClient client = new HttpClient();
 
@@ -237,59 +356,7 @@ namespace ImageRecognizer
 			return myFlag;
 		}
 
-		/*
-
-		public async Task GetJsonResponse(string url)
-		{
-			HttpClient client = new HttpClient();
-			client.BaseAddress = new Uri(url); ;
-
-			var response = await client.GetAsync(client.BaseAddress);
-			response.EnsureSuccessStatusCode();
-
-			var JsonResult = response.Content.ReadAsStringAsync().Result;
-			Debug.WriteLine("KNOW YOUR ENEMIES");
-			//var items = JsonConvert.ToString(JsonResult);
-
-			JArray a = JArray.Parse(JsonResult);
-
-			List<JsonItem> myJsonList = new List<JsonItem>();
-
-			foreach (JObject o in a.Children<JObject>())
-			{
-
-				Debug.WriteLine("Object");
-				Debug.WriteLine(o);
-
-				int newUserId = (int)o["userId"];
-				int newId = (int)o["id"];
-				string newTitle = o["title"].ToString();
-				string newBody = o["body"].ToString();
-
-
-				/*
-				foreach (JProperty p in o.Properties())
-				{
-					string name = p.Name;
-					string value = (string)p.Value;
-
-					Debug.WriteLine(name + " -- " + value);
-				}
-
-
-				JsonItem newItem = new JsonItem();
-				newItem.userId = newUserId;
-				newItem.id = newId;
-				newItem.title = newTitle;
-				newItem.body = newBody;
-
-				myJsonList.Add(newItem);
-			}
-			SetValues(myJsonList);
-		}
-		*/
-
-		public async Task<JObject> GetListReport(int user_id)
+		public async Task<JObject> GetListReport(bool userFlag, int user_id)
 		{
 
 			var url = "http://l-raggioli2.eng.teorema.net/api/list/" + user_id;
@@ -308,7 +375,7 @@ namespace ImageRecognizer
 			return JObject.Parse(JsonResult);
 		}
 
-		public async Task<JObject> CreateNewList(string newListName, int user_id)
+		public async Task<JObject> CreateNewList(bool userFlag, string newListName, int user_id)
 		{
 			var url = @"http://l-raggioli2.eng.teorema.net/api/list/";
 
@@ -317,7 +384,7 @@ namespace ImageRecognizer
 			JObject jsonToPass = new JObject(
 				new JProperty("User_id", user_id),
 				new JProperty("Name", newListName),
-				new JProperty("DataCreation", DateTime.Now.ToString()));
+				new JProperty("DataCreation", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
 
 			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
 
@@ -334,9 +401,7 @@ namespace ImageRecognizer
 			return a;
 		}
 
-		
-
-		public async Task<JArray> DetectFaceAndEmotionsAsync(EmotionServiceClient emotionServiceClient, MediaFile inputFile)
+		public async Task<JArray> DetectFaceAndEmotionsAsync(bool userFlag, EmotionServiceClient emotionServiceClient, MediaFile inputFile)
 		{
 			Emotion[] emotionResult = await emotionServiceClient.RecognizeAsync(inputFile.GetStream());
 			if (emotionResult.Any())
@@ -356,7 +421,7 @@ namespace ImageRecognizer
 
 		}
 
-		public async Task<string> GetPeopleEmotions(string emotionKey, MediaFile imageFile)
+		public async Task<string> GetPeopleEmotions(bool userFlag, string emotionKey, MediaFile imageFile)
 		{
 			var client = new HttpClient();
 
@@ -384,7 +449,7 @@ namespace ImageRecognizer
 			return responseContent;
 		}
 
-		public async Task<string> MakeAnalysisRequest(string computerVisionKey, MediaFile imageFile)
+		public async Task<string> MakeAnalysisRequest(bool userFlag, string computerVisionKey, MediaFile imageFile)
 		{
 			var client = new HttpClient();
 
@@ -416,7 +481,7 @@ namespace ImageRecognizer
 			return JsonResult;
 		}
 
-		public async Task<bool> SendEmotions(JObject jsonToPass)
+		public async Task<bool> SendEmotions(bool userFlag, JObject jsonToPass)
 		{
 			var url = @"http://l-raggioli2.eng.teorema.net/api/detect/";
 
@@ -439,7 +504,7 @@ namespace ImageRecognizer
 			return myFlag;
 		}
 
-		public async Task<JObject> GetEmotionsReport(int listId)
+		public async Task<JObject> GetEmotionsReport(bool userFlag, int listId)
 		{
 			var url = @"http://l-raggioli2.eng.teorema.net/api/report/" + listId;
 			HttpClient client = new HttpClient();
@@ -455,7 +520,7 @@ namespace ImageRecognizer
 			return a;
 		}
 
-		public async Task<JObject> AddFaceToList(string faceKey, MediaFile imageFile)
+		public async Task<JObject> AddFaceToList(bool userFlag, string faceKey, MediaFile imageFile)
 		{
 			var client = new HttpClient();
 
@@ -463,8 +528,17 @@ namespace ImageRecognizer
 			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", faceKey);
 
 			// Request parameters. A third optional parameter is "details".
-			string requestParameters = "teorema_faces";
-			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/"+requestParameters+"/persistedFaces" ;
+			string listName;
+			if (userFlag)
+			{
+				listName = "teorema_faces";
+
+			}
+			else
+			{
+				listName = "face_list_v3";
+			}
+			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/"+listName+"/persistedFaces" ;
 			//Debug.WriteLine(uri);
 
 			HttpResponseMessage response;

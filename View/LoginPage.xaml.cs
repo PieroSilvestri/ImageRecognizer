@@ -15,6 +15,7 @@ namespace ImageRecognizer
 	{
 
 		MainViewModel vm;
+		bool i = true;
 
 		public LoginPage()
 		{
@@ -39,6 +40,7 @@ namespace ImageRecognizer
 			var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 			{
 				Directory = "ImageRecognizer",
+				PhotoSize = PhotoSize.Medium,
 				Name = DateTime.Now.ToString()
 			});
 
@@ -69,19 +71,29 @@ namespace ImageRecognizer
 
 			//var url = "http://l-raggioli2.eng.teorema.net/api/upload/";
 
-			var newUrl = await vm.MakeDetectRequest(file);
+			var newUrl = await vm.MakeDetectRequest(i, file);
 
 			if (newUrl != null)
 			{
 				try
 				{
-					JObject myUser = await vm.PostFaceIdToServer(newUrl["faceId"].ToString());
+					JObject myUser = await vm.PostFaceIdToServer(i, newUrl["faceId"].ToString());
 
 					if ((bool)myUser["success"])
 					{
+						if (i)
+						{
+							await Navigation.PushAsync(new PasswordPage(true, myUser));
+							HideSpinner();
+						}
+						else
+						{
+							JArray tempA = (JArray)myUser["body"];
+							await Navigation.PushAsync(new PasswordPage(false, (JObject)tempA.First));
+							HideSpinner();
+						}
 						
-						await Navigation.PushAsync(new PasswordPage(myUser));
-						HideSpinner();
+
 					}
 					else
 					{
@@ -131,7 +143,7 @@ namespace ImageRecognizer
 
 			if (getItem != null && (bool)getItem["success"])
 			{
-				await Navigation.PushAsync(new PasswordPage(getItem));
+				await Navigation.PushAsync(new PasswordPage(true, getItem));
 			}
 			else
 			{
@@ -142,10 +154,10 @@ namespace ImageRecognizer
 
 		public void DoRegistrator(object o, EventArgs e)
 		{
-			Navigation.PushAsync(new RegistrationPage());
+			Navigation.PushAsync(new RegistrationPage(i));
 		}
 
-		bool i = true;
+
 
 		public void EasterEgg(object sender, EventArgs e)
 		{

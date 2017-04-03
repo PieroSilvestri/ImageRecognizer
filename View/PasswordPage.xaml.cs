@@ -15,15 +15,17 @@ namespace ImageRecognizer
 	{
 
 		public JObject oggetto;
+		private bool userFlag;
 
 		//MainViewModel vm;
 		//JArray myJsonArray;
 
-		public PasswordPage(JObject getJsonItem)
+		public PasswordPage(bool flag, JObject getJsonItem)
 		{
 			
 			//vm = new MainViewModel();
 			InitializeComponent();
+			this.userFlag = flag;
 			this.Title = "Password";
 			NavigationPage.SetHasNavigationBar(this, false);
 
@@ -46,7 +48,7 @@ namespace ImageRecognizer
 		public async void GoToEmotionPage(object o, EventArgs e)
 		{
 			int user_id = (int)oggetto["ID"];
-			await Navigation.PushAsync(new EmotionPage(user_id));
+			await Navigation.PushAsync(new EmotionPage(userFlag, user_id));
 		}
 			
 

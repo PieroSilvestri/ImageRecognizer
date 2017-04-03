@@ -72,7 +72,7 @@ namespace ImageRecognizer
 		private async void GetListReports(int user_id)
 		{
 			Debug.WriteLine(user_id);
-			JObject prova = await vm.GetListReport(user_id);
+			JObject prova = await vm.GetListReport(true, user_id);
 			JArray listArray = (JArray)prova["Lists"];
 			if (listArray.Count > 0)
 			{

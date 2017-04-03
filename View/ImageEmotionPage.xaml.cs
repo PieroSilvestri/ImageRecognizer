@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Microsoft.ProjectOxford.Emotion;
 using Microsoft.ProjectOxford.Face;
 using Newtonsoft.Json.Linq;
@@ -19,22 +20,56 @@ namespace ImageRecognizer
 		private string emotionKey = "9384bddf115345fc94d27bf69723de98";
 		private string computerVisionKey = "1ffcd7811f1d4980a936adc5aaf63dc8";
 
-		private MainViewModel cognityServices;
+		private MainViewModel vm;
 		private int user_id;
+		private bool userFlag;
+		List<string> listNames = new List<string>();
+		List<JObject> listItems = new List<JObject>();
 
 
-
-		public ImageEmotionPage(int id, MediaFile imageSource)
+		public ImageEmotionPage(bool flag, int id, MediaFile imageSource)
 		{
 			InitializeComponent();
-			Image1.Source = ImageSource.FromStream(() => imageSource.GetStream());;
+			//GetListReports(id);
+			this.userFlag = flag;
+			if (flag)
+			{
+				faceKey = "e5d1028e78c14c75b0e1ca0b30cb9d3e";
+				emotionKey = "9384bddf115345fc94d27bf69723de98";
+				computerVisionKey = "1ffcd7811f1d4980a936adc5aaf63dc8";
+			}
+			else
+			{
+				faceKey = "e5d1028e78c14c75b0e1ca0b30cb9d3e";
+				emotionKey = "9384bddf115345fc94d27bf69723de98";
+				computerVisionKey = "1ffcd7811f1d4980a936adc5aaf63dc8";
+			}
+			Image1.Source = ImageSource.FromStream(() => imageSource.GetStream()); ;
 			//Ozecky sdk
+			Title = "Emotion Page";
 			user_id = id;
-			cognityServices = new MainViewModel();
+			vm = new MainViewModel();
 			this.faceServiceClient = new FaceServiceClient(faceKey);
 			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
 
 			DoTheProgramm(imageSource);
+
+			ToolbarItems.Add(new ToolbarItem("Add to list", null, async () =>
+			{
+				var page = new ContentPage();
+				//var result = await page.DisplayAlert("Title", "Message", "Accept", "Cancel");
+				int idLista = await InputBox(this.Navigation, listNames);
+				Debug.WriteLine("success: {0}", idLista);
+				if (idLista > 0)
+				{
+
+				}
+				else
+				{
+					await DisplayAlert("Error", "New List not inserted.", "OK");
+				}
+
+			}));
 		}
 
 		public async void RetakeAPhoto(object o, EventArgs e)
@@ -55,7 +90,7 @@ namespace ImageRecognizer
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
-				await Navigation.PushAsync(new PasswordPage(null));
+				await Navigation.PushAsync(new PasswordPage(userFlag, null));
 				return;
 			}
 
@@ -80,12 +115,44 @@ namespace ImageRecognizer
 			spinner.IsRunning = true;
 			DoTheProgramm(file);
 		}
-	
 
 
+		private async void GetListReports(int user_id)
+		{
+			Debug.WriteLine(user_id);
+			JObject prova = await vm.GetListReport(this.userFlag, user_id);
+			JArray listArray = (JArray)prova["Lists"];
+			if (listArray.Count > 0)
+			{
+				Debug.WriteLine("Maggiore");
+			}
+			else
+			{
+				Debug.WriteLine("Uguale: " + listArray.Count);
+			}
+
+			foreach (JObject item in listArray)
+			{
+				listItems.Add(item);
+				listNames.Add((string)item["Name"]);
+			}
+
+		}
+
+		private JObject GetIdByString(string text)
+		{
+			foreach (JObject item in listItems)
+			{
+				if (item["Name"].ToString() == text)
+				{
+					return item;
+				}
+			}
+			return null;
+		}
 
 
-	private async void DoTheProgramm(MediaFile file)
+		private async void DoTheProgramm(MediaFile file)
 		{
 
 			/*
@@ -100,7 +167,7 @@ namespace ImageRecognizer
 			JArray scores = new JArray();
 			JArray faces = new JArray();
 
-			string peopleEmotions = await cognityServices.GetPeopleEmotions(emotionKey, file);
+			string peopleEmotions = await vm.GetPeopleEmotions(userFlag,emotionKey, file);
 			try
 			{
 				if (peopleEmotions != null)
@@ -128,7 +195,7 @@ namespace ImageRecognizer
 			}
 
 
-			string imageAnalysis = await cognityServices.MakeAnalysisRequest(computerVisionKey, file);
+			string imageAnalysis = await vm.MakeAnalysisRequest(userFlag, computerVisionKey, file);
 
 			if (imageAnalysis != null)
 			{
@@ -165,7 +232,7 @@ namespace ImageRecognizer
 			}
 			else
 			{
-				response = await cognityServices.SendEmotions(jsonToPass);
+				response = await vm.SendEmotions(userFlag, jsonToPass);
 			}
 
 			if (response)
@@ -180,7 +247,7 @@ namespace ImageRecognizer
 				JObject jsonEmotionDetected = SetEmotionUI(jsonToPass);
 				Debug.WriteLine("JSON EMOTIUON DETECTED");
 				Debug.WriteLine(jsonEmotionDetected);
-				int personCount = (int) jsonEmotionDetected["PersonCount"];
+				int personCount = (int)jsonEmotionDetected["PersonCount"];
 				int maleCount = (int)jsonEmotionDetected["MaleCount"];
 				int femaleCount = (int)jsonEmotionDetected["FemaleCount"];
 				int age = (int)jsonEmotionDetected["Age"];
@@ -285,7 +352,7 @@ namespace ImageRecognizer
 
 
 
-	private  JObject SetEmotionUI(JObject jsonToParse)
+		private JObject SetEmotionUI(JObject jsonToParse)
 		{
 			JArray faces = (JArray)jsonToParse["faces"];
 			JArray emotions = (JArray)jsonToParse["emotions"];
@@ -321,7 +388,6 @@ namespace ImageRecognizer
 			{
 				double max = 0;
 				double anger = (double)emotion["anger"];
-
 				double contempt = (double)emotion["contempt"];
 				double disgust = (double)emotion["disgust"];
 				double fear = (double)emotion["fear"];
@@ -369,7 +435,7 @@ namespace ImageRecognizer
 				}
 			}
 
-	
+
 
 
 			JObject results = new JObject(
@@ -387,6 +453,59 @@ namespace ImageRecognizer
 				new JProperty("SurpriseCount", surpriseCount));
 
 			return results;
+		}
+
+		public static Task<int> InputBox(INavigation navigation, List<string> listNames)
+		{
+			// wait in this proc, until user did his input 
+
+			var tcs = new TaskCompletionSource<int>();
+
+			var lblTitle = new Label { Text = "Add to list", HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold };
+
+			var newList = new ListView();
+			newList.ItemsSource = listNames;
+
+			//newList.ItemSelected
+
+			/*	var btnOk = new Button
+				{
+					Text = "Ok",
+					WidthRequest = 100,
+					BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8),
+				};
+				btnOk.Clicked += async (s, e) =>
+				{
+					// close page
+					var result = txtInput.Text;
+					await navigation.PopModalAsync();
+					// pass result
+					tcs.SetResult(result);
+				};*/
+
+
+			var slButtons = new StackLayout
+			{
+				Orientation = StackOrientation.Horizontal,
+				Children = { newList }
+			};
+
+			var layout = new StackLayout
+			{
+				Padding = new Thickness(0, 40, 0, 0),
+				VerticalOptions = LayoutOptions.StartAndExpand,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Orientation = StackOrientation.Vertical,
+				Children = { lblTitle, slButtons },
+			};
+
+			// create and show page
+			var page = new ContentPage();
+			page.Content = layout;
+			navigation.PushModalAsync(page);
+			// code is waiting her, until result is passed with tcs.SetResult() in btn-Clicked
+			// then proc returns the result
+			return tcs.Task;
 		}
 
 	}

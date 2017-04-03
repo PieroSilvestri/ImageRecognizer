@@ -14,11 +14,13 @@ namespace ImageRecognizer
 
 		private bool i = true;
 		private int user_id;
+		private bool userFlag;
 		MainViewModel vm;
 
-		public EmotionPage(int id)
+		public EmotionPage(bool flag, int id)
 		{
 			InitializeComponent();
+			this.userFlag = flag;
 			NavigationPage.SetHasNavigationBar(this, false);
 			this.user_id = id;
 			loadDelayAnimation();
@@ -32,7 +34,7 @@ namespace ImageRecognizer
 			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
 			{
 				await DisplayAlert("No Camera", "No camera avaiable", "Ok");
-				await Navigation.PushAsync(new PasswordPage(null));
+				await Navigation.PushAsync(new PasswordPage(this.userFlag, null));
 				return;
 			}
 
@@ -53,12 +55,12 @@ namespace ImageRecognizer
 			Debug.WriteLine(file);
 
 
-			await Navigation.PushAsync(new ImageEmotionPage(this.user_id, file));
+			await Navigation.PushAsync(new ImageEmotionPage(this.userFlag, this.user_id, file));
 		}
 
 		async public void ShowReports(object o, EventArgs e)
 		{
-			await Navigation.PushAsync(new ListReportPage(user_id));
+			await Navigation.PushAsync(new ListReportPage(this.userFlag, user_id));
 		}
 
 

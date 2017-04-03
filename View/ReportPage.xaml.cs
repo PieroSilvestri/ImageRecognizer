@@ -23,19 +23,19 @@ namespace ImageRecognizer
 		string topEmotion;
 
 
-		public ReportPage(JObject list)
+		public ReportPage(bool flag, JObject list)
 		{
 			InitializeComponent();
 			vm = new MainViewModel();
-			GetReports((int)list["ID_List"]);
+			GetReports(flag, (int)list["ID_List"]);
 			Title = list["Name"].ToString();
 		}
 
-		public async void GetReports(int list_id)
+		public async void GetReports(bool flag, int list_id)
 		{
 			try
 			{
-				JObject myReport = await vm.GetEmotionsReport(list_id);
+				JObject myReport = await vm.GetEmotionsReport(flag, list_id);
 
 				Debug.WriteLine("GetEmotionsReport");
 				Debug.WriteLine(myReport);
@@ -113,7 +113,7 @@ namespace ImageRecognizer
 					surprisedLabel.TextColor = Color.White;
 				}
 
-				calculateEmotions();
+				await calculateEmotions();
 
 			}
 			catch (Exception exc)
@@ -127,7 +127,7 @@ namespace ImageRecognizer
 
 		}
 
-		async void calculateEmotions()
+		async Task calculateEmotions()
 		{
 			await Task.Delay(1000); 
 			if (happinessValue != 0) { await barHappy.ProgressTo(happinessValue, 750, Easing.Linear); }

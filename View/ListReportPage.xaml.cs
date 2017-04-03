@@ -15,13 +15,13 @@ namespace ImageRecognizer
 		ObservableCollection<ListItem> listNames = new ObservableCollection<ListItem>();
 		List<JObject> listItems = new List<JObject>();
 
-		public ListReportPage(int id)
+		public ListReportPage(bool flag, int id)
 		{
 			InitializeComponent();
 			vm = new MainViewModel();
 			ListViewReports.ItemsSource = listNames;
 			this.Title = "List Report";
-			GetListReports(id);
+			GetListReports(flag, id);
 
 			ToolbarItems.Add(new ToolbarItem("Add list", null, async () =>
 			{
@@ -31,7 +31,7 @@ namespace ImageRecognizer
 				Debug.WriteLine("success: {0}", entryString);
 				if (entryString != null)
 				{
-					JObject tempList = await vm.CreateNewList(entryString, id);
+					JObject tempList = await vm.CreateNewList(true, entryString, id);
 					JObject newList = new JObject(
 						new JProperty("ID_List", (int)tempList["value"]),
 						new JProperty("Name", entryString),
@@ -68,7 +68,7 @@ namespace ImageRecognizer
 			if (itemSelected != null)
 			{
 				//DisplayAlert("Ottimo", "Hai premuto " + itemSelected.ListItemName + " con l'id: " + idSelected, "OK");
-				Navigation.PushAsync(new ReportPage(jItemSelected));
+				Navigation.PushAsync(new ReportPage(true, jItemSelected));
 			}
 			else
 			{
@@ -89,9 +89,9 @@ namespace ImageRecognizer
 			return null;
 		}
 
-		private async void GetListReports(int user_id)
+		private async void GetListReports(bool flag, int user_id)
 		{
-			JObject prova = await vm.GetListReport(user_id);
+			JObject prova = await vm.GetListReport(flag, user_id);
 			JArray listArray = (JArray)prova["Lists"];
 			if (listArray.Count > 0)
 			{

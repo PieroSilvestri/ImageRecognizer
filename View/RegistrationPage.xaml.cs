@@ -19,12 +19,14 @@ namespace ImageRecognizer
 		string errorMsg = "This field can not be empty!";
 
 		MainViewModel vm;
+		bool userFlag;
 
-		public RegistrationPage()
+		public RegistrationPage(bool flag)
 		{
 			vm = new MainViewModel();
 
 			InitializeComponent();
+			this.userFlag = flag;
 
 			this.Title = "Registration";
 
@@ -100,11 +102,11 @@ namespace ImageRecognizer
 				Debug.WriteLine("MYPERSON");
 				Debug.WriteLine(myObj);
 
-				int id = await vm.CreateANewUser(myObj);
+				int id = await vm.CreateANewUser(userFlag, myObj);
 
 				if (id > 0)
 				{
-					await Navigation.PushAsync(new RegistrationPage2(id));
+					await Navigation.PushAsync(new RegistrationPage2(userFlag, id));
 				}
 				else
 				{
