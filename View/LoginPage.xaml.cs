@@ -135,20 +135,60 @@ namespace ImageRecognizer
 		public async void Get_OnClicked(object o, EventArgs e) 
 		{
 
-			var key = "8bbfb460-b022-4f7b-844e-a7f15c66dff6";
-
-			var url = "http://l-raggioli2.eng.teorema.net/api/values/" + key;
-
-			var getItem = await vm.JsonGetProva(url);
-
-			if (getItem != null && (bool)getItem["success"])
+			if (i)
 			{
-				await Navigation.PushAsync(new PasswordPage(true, getItem));
+				var key = "8bbfb460-b022-4f7b-844e-a7f15c66dff6";
+				var url = "http://l-raggioli2.eng.teorema.net/api/values/" + key;
+
+				var getItem = await vm.JsonGetProva(url);
+
+				if (getItem != null && (bool)getItem["success"])
+				{
+					await Navigation.PushAsync(new PasswordPage(true, getItem));
+				}
+				else
+				{
+					HideSpinner();
+					await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
+				}
 			}
 			else
 			{
-				HideSpinner();
-				await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
+
+				string url = "https://image-recognizer-v1.herokuapp.com/api/v1/users/8";
+
+				HttpClient client = new HttpClient();
+				client.BaseAddress = new Uri(url); ;
+
+				var response = await client.GetAsync(client.BaseAddress);
+				try
+				{
+					response.EnsureSuccessStatusCode();
+				}
+				catch
+				{
+					HideSpinner();
+					await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
+				}
+
+				var JsonResult = response.Content.ReadAsStringAsync().Result;
+				Debug.WriteLine("KNOW YOUR ENEMIES");
+				//var items = JsonConvert.ToString(JsonResult);
+
+				JObject a = JObject.Parse(JsonResult);
+
+				Debug.WriteLine("JSONGETPROVA");
+				Debug.WriteLine(a);
+
+				if (a != null && (bool)a["success"])
+				{
+					await Navigation.PushAsync(new PasswordPage(true, (JObject)a["body"].First));
+				}
+				else
+				{
+					HideSpinner();
+					await DisplayAlert("Error!", "Your photo is not valid. Try again.", "OK");
+				}
 			}
 		}
 

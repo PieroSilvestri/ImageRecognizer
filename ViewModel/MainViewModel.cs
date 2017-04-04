@@ -230,7 +230,6 @@ namespace ImageRecognizer
 				return a;
 			}
 
-
 		}
 
 
