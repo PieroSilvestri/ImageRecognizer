@@ -9,6 +9,7 @@
 					BackgroundColor="White" 
 					Opacity="0.7"
 					TextColor="#1A80FD" 
+					Clicked="backEvent"
 					HorizontalOptions="Start"
 					VerticalOptions="Start"
 					WidthRequest="70"/>

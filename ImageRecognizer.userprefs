@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ViewModel/MainViewModel.cs">
+﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="View/PasswordPage.xaml.cs" Line="28" Column="1" />
       <File FileName="iOS/Main.cs" Line="21" Column="1" />
@@ -9,26 +9,27 @@
       <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
       <File FileName="View/ListReportPage.xaml.cs" Line="95" Column="46" />
       <File FileName="View/LoginPage.xaml.cs" Line="136" Column="4" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="247" Column="70" />
+      <File FileName="ViewModel/MainViewModel.cs" Line="247" Column="5" />
       <File FileName="View/RegistrationPage.xaml.cs" Line="105" Column="1" />
       <File FileName="View/RegistrationPage2.xaml.cs" Line="123" Column="1" />
       <File FileName="View/EmotionPage.xaml.cs" Line="58" Column="1" />
       <File FileName="Droid/MainApplication.cs" Line="42" Column="1" />
       <File FileName="obj/Debug/ImageRecognizer.View.ImageEmotionPage.xaml.g.cs" Line="93" Column="1" />
       <File FileName="obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs" Line="58" Column="1" />
+      <File FileName="View/ProfilePage.xaml.cs" Line="58" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="145" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/ImageEmotionPage.xaml.cs" relfile="View/ImageEmotionPage.xaml.cs" line="123" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/EmotionPage.xaml.cs" relfile="View/EmotionPage.xaml.cs" line="58" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="121" column="1" />
+      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="145" column="1" />
+      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/ImageEmotionPage.xaml.cs" relfile="View/ImageEmotionPage.xaml.cs" line="123" column="1" />
+      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/EmotionPage.xaml.cs" relfile="View/EmotionPage.xaml.cs" line="58" column="1" />
+      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="121" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5D0E0C22-3B4A-417D-AA65-951B08D6823D" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.CBFD0199-5FC3-44AD-A4B6-B83599F383CA" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Nexus5_v2" />
+  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
 </Properties>
