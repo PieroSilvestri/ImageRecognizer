@@ -29,9 +29,6 @@ namespace ImageRecognizer
 			this.Title = "Password";
 			NavigationPage.SetHasNavigationBar(this, false);
 
-			Debug.WriteLine("GetJsonItem");
-			Debug.WriteLine(getJsonItem["results"]);
-
 			this.oggetto = getJsonItem;
 
 			string nome = oggetto["FirstName"].ToString();
@@ -65,12 +62,7 @@ namespace ImageRecognizer
 			{
 				await Navigation.PopAsync(true);
 			}
-
-
-
 		}
-
-
 
 		async void loadDelayAnimation()
 		{

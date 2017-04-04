@@ -108,7 +108,7 @@ namespace ImageRecognizer
 			var client = new HttpClient();
 
 			JObject jsonToPass = new JObject(
-				new JProperty("faceId","1aed9905-dc65-4ec2-af00-51050f93f5cf"),
+				new JProperty("faceId",newFaceId),
 				new JProperty("faceListId","face_list_v3"),  
 				new JProperty("maxNumOfCandidatesReturned",10),
 				new JProperty("mode", "matchFace"));
@@ -483,7 +483,16 @@ namespace ImageRecognizer
 
 		public async Task<bool> SendEmotions(bool userFlag, JObject jsonToPass)
 		{
-			var url = @"http://l-raggioli2.eng.teorema.net/api/detect/";
+			
+			string url = "";
+			if (userFlag)
+			{
+				url = @"http://l-raggioli2.eng.teorema.net/api/detect/";
+			}
+			else
+			{
+				url = "";
+			}	
 
 			HttpClient client = new HttpClient();
 

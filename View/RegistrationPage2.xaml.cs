@@ -69,6 +69,7 @@ namespace ImageRecognizer
 			var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
 			{
 				Directory = "ImageRecognizer",
+				PhotoSize = PhotoSize.Medium,
 				Name = DateTime.Now.ToString()
 			});
 

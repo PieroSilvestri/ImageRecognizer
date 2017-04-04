@@ -217,7 +217,7 @@ namespace ImageRecognizer
 				new JProperty("faces", faces),
 				new JProperty("emotions", scores),
 				new JProperty("id_user", this.user_id),
-				new JProperty("id_list", 12));
+				new JProperty("id_list", 0));
 			Debug.WriteLine(jsonToPass);
 
 			bool response;

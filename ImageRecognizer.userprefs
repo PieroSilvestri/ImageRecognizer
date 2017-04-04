@@ -8,7 +8,7 @@
       <File FileName="View/ReportPage.xaml.cs" Line="38" Column="57" />
       <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
       <File FileName="View/ListReportPage.xaml.cs" Line="95" Column="46" />
-      <File FileName="View/LoginPage.xaml.cs" Line="85" Column="56" />
+      <File FileName="View/LoginPage.xaml.cs" Line="85" Column="8" />
       <File FileName="ViewModel/MainViewModel.cs" Line="187" Column="1" />
       <File FileName="View/RegistrationPage.xaml.cs" Line="105" Column="1" />
       <File FileName="View/RegistrationPage2.xaml.cs" Line="122" Column="36" />
