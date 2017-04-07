@@ -2,20 +2,20 @@
 <Paths>
   <Jars></Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Mobile/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Transition/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.CardView/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.RecyclerView/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.AppCompat/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Design/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.MediaRouter/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.CurrentActivity/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Permissions/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Media/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/NGraphics.Android.Custom/library_project_imports/res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/SVG.Forms.Plugin.Android/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Mobile/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Transition/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.CardView/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.RecyclerView/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.AppCompat/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Design/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.MediaRouter/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.CurrentActivity/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Permissions/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Media/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/NGraphics.Android.Custom/library_project_imports/res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/SVG.Forms.Plugin.Android/library_project_imports/res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android/library_project_imports/assets</ResolvedAssetDirectory>
@@ -29,19 +29,19 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Mobile.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.CardView.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.MediaRouter.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.CurrentActivity.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Permissions.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Media.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/NGraphics.Android.Custom.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/SVG.Forms.Plugin.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Mobile.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.CardView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Xamarin.Android.Support.v7.MediaRouter.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.CurrentActivity.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Permissions.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/Plugin.Media.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/NGraphics.Android.Custom.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>/Users/andrea/Projects/ImageRecognizer/Droid/obj/Debug/__library_projects__/SVG.Forms.Plugin.Android.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>
