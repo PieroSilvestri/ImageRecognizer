@@ -182,7 +182,7 @@ namespace ImageRecognizer
 
 				if (a != null && (bool)a["success"])
 				{
-					await Navigation.PushAsync(new PasswordPage(true, (JObject)a["body"].First));
+					await Navigation.PushAsync(new PasswordPage(false, (JObject)a["body"].First));
 				}
 				else
 				{

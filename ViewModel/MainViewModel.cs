@@ -30,7 +30,7 @@ namespace ImageRecognizer
 			return binaryReader.ReadBytes((int)imageFile.GetStream().Length);
 		}
 
-		public async Task JsonPostProva() 
+		public async Task JsonPostProva()
 		{
 			HttpClient client = new HttpClient();
 			//client.BaseAddress = new Uri(url);
@@ -48,7 +48,7 @@ namespace ImageRecognizer
 			Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
-			JObject a = (JObject) JArray.Parse(JsonResult).First;
+			JObject a = (JObject)JArray.Parse(JsonResult).First;
 
 			Debug.WriteLine("JSONPOSTPROVA");
 			Debug.WriteLine(a);
@@ -95,7 +95,7 @@ namespace ImageRecognizer
 					return (JObject)JArray.Parse(responseContent.ToString()).First;
 
 				}
-				catch(Exception exc)
+				catch (Exception exc)
 				{
 					Debug.WriteLine(exc);
 					return JObject.Parse(responseContent);
@@ -108,11 +108,11 @@ namespace ImageRecognizer
 			var client = new HttpClient();
 
 			JObject jsonToPass = new JObject(
-				new JProperty("faceId",newFaceId),
-				new JProperty("faceListId","face_list_v3"),  
-				new JProperty("maxNumOfCandidatesReturned",10),
+				new JProperty("faceId", newFaceId),
+				new JProperty("faceListId", "face_list_v3"),
+				new JProperty("maxNumOfCandidatesReturned", 10),
 				new JProperty("mode", "matchFace"));
-			
+
 			// Request headers - replace this example key with your valid key.
 			client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "e5d1028e78c14c75b0e1ca0b30cb9d3e");
 
@@ -143,16 +143,14 @@ namespace ImageRecognizer
 
 		public async Task<JObject> PostFaceIdToServer(bool userFlag, string newFaceId)
 		{
-			HttpClient client = new HttpClient();
-			//client.BaseAddress = new Uri(url);
+			var client = new HttpClient();
 
-			string url;
 			if (userFlag)
 			{
-				url = "http://l-raggioli2.eng.teorema.net/api/values/";
-				var content = new StringContent(url, null, "application/json");
+				var stringTemp = @"'" + newFaceId + "'";
+				var content = new StringContent(stringTemp, null, "application/json");
 
-				var response = await client.PostAsync(url, content);
+				var response = await client.PostAsync("http://l-raggioli2.eng.teorema.net/api/values/", content);
 				response.EnsureSuccessStatusCode();
 
 				var JsonResult = response.Content.ReadAsStringAsync().Result;
@@ -178,9 +176,7 @@ namespace ImageRecognizer
 			}
 
 			//string trumpUrl = "https://dl.dropboxusercontent.com/apitl/1/AAA-vXk3UAyO45sE8upAMMp6wsYXdKps6JeJurLlftYGOuF55BDrLzXTniDTVUWfbWBeYlLOR0DmeGvN0wrWiXJELlhppN1vqcMBYXjWiCnAOBqw56WFb18M8YEfuJxQ1eqKbMeMbLS8fqz4TCiavrVA5ujktQkCTPJbeX5fJsTWJh88MGfP9Olcfr99OHqmEItzPb5yW7Eor7HTGqeoxiBguVheQ8XIKsUP0ZyRDEIHbTBtWVxqoVwxj4nPp-cj3ziqxa4jKXtkcPgRHRJNunuT".ToString();
-			string tempUrl = @"'"+newFaceId+"'";
-
-
+			string tempUrl = @"'" + newFaceId + "'";
 
 			Debug.WriteLine("FALSE");
 			return null;
@@ -264,7 +260,7 @@ namespace ImageRecognizer
 		public async Task<int> CreateANewUser(bool userFlag, JObject newPerson)
 		{
 
-			string url; 
+			string url;
 
 			if (userFlag)
 			{
@@ -350,7 +346,7 @@ namespace ImageRecognizer
 
 			JObject a = JObject.Parse(JsonResult);
 
-			bool myFlag = (bool) a["success"];
+			bool myFlag = (bool)a["success"];
 
 			return myFlag;
 		}
@@ -358,9 +354,17 @@ namespace ImageRecognizer
 		public async Task<JObject> GetListReport(bool userFlag, int user_id)
 		{
 
-			var url = "http://l-raggioli2.eng.teorema.net/api/list/" + user_id;
-
+			string url = "";
 			HttpClient client = new HttpClient();
+
+			if (userFlag)
+			{
+				url = "http://l-raggioli2.eng.teorema.net/api/list/" + user_id;
+			}
+			else
+			{
+				url = "https://image-recognizer-v1.herokuapp.com/api/v1/lists/user/" + user_id;
+			}
 			client.BaseAddress = new Uri(url); ;
 
 			var response = await client.GetAsync(client.BaseAddress);
@@ -376,7 +380,15 @@ namespace ImageRecognizer
 
 		public async Task<JObject> CreateNewList(bool userFlag, string newListName, int user_id)
 		{
-			var url = @"http://l-raggioli2.eng.teorema.net/api/list/";
+			string url = "";
+			if (userFlag)
+			{
+				url = @"http://l-raggioli2.eng.teorema.net/api/list/";
+			}
+			else
+			{
+				url = @"https://image-recognizer-v1.herokuapp.com/api/v1/lists/add";
+			}
 
 			HttpClient client = new HttpClient();
 
@@ -384,7 +396,7 @@ namespace ImageRecognizer
 				new JProperty("User_id", user_id),
 				new JProperty("Name", newListName),
 				new JProperty("DataCreation", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")));
-
+			Debug.WriteLine(jsonToPass);
 			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
 
 			var response = await client.PostAsync(url, content);
@@ -392,7 +404,7 @@ namespace ImageRecognizer
 
 			var JsonResult = response.Content.ReadAsStringAsync().Result;
 			Debug.WriteLine("Create new list Request");
-			//Debug.WriteLine(JsonResult);
+			Debug.WriteLine(JsonResult);
 			//var items = JsonConvert.ToString(JsonResult);
 
 			JObject a = JObject.Parse(JsonResult);
@@ -482,7 +494,7 @@ namespace ImageRecognizer
 
 		public async Task<bool> SendEmotions(bool userFlag, JObject jsonToPass)
 		{
-			
+
 			string url = "";
 			if (userFlag)
 			{
@@ -490,11 +502,13 @@ namespace ImageRecognizer
 			}
 			else
 			{
-				url = "";
-			}	
+				url = @"https://image-recognizer-v1.herokuapp.com/api/v1/reports/add";
+			}
 
 			HttpClient client = new HttpClient();
 
+			JObject temp = jsonToPass;
+			Debug.WriteLine(temp);
 			var content = new StringContent(jsonToPass.ToString(), null, "application/json");
 
 			var response = await client.PostAsync(url, content);
@@ -546,7 +560,7 @@ namespace ImageRecognizer
 			{
 				listName = "face_list_v3";
 			}
-			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/"+listName+"/persistedFaces" ;
+			string uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/facelists/" + listName + "/persistedFaces";
 			//Debug.WriteLine(uri);
 
 			HttpResponseMessage response;

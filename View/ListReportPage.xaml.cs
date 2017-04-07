@@ -31,11 +31,25 @@ namespace ImageRecognizer
 				Debug.WriteLine("success: {0}", entryString);
 				if (entryString != null)
 				{
-					JObject tempList = await vm.CreateNewList(true, entryString, id);
-					JObject newList = new JObject(
-						new JProperty("ID_List", (int)tempList["value"]),
-						new JProperty("Name", entryString),
-						new JProperty("DataCreation", tempList["DataCreation"]));
+					JObject tempList = await vm.CreateNewList(flag, entryString, id);
+					JObject newList;
+					if (flag)
+					{
+						newList = new JObject(
+							new JProperty("User_id", (int)tempList["value"]),
+							new JProperty("Name", entryString),
+							new JProperty("DataCreation", tempList["DataCreation"])
+						);
+					}
+					else
+					{
+						JObject tempJ = (JObject)tempList["body"];
+						newList = new JObject(
+							new JProperty("User_id", (int)tempJ["insertId"]),
+							new JProperty("Name", entryString));
+					}
+
+						
 					if ((bool)tempList["success"])
 					{
 						listItems.Add(newList);
@@ -91,22 +105,36 @@ namespace ImageRecognizer
 
 		private async void GetListReports(bool flag, int user_id)
 		{
+
 			JObject prova = await vm.GetListReport(flag, user_id);
-			JArray listArray = (JArray)prova["Lists"];
-			if (listArray.Count > 0)
+			JArray listArray = new JArray();
+			if (flag)
 			{
-				Debug.WriteLine("Maggiore");
+				listArray = (JArray)prova["Lists"];
+
 			}
 			else
 			{
-				Debug.WriteLine("Uguale: " + listArray.Count);
+				if ((bool)prova["success"])
+				{
+					listArray = (JArray)prova["body"];
+				}
 			}
 
-			foreach (JObject item in listArray)
+			if (listArray.Count > 0)
 			{
-				listItems.Add(item);
-				listNames.Add(new ListItem { ListItemName = (string)item["Name"] });
+				foreach (JObject item in listArray)
+				{
+					listItems.Add(item);
+					listNames.Add(new ListItem { ListItemName = (string)item["Name"] });
+				}
 			}
+			else
+			{
+				await DisplayAlert("Error", "No list found", "OK");
+				await Navigation.PopAsync();
+			}
+
 
 		}
 

@@ -23,14 +23,14 @@ namespace ImageRecognizer
 		private MainViewModel vm;
 		private int user_id;
 		private bool userFlag;
-		List<string> listNames = new List<string>();
-		List<JObject> listItems = new List<JObject>();
+		List<ListItem> listNames = new List<ListItem>();
+		static List<JObject> listItems = new List<JObject>();
+		private JObject jsonToSend = new JObject();
 
 
 		public ImageEmotionPage(bool flag, int id, MediaFile imageSource)
 		{
 			InitializeComponent();
-			//GetListReports(id);
 			this.userFlag = flag;
 			if (flag)
 			{
@@ -49,6 +49,7 @@ namespace ImageRecognizer
 			Title = "Emotion Page";
 			user_id = id;
 			vm = new MainViewModel();
+			GetListReports(flag, id);
 			this.faceServiceClient = new FaceServiceClient(faceKey);
 			this.emotionServiceClient = new EmotionServiceClient(emotionKey);
 
@@ -57,12 +58,30 @@ namespace ImageRecognizer
 			ToolbarItems.Add(new ToolbarItem("Add to list", null, async () =>
 			{
 				var page = new ContentPage();
-				//var result = await page.DisplayAlert("Title", "Message", "Accept", "Cancel");
-				int idLista = await InputBox(this.Navigation, listNames);
+			//var result = await page.DisplayAlert("Title", "Message", "Accept", "Cancel");
+			int idLista = await InputBox(this.Navigation, listNames);
 				Debug.WriteLine("success: {0}", idLista);
 				if (idLista > 0)
 				{
+					Debug.WriteLine("IdLista: " + idLista);
+					JObject jsonToBeSend = new JObject(
+						new JProperty("success", true),
+						new JProperty("faces", jsonToSend["faces"]),
+						new JProperty("emotions", jsonToSend["emotions"]),
+						new JProperty("id_user", jsonToSend["id_user"]),
+						new JProperty("DateCreate", "44-44-44"),
+						new JProperty("id_list", idLista));
 
+					bool reportInserted = await vm.SendEmotions(flag, jsonToBeSend);
+					if (reportInserted)
+					{
+						await DisplayAlert("Success", "Report inserted.", "OK");
+
+					}
+					else
+					{
+						await DisplayAlert("Error", "Something bad happened.", "OK");
+					}
 				}
 				else
 				{
@@ -117,29 +136,45 @@ namespace ImageRecognizer
 		}
 
 
-		private async void GetListReports(int user_id)
+		private async void GetListReports(bool flag, int user_id)
 		{
-			Debug.WriteLine(user_id);
-			JObject prova = await vm.GetListReport(this.userFlag, user_id);
-			JArray listArray = (JArray)prova["Lists"];
-			if (listArray.Count > 0)
+
+			JObject prova = await vm.GetListReport(flag, user_id);
+			JArray listArray = new JArray();
+			if (flag)
 			{
-				Debug.WriteLine("Maggiore");
+				listArray = (JArray)prova["Lists"];
+
 			}
 			else
 			{
-				Debug.WriteLine("Uguale: " + listArray.Count);
+				if ((bool)prova["success"])
+				{
+					listArray = (JArray)prova["body"];
+				}
 			}
 
-			foreach (JObject item in listArray)
+			if (listArray.Count > 0)
 			{
-				listItems.Add(item);
-				listNames.Add((string)item["Name"]);
+				foreach (JObject item in listArray)
+				{
+					listItems.Add(item);
+					listNames.Add(new ListItem 
+					{ 
+						ListItemName = (string)item["Name"]
+					});
+				}
 			}
+			else
+			{
+				await DisplayAlert("Error", "No list found", "OK");
+				await Navigation.PopAsync();
+			}
+
 
 		}
 
-		private JObject GetIdByString(string text)
+		private static JObject GetIdByString(string text)
 		{
 			foreach (JObject item in listItems)
 			{
@@ -167,7 +202,7 @@ namespace ImageRecognizer
 			JArray scores = new JArray();
 			JArray faces = new JArray();
 
-			string peopleEmotions = await vm.GetPeopleEmotions(userFlag,emotionKey, file);
+			string peopleEmotions = await vm.GetPeopleEmotions(userFlag, emotionKey, file);
 			try
 			{
 				if (peopleEmotions != null)
@@ -220,7 +255,7 @@ namespace ImageRecognizer
 				new JProperty("id_list", 0));
 			Debug.WriteLine(jsonToPass);
 
-			bool response;
+			bool response = true;
 
 			if (!faces.HasValues)
 			{
@@ -230,16 +265,19 @@ namespace ImageRecognizer
 			{
 				response = false;
 			}
+			/*
 			else
 			{
 				response = await vm.SendEmotions(userFlag, jsonToPass);
 			}
+			*/
 
 			if (response)
 			{
 				spinner.IsVisible = false;
 				spinner.IsRunning = false;
 				await DisplayAlert("Success!", "Everything has been done correctly.", "Ok");
+				this.jsonToSend = jsonToPass;
 				facesDetected.Text = "Face detected: " + faces.Count.ToString();
 				facesDetected.IsVisible = true;
 				ageInfo.IsVisible = true;
@@ -251,7 +289,6 @@ namespace ImageRecognizer
 				int maleCount = (int)jsonEmotionDetected["MaleCount"];
 				int femaleCount = (int)jsonEmotionDetected["FemaleCount"];
 				int age = (int)jsonEmotionDetected["Age"];
-
 				int angerCount = (int)jsonEmotionDetected["AngerCount"];
 				int contemptCount = (int)jsonEmotionDetected["ContemptCount"];
 				int disgustCount = (int)jsonEmotionDetected["DisgustCount"];
@@ -347,8 +384,6 @@ namespace ImageRecognizer
 			}
 
 		}
-
-
 
 
 
@@ -455,7 +490,7 @@ namespace ImageRecognizer
 			return results;
 		}
 
-		public static Task<int> InputBox(INavigation navigation, List<string> listNames)
+		public static Task<int> InputBox(INavigation navigation, List<ListItem> listNames)
 		{
 			// wait in this proc, until user did his input 
 
@@ -464,30 +499,47 @@ namespace ImageRecognizer
 			var lblTitle = new Label { Text = "Add to list", HorizontalOptions = LayoutOptions.Center, FontAttributes = FontAttributes.Bold };
 
 			var newList = new ListView();
-			newList.ItemsSource = listNames;
+			List<string> listStringNames = new List<string>();
+			foreach (ListItem name in listNames)
+			{
+				listStringNames.Add(name.ListItemName);
+			}
+			newList.ItemsSource = listStringNames;
 
-			//newList.ItemSelected
-
-			/*	var btnOk = new Button
-				{
-					Text = "Ok",
-					WidthRequest = 100,
-					BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8),
-				};
-				btnOk.Clicked += async (s, e) =>
+			newList.IsPullToRefreshEnabled = true;
+			newList.ItemSelected += (sender, e) =>
+			{
+				if (e.SelectedItem == null)
 				{
 					// close page
-					var result = txtInput.Text;
-					await navigation.PopModalAsync();
-					// pass result
-					tcs.SetResult(result);
-				};*/
+					navigation.PopModalAsync();
+					// pass empty result
+					tcs.SetResult(-1); //ItemSelected is called on deselection, which results in SelectedItem being set to null
+				}
+				if(e.SelectedItem != null)
+				{
+					string itemSelected = (string)e.SelectedItem;
+					Debug.WriteLine(itemSelected);
 
+					JObject tempJ = GetIdByString(itemSelected);
+					// close page
+					navigation.PopModalAsync();
+					tcs.SetResult((int)tempJ["ID_List"]);
+				}
+			};
 
-			var slButtons = new StackLayout
+			var btnCancel = new Button
 			{
-				Orientation = StackOrientation.Horizontal,
-				Children = { newList }
+				Text = "Cancel",
+				WidthRequest = 100,
+				BackgroundColor = Color.FromRgb(0.8, 0.8, 0.8)
+			};
+			btnCancel.Clicked += async (s, e) =>
+			{
+				// close page
+				await navigation.PopModalAsync();
+				// pass empty result
+				tcs.SetResult(-1);
 			};
 
 			var layout = new StackLayout
@@ -496,7 +548,7 @@ namespace ImageRecognizer
 				VerticalOptions = LayoutOptions.StartAndExpand,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				Orientation = StackOrientation.Vertical,
-				Children = { lblTitle, slButtons },
+				Children = { lblTitle, newList, btnCancel },
 			};
 
 			// create and show page
@@ -506,6 +558,29 @@ namespace ImageRecognizer
 			// code is waiting her, until result is passed with tcs.SetResult() in btn-Clicked
 			// then proc returns the result
 			return tcs.Task;
+		}
+
+		public void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+		{
+			if (e.SelectedItem == null)
+			{
+				return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+			}
+			ListItem itemSelected = (ListItem)e.SelectedItem;
+			Debug.WriteLine(itemSelected.ListItemName);
+
+			JObject jItemSelected = GetIdByString(itemSelected.ListItemName);
+
+			if (itemSelected != null)
+			{
+				//DisplayAlert("Ottimo", "Hai premuto " + itemSelected.ListItemName + " con l'id: " + idSelected, "OK");
+				Navigation.PushAsync(new ReportPage(true, jItemSelected));
+			}
+			else
+			{
+				DisplayAlert("Error", "Valore non trovato.", "OK");
+
+			}
 		}
 
 	}

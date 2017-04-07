@@ -20,12 +20,14 @@ namespace ImageRecognizer
 		public EmotionPage(bool flag, int id)
 		{
 			InitializeComponent();
+
 			this.userFlag = flag;
 			NavigationPage.SetHasNavigationBar(this, false);
 			this.user_id = id;
 			loadDelayAnimation();
 		}
 		 
+
 
 		public async void TakeAPhoto(object o, EventArgs e)
 		{
