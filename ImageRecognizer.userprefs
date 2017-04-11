@@ -1,63 +1,17 @@
-<<<<<<< HEAD
-﻿<Properties StartupConfiguration="{28175877-3A36-4CFF-A3CB-991E0B001E3E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="View/EmotionPage.xaml.cs">
-=======
 ﻿<Properties StartupConfiguration="{CE080B1C-D790-4CCC-84A6-76139841E69E}|Default">
-  <MonoDevelop.Ide.Workbench>
->>>>>>> master
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/PasswordPage.xaml.cs">
     <Files>
-      <File FileName="View/PasswordPage.xaml.cs" Line="47" Column="1" />
-      <File FileName="iOS/Main.cs" Line="21" Column="1" />
-      <File FileName="View/ProvaPage.xaml.cs" Line="75" Column="47" />
-      <File FileName="View/ImageEmotionPage.xaml.cs" Line="90" Column="5" />
-      <File FileName="View/ReportPage.xaml.cs" Line="38" Column="47" />
-      <File FileName="View/ListPage_v1.xaml.cs" Line="1" Column="1" />
-<<<<<<< HEAD
-      <File FileName="View/ListReportPage.xaml.cs" Line="68" Column="1" />
-      <File FileName="View/LoginPage.xaml.cs" Line="108" Column="1" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="180" Column="4" />
-=======
-      <File FileName="View/ListReportPage.xaml.cs" Line="95" Column="46" />
-      <File FileName="View/LoginPage.xaml.cs" Line="136" Column="4" />
-      <File FileName="ViewModel/MainViewModel.cs" Line="247" Column="5" />
->>>>>>> master
-      <File FileName="View/RegistrationPage.xaml.cs" Line="105" Column="1" />
-      <File FileName="View/RegistrationPage2.xaml.cs" Line="123" Column="1" />
-      <File FileName="View/EmotionPage.xaml.cs" Line="30" Column="3" />
-      <File FileName="Droid/MainApplication.cs" Line="39" Column="1" />
-      <File FileName="obj/Debug/ImageRecognizer.View.ImageEmotionPage.xaml.g.cs" Line="93" Column="1" />
-      <File FileName="obj/Debug/ImageRecognizer.View.PasswordPage.xaml.g.cs" Line="58" Column="1" />
-<<<<<<< HEAD
-      <File FileName="obj/Debug/ImageRecognizer.View.EmotionPage.xaml.g.cs" Line="30" Column="1" />
-      <File FileName="Model/ListItem.cs" Line="8" Column="43" />
-      <File FileName="packages.config" Line="1" Column="1" />
-      <File FileName="View/ImageEmotionPage.xaml" Line="1" Column="1" />
-=======
-      <File FileName="View/ProfilePage.xaml.cs" Line="58" Column="22" />
->>>>>>> master
+      <File FileName="View/PasswordPage.xaml.cs" Line="117" Column="28" />
+      <File FileName="View/LoginPage.xaml.cs" Line="246" Column="4" />
+      <File FileName="View/PasswordPage.xaml" Line="59" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-<<<<<<< HEAD
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="145" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="121" column="1" />
-      <Breakpoint file="/Users/pierosilvestri/Xamarin Projects/ImageRecognizer/View/LoginPage.xaml.cs" relfile="View/LoginPage.xaml.cs" line="108" column="1" />
-=======
-      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="145" column="1" />
-      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/ImageEmotionPage.xaml.cs" relfile="View/ImageEmotionPage.xaml.cs" line="123" column="1" />
-      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/EmotionPage.xaml.cs" relfile="View/EmotionPage.xaml.cs" line="58" column="1" />
-      <Breakpoint file="/Users/andrea/Projects/ImageRecognizer/View/RegistrationPage2.xaml.cs" relfile="View/RegistrationPage2.xaml.cs" line="121" column="1" />
->>>>>>> master
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.CBFD0199-5FC3-44AD-A4B6-B83599F383CA" />
   <MultiItemStartupConfigurations />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.a2d42cfc" />
-=======
   <MonoDevelop.Ide.ItemProperties.ImageRecognizer.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
->>>>>>> master
 </Properties>

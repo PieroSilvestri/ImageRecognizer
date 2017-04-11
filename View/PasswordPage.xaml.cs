@@ -84,8 +84,37 @@ namespace ImageRecognizer
 		}
 
 
-		public void test(object o, EventArgs e) {
-			
+		public async void test(object o, EventArgs e) 
+		{
+			try{
+				
+			await Task.WhenAny<bool>
+			(
+		        prova1.TranslateTo(20, 0, 50),
+				prova2.TranslateTo(-20, 0, 50)
+			);
+			await Task.WhenAny<bool>
+			(
+				prova1.TranslateTo(-20, 0, 50),
+				prova2.TranslateTo(20, 0, 50)
+			);
+			await Task.WhenAny<bool>
+			(
+				prova1.TranslateTo(20, 0, 50),
+				prova2.TranslateTo(-20, 0, 50)
+			);
+			await Task.WhenAny<bool>
+			(
+				prova1.TranslateTo(-20, 0, 50),
+				prova2.TranslateTo(20, 0, 50)
+			);
+			await Task.WhenAny<bool>
+			(
+				prova1.TranslateTo(0, 0, 25),
+				prova2.TranslateTo(0, 0, 25)
+			);
+
+			} catch(Exception exc){ }	
 		}
 
 

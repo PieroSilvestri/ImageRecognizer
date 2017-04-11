@@ -21,14 +21,14 @@
 				</Image>
 			</StackLayout>
 
-			<StackLayout Orientation="Vertical" Padding = "0, 80, 0, 0">
+			<StackLayout x:Name="buttonStack" Orientation="Vertical" Padding = "0, 80, 0, 0">
 			<ActivityIndicator x:Name="spinner" WidthRequest="110" HeightRequest="70" IsRunning="false" IsVisible="false" Color="#1A80FD" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 				<Button x:Name="buttonGet" Text="Get" Clicked="Get_OnClicked" BackgroundColor="#1A80FD" TextColor="White" IsVisible="true"/>
 				<Button x:Name="buttonLogin" Text="Login" Clicked="LoginImage_OnClicked" BackgroundColor="#1A80FD" TextColor="White" IsVisible="true"/>
 	
 			</StackLayout>
 
-			<StackLayout Orientation="Horizontal" HorizontalOptions= "CenterAndExpand">
+			<StackLayout x:Name="buttonStack2" Orientation="Horizontal" HorizontalOptions= "CenterAndExpand">
 				<StackLayout Orientation="Vertical" HorizontalOptions= "FillAndExpand" VerticalOptions= "CenterAndExpand">
 					<BoxView x:Name="boxUno" HorizontalOptions="FillAndExpand" Color="Gray" HeightRequest="1" IsVisible="true" />
 				</StackLayout>	

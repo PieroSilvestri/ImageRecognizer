@@ -29,6 +29,9 @@ namespace ImageRecognizer {
         private global::Xamarin.Forms.Image LogoImage2;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout buttonStack;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ActivityIndicator spinner;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -36,6 +39,9 @@ namespace ImageRecognizer {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button buttonLogin;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout buttonStack2;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.BoxView boxUno;
@@ -59,9 +65,11 @@ namespace ImageRecognizer {
             titolo = this.FindByName <global::Xamarin.Forms.Label>("titolo");
             LogoImage = this.FindByName <global::Xamarin.Forms.Image>("LogoImage");
             LogoImage2 = this.FindByName <global::Xamarin.Forms.Image>("LogoImage2");
+            buttonStack = this.FindByName <global::Xamarin.Forms.StackLayout>("buttonStack");
             spinner = this.FindByName <global::Xamarin.Forms.ActivityIndicator>("spinner");
             buttonGet = this.FindByName <global::Xamarin.Forms.Button>("buttonGet");
             buttonLogin = this.FindByName <global::Xamarin.Forms.Button>("buttonLogin");
+            buttonStack2 = this.FindByName <global::Xamarin.Forms.StackLayout>("buttonStack2");
             boxUno = this.FindByName <global::Xamarin.Forms.BoxView>("boxUno");
             or = this.FindByName <global::Xamarin.Forms.Label>("or");
             loadingLabel = this.FindByName <global::Xamarin.Forms.Label>("loadingLabel");

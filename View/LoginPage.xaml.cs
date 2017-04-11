@@ -8,6 +8,7 @@ using Plugin.Media;
 using System.Net.Http;
 using Plugin.Media.Abstractions;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace ImageRecognizer
 {
@@ -23,6 +24,7 @@ namespace ImageRecognizer
 
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
+			startAnimation();
 		}
 
 		public async void LoginImage_OnClicked(object o, EventArgs e)
@@ -226,6 +228,33 @@ namespace ImageRecognizer
 				i = true;
 			}
 
+		}
+
+		public async void startAnimation() 
+		{
+			buttonStack.Opacity = 0;
+			buttonStack2.Opacity = 0;
+			reg.Opacity = 0;
+
+			LogoImage.IsVisible = false;
+			LogoImage.Scale = 1.6;
+			LogoImage.TranslationY = 200;
+			LogoImage.IsVisible = true;
+
+			await Task.Delay(1500);
+
+			await Task.WhenAny<bool>
+			(
+				LogoImage.TranslateTo(0, 0, 1000),
+				LogoImage.ScaleTo(1, 1000)
+			);
+
+			await Task.WhenAny<bool>
+			(
+			buttonStack.FadeTo(1, 1000),
+			buttonStack2.FadeTo(1, 1000),
+			reg.FadeTo(1, 1000)
+			);
 		}
 
 	}
