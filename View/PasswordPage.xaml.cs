@@ -68,7 +68,7 @@ namespace ImageRecognizer
 		{
 			profileIcon.Opacity = 0;
 			emoticonIcon.Opacity = 0;
-			prova1.Opacity = 0;
+			micLayout.Opacity = 0;
 			prova2.Opacity = 0;
 			feedbackIcon.Opacity = 0;
 			logoutIcon.Opacity = 0;
@@ -77,42 +77,46 @@ namespace ImageRecognizer
 			await labelNome.FadeTo(1, 200);
 			await profileIcon.FadeTo(1, 200);
 			await emoticonIcon.FadeTo(1, 200);
-			await prova1.FadeTo(1, 200);
+			await micLayout.FadeTo(1, 200);
 			await prova2.FadeTo(1, 200);
 			await feedbackIcon.FadeTo(1, 200);
 			await logoutIcon.FadeTo(1, 200);
 		}
 
-
+		bool bo = true;
 		public async void test(object o, EventArgs e) 
 		{
 			try{
-				
-			await Task.WhenAny<bool>
-			(
-		        prova1.TranslateTo(20, 0, 50),
-				prova2.TranslateTo(-20, 0, 50)
-			);
-			await Task.WhenAny<bool>
-			(
-				prova1.TranslateTo(-20, 0, 50),
-				prova2.TranslateTo(20, 0, 50)
-			);
-			await Task.WhenAny<bool>
-			(
-				prova1.TranslateTo(20, 0, 50),
-				prova2.TranslateTo(-20, 0, 50)
-			);
-			await Task.WhenAny<bool>
-			(
-				prova1.TranslateTo(-20, 0, 50),
-				prova2.TranslateTo(20, 0, 50)
-			);
-			await Task.WhenAny<bool>
-			(
-				prova1.TranslateTo(0, 0, 25),
-				prova2.TranslateTo(0, 0, 25)
-			);
+
+				if (bo)
+				{
+					await Task.WhenAny<bool>
+					(
+					profileIcon.FadeTo(0, 500),
+					emoticonIcon.FadeTo(0, 500),
+					prova2.FadeTo(0, 500),
+					feedbackIcon.FadeTo(0, 500),
+					logoutIcon.FadeTo(0, 500),
+					micImage.TranslateTo(10, 10, 500),
+					micLabel.FadeTo(0, 500),
+					micImage.ScaleTo(1.5, 500)
+					);
+					bo = false;
+				}
+				else { 
+					await Task.WhenAny<bool>
+					(
+					profileIcon.FadeTo(1, 500),
+					emoticonIcon.FadeTo(1, 500),
+					prova2.FadeTo(1, 500),
+					feedbackIcon.FadeTo(1, 500),
+					logoutIcon.FadeTo(1, 500),
+					micImage.TranslateTo(0, 0, 500),
+					micLabel.FadeTo(1, 500),
+					micImage.ScaleTo(1, 500)
+					);
+					bo = true;
+				}
 
 			} catch(Exception exc){ }	
 		}

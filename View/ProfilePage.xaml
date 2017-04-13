@@ -3,7 +3,7 @@
 <ContentPage.Content>
 	<ScrollView>
 	<StackLayout Orientation="Vertical" Spacing="20">
-		<StackLayout Padding="0, 20\, 0, 0"  Orientation="Vertical" Spacing="20" BackgroundColor="#1A80FD" > 
+		<StackLayout Padding="0, 20, 0, 0"  Orientation="Vertical" Spacing="20" BackgroundColor="#1A80FD" > 
 				
 			<Button Text="Back" 
 					BackgroundColor="White" 
