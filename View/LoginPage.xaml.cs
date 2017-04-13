@@ -208,11 +208,7 @@ namespace ImageRecognizer
 				LogoImage.IsVisible = false;
 				LogoImage2.IsVisible = true;
 				//LogoImage.Source = ImageSource.FromFile("NewLogo2.png");
-				sfondo.BackgroundColor = Color.Black;
-				titolo.TextColor = Color.White;
-				or.TextColor = Color.White;
-				reg.TextColor = Color.White;
-				reg.BorderColor = Color.White;
+
 				i = false;
 			}
 			else
@@ -220,11 +216,7 @@ namespace ImageRecognizer
 				LogoImage2.IsVisible = false;
 				LogoImage.IsVisible = true;
 				//LogoImage.Source = ImageSource.FromFile("NewLogo.png");
-				sfondo.BackgroundColor = Color.Default;
-				titolo.TextColor = Color.Default;
-				or.TextColor = Color.Default;
-				reg.TextColor = Color.Default;
-				reg.BorderColor = Color.Black;
+
 				i = true;
 			}
 

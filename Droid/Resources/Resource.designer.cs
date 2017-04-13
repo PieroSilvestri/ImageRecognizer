@@ -26,8 +26,8 @@ namespace ImageRecognizer.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ImageRecognizer.Droid.Resource.Attribute.actionBarSize;
 			global::NGraphics.Android.Custom.Resource.String.library_name = global::ImageRecognizer.Droid.Resource.String.library_name;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ImageRecognizer.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
