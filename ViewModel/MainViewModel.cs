@@ -54,6 +54,35 @@ namespace ImageRecognizer
 			Debug.WriteLine(a);
 		}
 
+		public async Task<bool> DoLogout(bool userFlag, int user_id)
+		{
+			var client = new HttpClient();
+
+			if (userFlag)
+			{
+				var stringTemp = @"'" + user_id + "'";
+				var content = new StringContent(stringTemp, null, "application/json");
+
+				var response = await client.PostAsync("http://l-raggioli2.eng.teorema.net/api/logout/", content);
+				response.EnsureSuccessStatusCode();
+
+				var JsonResult = response.Content.ReadAsStringAsync().Result;
+				Debug.WriteLine("KNOW YOUR ENEMIES");
+				Debug.WriteLine(JsonResult);
+				//var items = JsonConvert.ToString(JsonResult);
+
+				JObject a = JObject.Parse(JsonResult);
+				Debug.WriteLine("JSONPOSTPROVA");
+				Debug.WriteLine(a);
+
+				return (bool)a["success"];
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		public async Task<JObject> MakeDetectRequest(bool userFlag, MediaFile imageFile)
 		{
 			var client = new HttpClient();

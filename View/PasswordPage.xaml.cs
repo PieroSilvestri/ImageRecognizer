@@ -17,7 +17,7 @@ namespace ImageRecognizer
 		public JObject oggetto;
 		private bool userFlag;
 
-		//MainViewModel vm;
+		MainViewModel vm;
 		//JArray myJsonArray;
 
 		public PasswordPage(bool flag, JObject getJsonItem)
@@ -25,6 +25,7 @@ namespace ImageRecognizer
 			
 			//vm = new MainViewModel();
 			InitializeComponent();
+			vm = new MainViewModel();
 			this.userFlag = flag;
 			this.Title = "Password";
 			NavigationPage.SetHasNavigationBar(this, false);
@@ -60,6 +61,7 @@ namespace ImageRecognizer
 
 			if (disp)
 			{
+				bool logout = await vm.DoLogout(userFlag, (int)oggetto["ID"]);
 				await Navigation.PopAsync(true);
 			}
 		}
